@@ -16,7 +16,7 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 # ViaCep
 
-![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura_projeto.png)
+![ViaCep](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/cep.png)
 
 
 # Tecnologias utilizadas e outros
