@@ -47,8 +47,8 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 ![PostgreSql](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/tabelas_bd.png)
 
-´´
+```
 spring.datasource.url=jdbc:postgresql://localhost:5432/dbprodapartamento
 spring.datasource.username=postgres
 spring.datasource.password=root
-´´
+```
