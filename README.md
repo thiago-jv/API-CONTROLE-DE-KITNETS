@@ -10,7 +10,7 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 # Estrutura do projeto
 
-![Estrutura do Projeto]()
+![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura_projeto.png)
 
 
 # Tecnologias utilizadas e outros
