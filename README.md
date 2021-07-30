@@ -1,4 +1,4 @@
-Projeto demonstrativo para controle de kitnets, utilizando SpringBoot, Rest Api, SpringData, Mavens, PostgreSQL, RestTemplate, DTO e Design Patterns.
+Projeto demonstrativo para controle de kitnets cosumindo API externa de ViaCep(https://viacep.com.br/), utilizando SpringBoot, Rest Api, SpringData, Mavens, PostgreSQL, RestTemplate, DTO e Design Patterns.
 
 # Projeto Front-End
 Apos rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://github.com/thiago-jv/UI-CONTROLE-DE-KITNETS)
@@ -11,6 +11,10 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 
 # Estrutura do projeto
+
+![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura_projeto.png)
+
+# ViaCep
 
 ![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura_projeto.png)
 
