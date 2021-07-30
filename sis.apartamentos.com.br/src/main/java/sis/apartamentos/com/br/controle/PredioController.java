@@ -46,7 +46,7 @@ public class PredioController implements Serializable {
 	private PredioService predioService;
 	
 	@Autowired
-	private ApiCep omdbCep;
+	private ApiCep apiCep;
 
 	@GetMapping
 	public Page<Predio> pesquisar(PredioFilter predioFilter, Pageable pageable) {
@@ -89,7 +89,7 @@ public class PredioController implements Serializable {
 
 	@GetMapping(value = "/cep/{cep}")
 	public Predio doObterCep(@PathVariable(name = "cep") String cep) {
-    Predio predio = omdbCep.request(cep);
+    Predio predio = apiCep.request(cep);
     return predio;
 
 	}
