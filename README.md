@@ -35,25 +35,16 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 # Proceso para rodar o projeto
 ```
 1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
-2- git clone https://github.com/thiago-jv/thiago-jv-API_Rest-SpringBoot-SpringData-Swagger-TDD-H2.git
-3- Entrar dentro da pasta do projeto br.com.thiago.servico
+2- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
+3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
 4- mvn dependency:resolve
 5- mvn dependency:tree
 6- mvn package
 7- mvn spring-boot:run
 ```
 
-# Acesso ao banco H2
+# Acesso ao banco POSTGRES
 
 ![Acesso H2](https://github.com/thiago-jv/thiago-jv-API_Rest-SpringBoot-SpringData-Swagger-TDD-H2/blob/main/H2-Home.png)
 
 
-```
-Com a API em no ar, os testes podem ser realizados, porem caso queira testar os testes de integrações e endPoints criados, será necessáio abrir o projeto no IDE-ECLIPSE e testar os itens na seguinte sequencia, no seguinte caminho src/teste/java->
-1- Tipo Equipamento
-2- Equipamento
-3- Profissional
-4- Cliente
-5- Servico
-Os passo acima devem ser seguidos para os testes no PostMan.
-```
