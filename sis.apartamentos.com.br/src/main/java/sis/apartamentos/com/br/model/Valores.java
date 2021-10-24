@@ -18,7 +18,7 @@ public class Valores {
 	private BigDecimal valorPagoApartamento = BigDecimal.ZERO;
 
 	@Column(name = "VALOR_APARTAMENTO", nullable = false)
-	private BigDecimal valorApartamento = BigDecimal.ZERO;;
+	private BigDecimal valorApartamento = BigDecimal.ZERO;
 
 	@Column(name = "VALOR_DEBITO_APARTAMENTO")
 	private BigDecimal valorDebitoApartamento = BigDecimal.ZERO;
