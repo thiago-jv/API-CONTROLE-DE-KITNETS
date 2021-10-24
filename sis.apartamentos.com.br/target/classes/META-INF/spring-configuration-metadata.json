@@ -9,19 +9,21 @@
       "name": "apartamento.seguranca",
       "type": "sis.apartamentos.com.br.config.property.ApartamentoApiProperty$Seguranca",
       "sourceType": "sis.apartamentos.com.br.config.property.ApartamentoApiProperty",
-      "sourceMethod": "public sis.apartamentos.com.br.config.property.ApartamentoApiProperty.Seguranca getSeguranca() "
+      "sourceMethod": "getSeguranca()"
     }
   ],
   "properties": [
     {
       "name": "apartamento.origin-permitida",
       "type": "java.lang.String",
-      "sourceType": "sis.apartamentos.com.br.config.property.ApartamentoApiProperty"
+      "sourceType": "sis.apartamentos.com.br.config.property.ApartamentoApiProperty",
+      "defaultValue": "http:\/\/localhost:8080"
     },
     {
       "name": "apartamento.seguranca.enable-https",
       "type": "java.lang.Boolean",
-      "sourceType": "sis.apartamentos.com.br.config.property.ApartamentoApiProperty$Seguranca"
+      "sourceType": "sis.apartamentos.com.br.config.property.ApartamentoApiProperty$Seguranca",
+      "defaultValue": false
     }
   ],
   "hints": []

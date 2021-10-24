@@ -1,5 +1,6 @@
 package sis.apartamentos.com.br.controle;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -78,11 +79,5 @@ public class ControleLancamentoController {
 		ControleLancamento controleLancamento = controleLancamentoService.buscarOuFalhar(id);
 		return controleLancamento;
 	}
-
-	@PutMapping("/{id}/status")
-	public void atualizarPropriedadeStatus(@PathVariable Long id) {
-		controleLancamentoService.atualizarPropriedadeStatus(id);
-	}
-	
 	
 }

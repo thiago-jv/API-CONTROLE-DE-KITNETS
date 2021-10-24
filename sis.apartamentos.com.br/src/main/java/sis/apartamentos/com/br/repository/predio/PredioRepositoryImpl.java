@@ -18,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
 import sis.apartamentos.com.br.model.Predio;
+import sis.apartamentos.com.br.model.Predio_;
 import sis.apartamentos.com.br.repository.filter.PredioFilter;
 
 public class PredioRepositoryImpl implements PredioRepositoryQuery {
@@ -30,6 +31,8 @@ public class PredioRepositoryImpl implements PredioRepositoryQuery {
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Predio> criteria = builder.createQuery(Predio.class);
 		Root<Predio> root = criteria.from(Predio.class);
+		
+		criteria.orderBy(builder.asc(root.get(Predio_.id)));
 
 		Predicate[] predicates = criarRestricoes(predioFilter, builder, root);
 		criteria.where(predicates);

@@ -1,5 +1,6 @@
 package sis.apartamentos.com.br.repository.controle;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
 import sis.apartamentos.com.br.model.ControleLancamento;
+import sis.apartamentos.com.br.model.ControleLancamento_;
+import sis.apartamentos.com.br.model.Valores_;
 import sis.apartamentos.com.br.repository.filter.ControleFilter;
 
 public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepositoryQuery{
@@ -29,6 +32,8 @@ public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepos
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<ControleLancamento> criteria = builder.createQuery(ControleLancamento.class);
 		Root<ControleLancamento> root = criteria.from(ControleLancamento.class);
+		
+		criteria.orderBy(builder.asc(root.get(ControleLancamento_.status).get("statusControle")));
 		
 		Predicate[] predicates = criarRestricoes(controleFilter, builder, root);
 		criteria.where(predicates);
@@ -89,6 +94,5 @@ public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepos
 		criteria.select(builder.count(root));
 		return manager.createQuery(criteria).getSingleResult();
 	}
-
 
 }

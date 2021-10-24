@@ -32,7 +32,7 @@ public class Predio implements Serializable {
 	@Column(name = "DESCRICAO", nullable = false, unique = true)
 	private String descricao;
 
-	@Column(name = "CEP", length = 8)
+	@Column(name = "CEP", length = 8, nullable = false)
 	private String cep;
 
 	@Column(name = "LOGRADOURO")

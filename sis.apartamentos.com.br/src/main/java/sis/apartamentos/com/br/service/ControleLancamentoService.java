@@ -1,7 +1,5 @@
 package sis.apartamentos.com.br.service;
 
-import java.util.List;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -43,7 +41,7 @@ public class ControleLancamentoService {
 		apartamento.setStatusApartamento(Constantes.OCUPADO);
 		apartamentoRepository.save(apartamento);
 		controleLancamento.getStatus().setStatusApartamePagamento(Constantes.DEBITO);
-	    calculaDias.calculaDia(controleLancamento);
+		calculaDias.calculaDia(controleLancamento);
 		calcularValorPago.calcularValorPagoApartamento(controleLancamento);
 		listaPorDataDeEntrada(controleLancamento);
 		return controleLancamentoRepository.save(controleLancamento);
@@ -69,7 +67,13 @@ public class ControleLancamentoService {
 
 		ControleLancamento controleSalva = buscarOuFalhar(id);
 		Apartamento apartamento = BuscaApartamentos(controleSalva);
-
+		
+		if(controleSalva.getStatus().getStatusApartamePagamento() == Constantes.PAGO) {
+		    apartamento = BuscaApartamentos(controleSalva);	
+		} else {
+		    throw new EntidadeEmUsoException(String.format(Messages.MSG_APARTAMENTO_DEBITO, apartamento.getId()));
+		}
+		
 		if (!controleSalva.getStatus().isStatusControle()) {
 			apartamento.setStatusApartamento(Constantes.OCUPADO);
 			controleSalva.getStatus().setStatusControle(true);
@@ -87,7 +91,7 @@ public class ControleLancamentoService {
 		Apartamento apartamento = apartamentoService.buscarOuFalhar(codigoApartamento);
 		return apartamento;
 	}
-
+	
 	public ControleLancamento atualizar(Long idControle, ControleLancamento controleLancamento) {
 		ControleLancamento controleLancamentoSalva = this.controleLancamentoRepository.findById(idControle)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
@@ -99,12 +103,12 @@ public class ControleLancamentoService {
 
 
 	public void listaPorDataDeEntrada(ControleLancamento controleLancamento) {
-		List<ControleLancamento> result = controleLancamentoRepository.listaControleLancamentosPorDataDeEntrada(
+/*		List<ControleLancamento> result = controleLancamentoRepository.listaControleLancamentosPorDataDeEntrada(
 				controleLancamento.getInquilino().getId(), controleLancamento.getApartamento().getId(),
 				controleLancamento.getDataEntrada(), controleLancamento.getDataPagamento());
 		if (!result.isEmpty()) {
 			throw new EntidadeEmUsoException(String.format(Messages.MSG_CONTROLE_INQUILINO_OU_APARTAMENTO_EM_USO));
-		}
+		}*/
 	}
-
+	
 }

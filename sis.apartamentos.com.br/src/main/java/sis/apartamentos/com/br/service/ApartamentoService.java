@@ -39,5 +39,5 @@ public class ApartamentoService {
 		BeanUtils.copyProperties(apartamento, apartamentoSalva, "id");
 		return this.apartamentoRepository.save(apartamentoSalva);
 	}
-	
+
 }

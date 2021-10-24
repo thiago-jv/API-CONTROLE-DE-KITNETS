@@ -20,6 +20,7 @@ public class CalculaDias {
 		}
 		
 	   calculaValorDiaria.valculaDiaria(controleLancamento);
+       
 		
 		return controleLancamento;
 	}

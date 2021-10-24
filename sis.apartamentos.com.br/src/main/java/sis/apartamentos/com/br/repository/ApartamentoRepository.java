@@ -12,7 +12,7 @@ import sis.apartamentos.com.br.repository.apartamento.ApartamentoRepositoryQuery
 @Repository
 public interface ApartamentoRepository extends JpaRepository<Apartamento, Long>, ApartamentoRepositoryQuery{
 
-	@Query("select a from Apartamento a ")
+	@Query("select a from Apartamento a")
 	List<Apartamento> listaApartamentosDisponiveis();
 	
 }

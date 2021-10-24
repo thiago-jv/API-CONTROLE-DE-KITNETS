@@ -17,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
 import sis.apartamentos.com.br.model.Apartamento;
+import sis.apartamentos.com.br.model.Apartamento_;
 import sis.apartamentos.com.br.repository.filter.ApartamentoFilter;
 
 public class ApartamentoRepositoryImpl implements ApartamentoRepositoryQuery{
@@ -29,6 +30,8 @@ public class ApartamentoRepositoryImpl implements ApartamentoRepositoryQuery{
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Apartamento> criteria = builder.createQuery(Apartamento.class);
 		Root<Apartamento> root = criteria.from(Apartamento.class);
+		
+		criteria.orderBy(builder.asc(root.get(Apartamento_.id)));
 
 		Predicate[] predicates = criarRestricoes(apartamentoFilter, builder, root);
 		criteria.where(predicates);
