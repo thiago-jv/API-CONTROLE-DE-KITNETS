@@ -21,7 +21,7 @@ public class Valores {
 	private BigDecimal valorApartamento = BigDecimal.ZERO;
 
 	@Column(name = "VALOR_DEBITO_APARTAMENTO")
-	private BigDecimal valorDebitoApartamento = BigDecimal.ZERO;
+	private BigDecimal valorDebitoApartamento;
 
 	@Column(name = "DIA", nullable = false)
 	private Long dia;
