@@ -1,5 +1,7 @@
 package sis.apartamentos.com.br.service;
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -68,7 +70,7 @@ public class ControleLancamentoService {
 		ControleLancamento controleSalva = buscarOuFalhar(id);
 		Apartamento apartamento = BuscaApartamentos(controleSalva);
 		
-		if(controleSalva.getStatus().getStatusApartamePagamento() == Constantes.PAGO) {
+		if(controleSalva.getStatus().getStatusApartamePagamento().equals(Constantes.PAGO)) {
 		    apartamento = BuscaApartamentos(controleSalva);	
 		} else {
 		    throw new EntidadeEmUsoException(String.format(Messages.MSG_APARTAMENTO_DEBITO, apartamento.getId()));
@@ -103,12 +105,12 @@ public class ControleLancamentoService {
 
 
 	public void listaPorDataDeEntrada(ControleLancamento controleLancamento) {
-/*		List<ControleLancamento> result = controleLancamentoRepository.listaControleLancamentosPorDataDeEntrada(
+		List<ControleLancamento> result = controleLancamentoRepository.listaControleLancamentosPorDataDeEntrada(
 				controleLancamento.getInquilino().getId(), controleLancamento.getApartamento().getId(),
 				controleLancamento.getDataEntrada(), controleLancamento.getDataPagamento());
 		if (!result.isEmpty()) {
 			throw new EntidadeEmUsoException(String.format(Messages.MSG_CONTROLE_INQUILINO_OU_APARTAMENTO_EM_USO));
-		}*/
+		}
 	}
 	
 }
