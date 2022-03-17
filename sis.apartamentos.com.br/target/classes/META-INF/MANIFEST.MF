@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: Thiago
-Build-Jdk: 16.0.1
+Built-By: thiago.melo
+Build-Jdk: 17.0.1
 Implementation-Title: sis-apartamentos
 Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: sis.apartamentos.com.br

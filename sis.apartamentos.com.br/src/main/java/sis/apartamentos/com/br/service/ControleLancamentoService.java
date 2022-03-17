@@ -1,6 +1,9 @@
 package sis.apartamentos.com.br.service;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +11,15 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import sis.apartamentos.com.br.exception.ControleLancamentoNaoEncontadoException;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.PredioNaoEncontadoException;
+import sis.apartamentos.com.br.exception.ReportException;
+import sis.apartamentos.com.br.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.model.Apartamento;
 import sis.apartamentos.com.br.model.ControleLancamento;
 import sis.apartamentos.com.br.model.controle.lancamento.CalculaDias;
@@ -110,6 +119,27 @@ public class ControleLancamentoService {
 				controleLancamento.getDataEntrada(), controleLancamento.getDataPagamento());
 		if (!result.isEmpty()) {
 			throw new EntidadeEmUsoException(String.format(Messages.MSG_CONTROLE_INQUILINO_OU_APARTAMENTO_EM_USO));
+		}
+	}
+	
+	public byte[] relatorioDeLancamentos(LancamentoControleFilter filtro ) throws JRException {
+		try {
+			
+			var inputStream = this.getClass().getResourceAsStream("/relatorios/lancamentosControle.jasper");
+			var parametros = new HashMap<String, Object>();
+			
+			parametros.put("DT_INICIO", Date.valueOf(filtro.getDataInicio()));
+			parametros.put("DT_FIM", Date.valueOf(filtro.getDataFim()));
+			parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
+			
+			var dados = controleLancamentoRepository.buscarControlesLancamentos(filtro);
+			var dataSource = new JRBeanCollectionDataSource(dados);
+			
+			var jasperPrint = JasperFillManager.fillReport(inputStream, parametros, dataSource);
+			
+			return JasperExportManager.exportReportToPdf(jasperPrint);
+		}catch (Exception e) {
+			throw new ReportException("Não foi possível emitir relatório", e);
 		}
 	}
 	

@@ -1,6 +1,5 @@
 package sis.apartamentos.com.br.repository.controle;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +16,9 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
+import sis.apartamentos.com.br.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.model.ControleLancamento;
 import sis.apartamentos.com.br.model.ControleLancamento_;
-import sis.apartamentos.com.br.model.Valores_;
 import sis.apartamentos.com.br.repository.filter.ControleFilter;
 
 public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepositoryQuery{
@@ -93,6 +92,29 @@ public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepos
 
 		criteria.select(builder.count(root));
 		return manager.createQuery(criteria).getSingleResult();
+	}
+
+	@Override
+	public List<ControleLancamento> buscarControlesLancamentos(LancamentoControleFilter filtro) {
+		var builder = manager.getCriteriaBuilder();
+		var query = builder.createQuery(ControleLancamento.class);
+		var root = query.from(ControleLancamento.class);
+		
+		var predicates = new ArrayList<Predicate>();
+		
+		if (filtro.getDataInicio() != null) {
+		    predicates.add(builder.greaterThanOrEqualTo(root.get("dataPagamento"), 
+		            filtro.getDataInicio()));
+		}
+
+		if (filtro.getDataFim() != null) {
+		    predicates.add(builder.lessThanOrEqualTo(root.get("dataPagamento"), 
+		            filtro.getDataFim()));
+		}
+		
+		query.where(predicates.toArray(new Predicate[0]));
+		
+		return manager.createQuery(query).getResultList();	
 	}
 
 }

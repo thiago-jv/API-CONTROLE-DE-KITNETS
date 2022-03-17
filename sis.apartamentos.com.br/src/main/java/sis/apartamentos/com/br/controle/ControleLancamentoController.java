@@ -8,8 +8,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,9 +22,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.sf.jasperreports.engine.JRException;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
+import sis.apartamentos.com.br.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.model.ControleLancamento;
 import sis.apartamentos.com.br.repository.ControleLancamentoRepository;
 import sis.apartamentos.com.br.repository.filter.ControleFilter;
@@ -38,6 +42,24 @@ public class ControleLancamentoController {
 	@Autowired
 	private ControleLancamentoService controleLancamentoService;
 
+	@GetMapping("/estatistica/por-apartamento")
+	public List<ControleLancamento> porApartamento(LancamentoControleFilter filtro){
+		return this.controleLancamentoRepository.buscarControlesLancamentos(filtro);
+	}
+	
+	@GetMapping(path = "/relatorio/por-controle-lancamento", produces = MediaType.APPLICATION_PDF_VALUE)
+	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(LancamentoControleFilter filtro) throws JRException{
+		byte[] bytesPdf = controleLancamentoService.relatorioDeLancamentos(filtro);
+		
+		var headers = new HttpHeaders();
+		headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=vendas-diarias.pdf");
+		
+		return ResponseEntity.ok()
+				.contentType(MediaType.APPLICATION_PDF)
+				.headers(headers)
+				.body(bytesPdf);
+	}
+	
 	@GetMapping
 	public Page<ControleLancamento> pesquisar(ControleFilter controleFilter, Pageable pageable) {
 		return controleLancamentoRepository.filtrar(controleFilter, pageable);
