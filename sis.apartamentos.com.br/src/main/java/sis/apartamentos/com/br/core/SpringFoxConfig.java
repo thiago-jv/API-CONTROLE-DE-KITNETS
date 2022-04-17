@@ -17,9 +17,11 @@ import com.fasterxml.classmate.TypeResolver;
 
 import sis.apartamentos.com.br.exception.handler.Problema;
 import sis.apartamentos.com.br.model.Apartamento;
+import sis.apartamentos.com.br.model.Inquilino;
 import sis.apartamentos.com.br.model.Predio;
 import sis.apartamentos.com.br.model.Valor;
 import sis.apartamentos.com.br.openapi.model.ApartamentoModelOpenApi;
+import sis.apartamentos.com.br.openapi.model.InquilinoModelOpenApi;
 import sis.apartamentos.com.br.openapi.model.PageableOpenApi;
 import sis.apartamentos.com.br.openapi.model.PredioModelOpenApi;
 import sis.apartamentos.com.br.openapi.model.ValorModelOpenApi;
@@ -71,6 +73,10 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 		                    typeResolver.resolve(Page.class, Predio.class),
 		                    PredioModelOpenApi.class))
 		            
+		            .alternateTypeRules(AlternateTypeRules.newRule(
+		                    typeResolver.resolve(Page.class, Inquilino.class),
+		                    InquilinoModelOpenApi.class))
+		                        
 		            .apiInfo(apiInfo());
 	}
 	

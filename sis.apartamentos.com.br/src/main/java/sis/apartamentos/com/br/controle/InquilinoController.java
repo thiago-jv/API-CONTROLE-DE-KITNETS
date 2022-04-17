@@ -1,5 +1,6 @@
 package sis.apartamentos.com.br.controle;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -24,13 +25,19 @@ import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Inquilino;
+import sis.apartamentos.com.br.openapi.controle.InquilinoControllerOpenApi;
 import sis.apartamentos.com.br.repository.InquilinoRepository;
 import sis.apartamentos.com.br.repository.filter.InquilinoFilter;
 import sis.apartamentos.com.br.service.InquilinoService;
 
 @RestController
 @RequestMapping(value = "/inquilinos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class InquilinoController {
+public class InquilinoController implements Serializable, InquilinoControllerOpenApi{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private InquilinoRepository inquilinoRepository;
@@ -39,21 +46,25 @@ public class InquilinoController {
 	private InquilinoService inquilinoService;
 	
 	@GetMapping
+	@Override
 	public Page<Inquilino> pesquisar(InquilinoFilter inquilinoFilter, Pageable pageable) {
 		return inquilinoRepository.filtrar(inquilinoFilter, pageable);
 	}
 
 	@GetMapping("/todos")
+	@Override
 	public List<Inquilino> listar() {
 		return inquilinoRepository.findAll();
 	}
 	
 	@GetMapping("/todos/ativos")
+	@Override
 	public List<Inquilino> listarAtivos() {
 		return inquilinoRepository.listaInquilinosAtivos();
 	}
 	
 	@PostMapping
+	@Override
 	public Inquilino criar(@Valid @RequestBody Inquilino inquilino, HttpServletResponse response) {
 		Inquilino inquilinoSalva = inquilinoRepository.save(inquilino);
 		try {
@@ -67,16 +78,19 @@ public class InquilinoController {
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@Override
 	public void remover(@PathVariable Long id) {
 		inquilinoService.excluir(id);
 	}
 
 	@PutMapping("/{id}")
+	@Override
 	public Inquilino atualizar(@PathVariable Long id, @Valid @RequestBody Inquilino inquilino) {
 		return this.inquilinoService.atualizar(id, inquilino);
 	}
 	
 	@GetMapping("/{id}")
+	@Override
 	public Inquilino buscarPeloId(@PathVariable Long id) {
 		Inquilino inquilino = inquilinoService.buscarOuFalhar(id);
 		return inquilino;
