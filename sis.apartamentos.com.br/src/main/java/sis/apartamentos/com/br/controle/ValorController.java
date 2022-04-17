@@ -24,13 +24,14 @@ import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Valor;
+import sis.apartamentos.com.br.openapi.controle.ValorControllerOpenApi;
 import sis.apartamentos.com.br.repository.ValorRepository;
 import sis.apartamentos.com.br.repository.filter.ValorFilter;
 import sis.apartamentos.com.br.service.ValorService;
 
 @RestController
 @RequestMapping(value = "/valores", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ValorController {
+public class ValorController implements  ValorControllerOpenApi{
 
 	@Autowired
 	private ValorRepository valorRepository;
@@ -47,6 +48,12 @@ public class ValorController {
 	public List<Valor> listar() {
 		return valorRepository.findAll();
 	}
+
+	@GetMapping("/{id}")
+	public Valor buscarPeloId(@PathVariable Long id) {
+		Valor valor = valorService.buscarOuFalhar(id);
+		return valor;
+	}
 	
 	@PostMapping
 	public Valor criar(@Valid @RequestBody Valor valor, HttpServletResponse response) {
@@ -60,21 +67,15 @@ public class ValorController {
 		}
 	}
 
-	@DeleteMapping("/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void remover(@PathVariable Long id) {
-		valorService.excluir(id);
-	}
-
 	@PutMapping("/{id}")
 	public Valor atualizar(@PathVariable Long id, @Valid @RequestBody Valor valor) {
 		return this.valorService.atualizar(id, valor);
 	}
 	
-	@GetMapping("/{id}")
-	public Valor buscarPeloId(@PathVariable Long id) {
-		Valor valor = valorService.buscarOuFalhar(id);
-		return valor;
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void remover(@PathVariable Long id) {
+		valorService.excluir(id);
 	}
 	
 }
