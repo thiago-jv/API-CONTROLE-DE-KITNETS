@@ -14,6 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "CONTROLE_LANCAMENTO", schema = "public")
 public class ControleLancamento implements Serializable {
@@ -27,18 +31,23 @@ public class ControleLancamento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "controle_lancamento_seq")
 	@SequenceGenerator(name = "controle_lancamento_seq", sequenceName = "controle_lancamento_seq", initialValue = 1, allocationSize = 1)
 	@Column(name = "ID", nullable = false, unique = true)
+	@ApiModelProperty(value = "ID do controle lançamento", example = "1", required = true)
 	private Long id;
 
 	@Column(name = "DATA_LANCAMENTO", nullable = false)
+	@ApiModelProperty(value = "Data lançamento do controle lançamento", example = "25-02-1989", required = true)
 	private LocalDate dataLancamento = LocalDate.now();
 
 	@Column(name = "DATA_ENTRADA", nullable = false)
+	@ApiModelProperty(value = "Data de entrada controle lançamento", example = "25-02-1989", required = true)
 	private LocalDate dataEntrada;
 
 	@Column(name = "DATA_PAGAMENTO", nullable = false)
+	@ApiModelProperty(value = "Data de pagamento controle lançamento", example = "25-02-1989", required = true)
 	private LocalDate dataPagamento;
 
 	@Column(name = "OBSERVACAO")
+	@ApiModelProperty(value = "Observação controle lançamento", example = "minhas obs...")
 	private String observacao;
 
 	@Embedded
@@ -49,14 +58,17 @@ public class ControleLancamento implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_VALOR", referencedColumnName = "ID", nullable = false)
+	@ApiModelProperty(value = "ID do valor", example = "1")
 	private Valor valor;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_INQUILINO", referencedColumnName = "ID", nullable = false)
+	@ApiModelProperty(value = "ID do inquilino", example = "2")
 	private Inquilino inquilino;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_APARTAMENTO", referencedColumnName = "ID", nullable = false)
+	@ApiModelProperty(value = "ID do apartamento", example = "3")
 	private Apartamento apartamento;
 
 	public ControleLancamento() {
