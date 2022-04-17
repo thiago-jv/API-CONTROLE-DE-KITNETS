@@ -25,13 +25,14 @@ import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Apartamento;
+import sis.apartamentos.com.br.openapi.controle.ApartamentoControllerOpenApi;
 import sis.apartamentos.com.br.repository.ApartamentoRepository;
 import sis.apartamentos.com.br.repository.filter.ApartamentoFilter;
 import sis.apartamentos.com.br.service.ApartamentoService;
 
 @RestController
 @RequestMapping(value = "/apartamentos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ApartamentoController implements Serializable {
+public class ApartamentoController implements Serializable, ApartamentoControllerOpenApi {
 
 	/**
 	 * 
@@ -45,21 +46,25 @@ public class ApartamentoController implements Serializable {
 	private ApartamentoRepository apartamentoRepository;
 	
 	@GetMapping
+	@Override
 	public Page<Apartamento> pesquisar(ApartamentoFilter apartamentoFilter, Pageable pageable) {
 		return apartamentoRepository.filtrar(apartamentoFilter, pageable);
 	}
 
 	@GetMapping("/todos")
+	@Override
 	public List<Apartamento> listar() {
 		return apartamentoRepository.findAll();
 	}
 	
 	@GetMapping("/todos/disponiveis")
+	@Override
 	public List<Apartamento> listarDisponiveis() {
 		return apartamentoRepository.listaApartamentosDisponiveis();
 	}
 	
 	@PostMapping
+	@Override
 	public Apartamento criar(@Valid @RequestBody Apartamento apartamento, HttpServletResponse response) {
 		Apartamento apartamentoSalva = apartamentoRepository.save(apartamento);
 		try {
@@ -73,16 +78,19 @@ public class ApartamentoController implements Serializable {
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@Override
 	public void remover(@PathVariable Long id) {
 		apartamentoService.excluir(id);
 	}
 
 	@PutMapping("/{id}")
+	@Override
 	public Apartamento atualizar(@PathVariable Long id, @Valid @RequestBody Apartamento apartamento) {
 		return this.apartamentoService.atualizar(id, apartamento);
 	}
 	
 	@GetMapping("/{id}")
+	@Override
 	public Apartamento buscarPeloId(@PathVariable Long id) {
 		Apartamento apartamento = apartamentoService.buscarOuFalhar(id);
 		return apartamento;

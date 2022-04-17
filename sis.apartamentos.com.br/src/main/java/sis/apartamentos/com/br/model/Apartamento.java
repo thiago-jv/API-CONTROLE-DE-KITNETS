@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
 import sis.apartamentos.com.br.utils.Constantes;
 
 @Entity
@@ -29,27 +30,33 @@ public class Apartamento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "apartamento_seq")
 	@SequenceGenerator(name = "apartamento_seq", sequenceName = "apartamento_seq", initialValue = 1, allocationSize = 1)
 	@Column(name = "ID", nullable = false, unique = true)
+	@ApiModelProperty(value = "ID do apartamento", example = "1", required = true)
 	private Long id;
 
 	@NotNull
 	@Size(min = 1, max = 10)
 	@Column(name = "NUMERO", nullable = false, unique = true)
+	@ApiModelProperty(value = "Número do apartamento", example = "01", required = true)
 	private String numero;
 
 	@NotNull
 	@Size(min = 1, max = 90)
 	@Column(name = "DESCRICAO", nullable = false, unique = true)
+	@ApiModelProperty(value = "Descrição do apartamento", example = "1", required = true)
 	private String descricao;
 
 	@Size(min = 1, max = 10)
 	@Column(name = "MEDIDOR", unique = true)
+	@ApiModelProperty(value = "Medidor do apartamento", example = "015809")
 	private String medidor;
 
 	@Column(name = "STATUS_APARTAMENTO", length = 20, nullable = false)
+	@ApiModelProperty(value = "Status do apartamento", example = "DISPONIVEL", required = true)
 	private String statusApartamento = Constantes.DISPONIVEL;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_PREDIO", referencedColumnName = "ID", nullable = false)
+	@ApiModelProperty(value = "ID do predio", example = "1", required = true)
 	private Predio predio;
 
 	public Apartamento() {
