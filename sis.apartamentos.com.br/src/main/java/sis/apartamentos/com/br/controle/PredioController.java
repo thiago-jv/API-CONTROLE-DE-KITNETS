@@ -25,6 +25,7 @@ import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Predio;
+import sis.apartamentos.com.br.openapi.controle.PredioControllerOpenApi;
 import sis.apartamentos.com.br.repository.PredioRepository;
 import sis.apartamentos.com.br.repository.filter.PredioFilter;
 import sis.apartamentos.com.br.rest.ApiCep;
@@ -32,7 +33,7 @@ import sis.apartamentos.com.br.service.PredioService;
 
 @RestController
 @RequestMapping(value = "/predios", produces = MediaType.APPLICATION_JSON_VALUE)
-public class PredioController implements Serializable {
+public class PredioController implements Serializable, PredioControllerOpenApi {
 
 	/**
 	 * 
@@ -49,16 +50,19 @@ public class PredioController implements Serializable {
 	private ApiCep apiCep;
 
 	@GetMapping
+	@Override
 	public Page<Predio> pesquisar(PredioFilter predioFilter, Pageable pageable) {
 		return predioRepository.filtrar(predioFilter, pageable);
 	}
 
 	@GetMapping("/todos")
+	@Override
 	public List<Predio> listar() {
 		return predioRepository.findAll();
 	}
 
 	@PostMapping
+	@Override
 	public Predio criar(@Valid @RequestBody Predio predio, HttpServletResponse response) {
 		Predio predioSalva = predioRepository.save(predio);
 		try {
@@ -72,22 +76,26 @@ public class PredioController implements Serializable {
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@Override
 	public void remover(@PathVariable Long id) {
 		predioService.excluir(id);
 	}
 
 	@PutMapping("/{id}")
+	@Override
 	public Predio atualizar(@PathVariable Long id, @Valid @RequestBody Predio predio) {
 		return this.predioService.atualizar(id, predio);
 	}
 
 	@GetMapping("/{id}")
+	@Override
 	public Predio buscarPeloId(@PathVariable Long id) {
 		Predio predio = predioService.buscarOuFalhar(id);
 		return predio;
 	}
 
 	@GetMapping(value = "/cep/{cep}")
+	@Override
 	public Predio doObterCep(@PathVariable(name = "cep") String cep) {
     Predio predio = apiCep.request(cep);
     return predio;

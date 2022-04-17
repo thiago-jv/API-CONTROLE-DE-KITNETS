@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "PREDIO", schema = "public")
 public class Predio implements Serializable {
@@ -25,32 +27,41 @@ public class Predio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "predio_seq")
 	@SequenceGenerator(name = "predio_seq", sequenceName = "predio_seq", initialValue = 1, allocationSize = 1)
 	@Column(name = "ID", nullable = false, unique = true)
+	@ApiModelProperty(value = "ID do predio", example = "1", required = true)
 	private Long id;
 
 	@NotNull
 	@Size(min = 3, max = 90)
 	@Column(name = "DESCRICAO", nullable = false, unique = true)
+	@ApiModelProperty(value = "Descrição do predio", example = "predio x", required = true)
 	private String descricao;
 
 	@Column(name = "CEP", length = 8, nullable = false)
+	@ApiModelProperty(value = "Cep do predio", example = "69093118")
 	private String cep;
 
 	@Column(name = "LOGRADOURO")
+	@ApiModelProperty(value = "Logradouro do predio", example = "Aguas de manaus")
 	private String logradouro;
 
 	@Column(name = "COMPLEMENTO")
+	@ApiModelProperty(value = "Complemento do predio", example = "proximo de aguas")
 	private String complemento;
 
 	@Column(name = "BAIRRO")
+	@ApiModelProperty(value = "Bairro do predio", example = "Monte das Oliveiras")
 	private String bairro;
 
 	@Column(name = "UF")
+	@ApiModelProperty(value = "UF do predio", example = "AM")
 	private String uf;
 
 	@Column(name = "LOCALIDADE")
+	@ApiModelProperty(value = "Localidade do predio", example = "rua x")
 	private String localidade;
 
 	@Column(name = "NUMERO")
+	@ApiModelProperty(value = "Número do predio", example = "232")
 	private String numero;
 
 	public Predio() {

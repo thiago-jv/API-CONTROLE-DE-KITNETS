@@ -16,8 +16,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.fasterxml.classmate.TypeResolver;
 
 import sis.apartamentos.com.br.exception.handler.Problema;
+import sis.apartamentos.com.br.model.Apartamento;
+import sis.apartamentos.com.br.model.Predio;
 import sis.apartamentos.com.br.model.Valor;
+import sis.apartamentos.com.br.openapi.model.ApartamentoModelOpenApi;
 import sis.apartamentos.com.br.openapi.model.PageableOpenApi;
+import sis.apartamentos.com.br.openapi.model.PredioModelOpenApi;
 import sis.apartamentos.com.br.openapi.model.ValorModelOpenApi;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -54,9 +58,18 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 		            .globalResponseMessage(RequestMethod.DELETE, globalDeleteResponseMessages())
 		            .additionalModels(typeResolver.resolve(Problema.class))
 		            .directModelSubstitute(Pageable.class, PageableOpenApi.class)
+		            
 		            .alternateTypeRules(AlternateTypeRules.newRule(
 		                    typeResolver.resolve(Page.class, Valor.class),
 		                    ValorModelOpenApi.class))
+		            
+		            .alternateTypeRules(AlternateTypeRules.newRule(
+		                    typeResolver.resolve(Page.class, Apartamento.class),
+		                    ApartamentoModelOpenApi.class))
+		            
+		            .alternateTypeRules(AlternateTypeRules.newRule(
+		                    typeResolver.resolve(Page.class, Predio.class),
+		                    PredioModelOpenApi.class))
 		            
 		            .apiInfo(apiInfo());
 	}
