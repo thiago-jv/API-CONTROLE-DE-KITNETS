@@ -1,5 +1,6 @@
 package sis.apartamentos.com.br.controle;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +32,12 @@ import sis.apartamentos.com.br.service.ValorService;
 
 @RestController
 @RequestMapping(value = "/valores", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ValorController implements  ValorControllerOpenApi{
+public class ValorController implements Serializable,  ValorControllerOpenApi{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private ValorRepository valorRepository;
@@ -40,22 +46,26 @@ public class ValorController implements  ValorControllerOpenApi{
 	private ValorService valorService;
 	
 	@GetMapping
+	@Override
 	public Page<Valor> pesquisar(ValorFilter valorFilter, Pageable pageable) {
 		return valorRepository.filtrar(valorFilter, pageable);
 	}
 
 	@GetMapping("/todos")
+	@Override
 	public List<Valor> listar() {
 		return valorRepository.findAll();
 	}
 
 	@GetMapping("/{id}")
+	@Override
 	public Valor buscarPeloId(@PathVariable Long id) {
 		Valor valor = valorService.buscarOuFalhar(id);
 		return valor;
 	}
 	
 	@PostMapping
+	@Override
 	public Valor criar(@Valid @RequestBody Valor valor, HttpServletResponse response) {
 		Valor valorSalva = valorRepository.save(valor);
 		try {
@@ -68,12 +78,14 @@ public class ValorController implements  ValorControllerOpenApi{
 	}
 
 	@PutMapping("/{id}")
+	@Override
 	public Valor atualizar(@PathVariable Long id, @Valid @RequestBody Valor valor) {
 		return this.valorService.atualizar(id, valor);
 	}
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@Override
 	public void remover(@PathVariable Long id) {
 		valorService.excluir(id);
 	}
