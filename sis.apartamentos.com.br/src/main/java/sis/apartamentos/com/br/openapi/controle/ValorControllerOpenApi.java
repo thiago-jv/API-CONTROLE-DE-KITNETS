@@ -37,7 +37,7 @@ public interface ValorControllerOpenApi {
 		 @ApiResponse(code = 404, message = "Valor não encontrado", response = Problema.class),	 
 	 })
 	public Valor atualizar(
-			@ApiParam(value = "ID de uma cidade", example = "1") Long id,  
+			@ApiParam(value = "ID de um valor", example = "1") Long id,  
 			@ApiParam(name = "corpo", value = "Representação de um valor")
 			Valor valor);
 	

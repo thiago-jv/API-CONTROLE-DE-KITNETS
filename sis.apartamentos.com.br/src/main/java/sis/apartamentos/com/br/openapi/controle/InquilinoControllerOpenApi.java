@@ -19,7 +19,7 @@ import sis.apartamentos.com.br.repository.filter.InquilinoFilter;
 @Api(tags = "Inquilino")
 public interface InquilinoControllerOpenApi {
 
-	@ApiOperation("Busca todos inquilinos paginados")
+	@ApiOperation("Busca todos inquilinos paginados por filtro")
 	public Page<Inquilino> pesquisar(InquilinoFilter inquilinoFilter, Pageable pageable);
 	
 	@ApiOperation("Busca todos inquilinos sem paginação")

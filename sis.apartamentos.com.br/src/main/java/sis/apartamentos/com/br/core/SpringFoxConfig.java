@@ -16,11 +16,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.fasterxml.classmate.TypeResolver;
 
 import sis.apartamentos.com.br.exception.handler.Problema;
+import sis.apartamentos.com.br.exception.handler.Problema.Campo;
 import sis.apartamentos.com.br.model.Apartamento;
+import sis.apartamentos.com.br.model.ControleLancamento;
 import sis.apartamentos.com.br.model.Inquilino;
 import sis.apartamentos.com.br.model.Predio;
 import sis.apartamentos.com.br.model.Valor;
 import sis.apartamentos.com.br.openapi.model.ApartamentoModelOpenApi;
+import sis.apartamentos.com.br.openapi.model.ControleLancamentoModelOpenApi;
 import sis.apartamentos.com.br.openapi.model.InquilinoModelOpenApi;
 import sis.apartamentos.com.br.openapi.model.PageableOpenApi;
 import sis.apartamentos.com.br.openapi.model.PredioModelOpenApi;
@@ -38,6 +41,8 @@ import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+
 
 @Configuration
 @EnableSwagger2
@@ -59,6 +64,12 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 		            .globalResponseMessage(RequestMethod.PUT, globalPostPutResponseMessages())
 		            .globalResponseMessage(RequestMethod.DELETE, globalDeleteResponseMessages())
 		            .additionalModels(typeResolver.resolve(Problema.class))
+		            .ignoredParameterTypes(
+		            		ValorModelOpenApi.class, 
+		            		PredioModelOpenApi.class, 
+		            		InquilinoModelOpenApi.class, 
+		            		ControleLancamentoModelOpenApi.class, 
+		            		ApartamentoModelOpenApi.class)
 		            .directModelSubstitute(Pageable.class, PageableOpenApi.class)
 		            
 		            .alternateTypeRules(AlternateTypeRules.newRule(
@@ -76,6 +87,10 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 		            .alternateTypeRules(AlternateTypeRules.newRule(
 		                    typeResolver.resolve(Page.class, Inquilino.class),
 		                    InquilinoModelOpenApi.class))
+		            
+		            .alternateTypeRules(AlternateTypeRules.newRule(
+		                    typeResolver.resolve(Page.class, ControleLancamento.class),
+		                    ControleLancamentoModelOpenApi.class))
 		                        
 		            .apiInfo(apiInfo());
 	}
