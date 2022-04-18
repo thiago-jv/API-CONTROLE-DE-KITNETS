@@ -22,7 +22,7 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 # Tecnologias utilizadas e outros
 
  
- 1- Java 8 [Sobre](https://www.java.com/pt-BR/download/help/java8_pt-br.html)
+ 1- Java 11 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
  
  2- SpringBoot 2.1.4.RELEASE [Sobre](https://docs.spring.io/spring-boot/docs/current/reference/html/)
  
