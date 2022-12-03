@@ -15,8 +15,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 import sis.apartamentos.com.br.utils.Constantes;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "APARTAMENTO", schema = "public")
 public class Apartamento implements Serializable {
@@ -60,54 +64,6 @@ public class Apartamento implements Serializable {
 	private Predio predio;
 
 	public Apartamento() {
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getStatusApartamento() {
-		return statusApartamento;
-	}
-
-	public void setStatusApartamento(String statusApartamento) {
-		this.statusApartamento = statusApartamento;
-	}
-
-	public Predio getPredio() {
-		return predio;
-	}
-
-	public void setPredio(Predio predio) {
-		this.predio = predio;
-	}
-
-	public String getMedidor() {
-		return medidor;
-	}
-
-	public void setMedidor(String medidor) {
-		this.medidor = medidor;
 	}
 
 	@Override

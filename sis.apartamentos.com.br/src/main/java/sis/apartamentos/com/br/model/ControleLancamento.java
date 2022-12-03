@@ -15,7 +15,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "CONTROLE_LANCAMENTO", schema = "public")
 public class ControleLancamento implements Serializable {
@@ -52,7 +56,7 @@ public class ControleLancamento implements Serializable {
 	private Status status;
 
 	@Embedded
-	private Valores valores;
+	private ValorRegra valores;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_VALOR", referencedColumnName = "ID", nullable = false)
@@ -70,86 +74,6 @@ public class ControleLancamento implements Serializable {
 	private Apartamento apartamento;
 
 	public ControleLancamento() {
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public LocalDate getDataLancamento() {
-		return dataLancamento;
-	}
-
-	public void setDataLancamento(LocalDate dataLancamento) {
-		this.dataLancamento = dataLancamento;
-	}
-
-	public LocalDate getDataEntrada() {
-		return dataEntrada;
-	}
-
-	public void setDataEntrada(LocalDate dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-
-	public LocalDate getDataPagamento() {
-		return dataPagamento;
-	}
-
-	public void setDataPagamento(LocalDate dataPagamento) {
-		this.dataPagamento = dataPagamento;
-	}
-
-	public String getObservacao() {
-		return observacao;
-	}
-
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
-	}
-
-	public Valores getValores() {
-		return valores;
-	}
-
-	public void setValores(Valores valores) {
-		this.valores = valores;
-	}
-
-	public Valor getValor() {
-		return valor;
-	}
-
-	public void setValor(Valor valor) {
-		this.valor = valor;
-	}
-
-	public Inquilino getInquilino() {
-		return inquilino;
-	}
-
-	public void setInquilino(Inquilino inquilino) {
-		this.inquilino = inquilino;
-	}
-
-	public Apartamento getApartamento() {
-		return apartamento;
-	}
-
-	public void setApartamento(Apartamento apartamento) {
-		this.apartamento = apartamento;
 	}
 
 	@Override

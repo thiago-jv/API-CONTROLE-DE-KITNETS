@@ -12,13 +12,15 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
+import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
+import sis.apartamentos.com.br.controle.mapper.ValorMapper;
 import sis.apartamentos.com.br.model.Valor;
-import sis.apartamentos.com.br.model.Valor_;
 import sis.apartamentos.com.br.repository.filter.ValorFilter;
 
 public class ValorRepositoryImpl implements ValorRepositoryQuery {
@@ -26,13 +28,18 @@ public class ValorRepositoryImpl implements ValorRepositoryQuery {
 	@PersistenceContext
 	private EntityManager manager;
 
+	@Autowired
+	private ValorMapper valorMapper;
+
 	@Override
-	public Page<Valor> filtrar(ValorFilter valorFilter, Pageable pageable) {
+	public Page<Valor> filtrar(ValorFilterDTO valorFilterDTO, Pageable pageable) {
+		ValorFilter valorFilter = valorMapper.toValor(valorFilterDTO);
+
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Valor> criteria = builder.createQuery(Valor.class);
 		Root<Valor> root = criteria.from(Valor.class);
 		
-		criteria.orderBy(builder.asc(root.get(Valor_.id)));
+		criteria.orderBy(builder.asc(root.get("id")));
 
 		Predicate[] predicates = criarRestricoes(valorFilter, builder, root);
 		criteria.where(predicates);

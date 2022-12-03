@@ -12,7 +12,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "VALOR", schema = "public")
 public class Valor implements Serializable {
@@ -34,22 +38,6 @@ public class Valor implements Serializable {
 	private BigDecimal valor = BigDecimal.ZERO;
 
 	public Valor() {
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
 	}
 
 	@Override

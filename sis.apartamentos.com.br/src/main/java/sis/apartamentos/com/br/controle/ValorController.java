@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
@@ -47,8 +48,8 @@ public class ValorController implements Serializable,  ValorControllerOpenApi{
 	
 	@GetMapping
 	@Override
-	public Page<Valor> pesquisar(ValorFilter valorFilter, Pageable pageable) {
-		return valorRepository.filtrar(valorFilter, pageable);
+	public Page<Valor> pesquisar(ValorFilterDTO valorFilterDTO, Pageable pageable) {
+		return valorRepository.filtrar(valorFilterDTO, pageable);
 	}
 
 	@GetMapping("/todos")

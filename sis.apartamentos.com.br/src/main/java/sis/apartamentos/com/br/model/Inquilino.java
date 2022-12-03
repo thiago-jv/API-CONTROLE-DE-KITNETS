@@ -11,8 +11,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 import sis.apartamentos.com.br.utils.Constantes;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "INQUILINO", schema = "public")
 public class Inquilino implements Serializable {
@@ -58,70 +62,6 @@ public class Inquilino implements Serializable {
 	private String cpf;
 
 	public Inquilino() {
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getNomeAbreviado() {
-		return nomeAbreviado;
-	}
-
-	public void setNomeAbreviado(String nomeAbreviado) {
-		this.nomeAbreviado = nomeAbreviado;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getContato() {
-		return contato;
-	}
-
-	public void setContato(String contato) {
-		this.contato = contato;
-	}
-
-	public String getGenero() {
-		return genero;
-	}
-
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	@Override

@@ -1,17 +1,14 @@
 package sis.apartamentos.com.br.repository.filter;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 public class ValorFilter {
 
 	private BigDecimal valor;
-
-	public BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
 	
 }

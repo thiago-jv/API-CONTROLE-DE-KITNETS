@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
 import sis.apartamentos.com.br.exception.handler.Problema;
 import sis.apartamentos.com.br.model.Valor;
 import sis.apartamentos.com.br.repository.filter.ValorFilter;
@@ -20,7 +21,7 @@ import sis.apartamentos.com.br.repository.filter.ValorFilter;
 public interface ValorControllerOpenApi {
 
 	@ApiOperation("Busca todos valores paginados")
-	public Page<Valor> pesquisar(ValorFilter valorFilter, Pageable pageable);
+	public Page<Valor> pesquisar(ValorFilterDTO valorFilterDTO, Pageable pageable);
 	
 	@ApiOperation("Busca todos valores sem paginação")
 	public List<Valor> listar();
