@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/sis.apartamentos.com.br/sis.apartamentos.com.br/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/sis.apartamentos.com.br/sis.apartamentos.com.br/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/relatorios/lancamentosControle.jasper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/relatorios/lancamentosControle.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/ApartamentoApiApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/config/property/ApartamentoApiProperty$Seguranca.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/config/property/ApartamentoApiProperty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ApartamentoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ControleLancamentoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/InquilinoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/PredioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ValorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/core/SpringFoxConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/cors/CorsFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/dto/EnderecoDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/ApartamentoNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/CepNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/ControleLancamentoConflitoDataException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/ControleLancamentoNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/ControleLancamentoValorException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/EntidadeEmUsoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/EntidadeNaoEncontradaException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/EntidadeRestricaoDeDadosException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/InquilinoNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/LancamentoNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/NegocioException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/PredioNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/ReportException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/ValorNaoEncontadoException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/ApiExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/Problema$Campo$CampoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/Problema$Campo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/Problema$ProblemaBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/Problema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/TipoProblema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/filter/LancamentoControleFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Apartamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Apartamento_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/ControleLancamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/ControleLancamento_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Inquilino.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Inquilino_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Predio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Predio_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Status_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valores.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valores_.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalculaDias.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalculaDiferencaEntreDatas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalculaValoresDiaria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalcularValorPago.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ApartamentoControllerOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ControleLancamentoControllerOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/InquilinoControllerOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/PredioControllerOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/ApartamentoModelOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/ControleLancamentoModelOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/InquilinoModelOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/PageableOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/PagedModelOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/PredioModelOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/model/ValorModelOpenApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ApartamentoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ControleLancamentoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/InquilinoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/PredioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ValorRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/apartamento/ApartamentoRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/apartamento/ApartamentoRepositoryQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/controle/ControleLancamentoRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/controle/ControleLancamentoRepositoryQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/ApartamentoFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/ControleFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/InquilinoFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/PredioFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/ValorFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/inquilino/InquilinoRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/inquilino/InquilinoRepositoryQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/predio/PredioRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/predio/PredioRepositoryQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/rest/ApiCep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ApartamentoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ControleLancamentoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/InquilinoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/PredioService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ValorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/utils/Constantes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/utils/Messages.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Apartamento_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/ControleLancamento_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Inquilino_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Predio_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Status_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Valor_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Valores_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/sis/apartamentos/com/br/DataTeste.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2IPiG5gaVIhM0AFECG2qoKsoG7X" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/workspace-pessoal/API-CONTROLE-DE-KITNETS/sis.apartamentos.com.br"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="ApartamentoApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sis.apartamentos.com.br" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="sis.apartamentos.com.br.ApartamentoApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="" />
+      <created>1670089520250</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670089520250</updated>
+      <workItem from="1670089521496" duration="1096000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
