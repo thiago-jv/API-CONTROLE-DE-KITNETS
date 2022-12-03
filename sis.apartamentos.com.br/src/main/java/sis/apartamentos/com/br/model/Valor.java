@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,15 +29,10 @@ public class Valor implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "valor_seq")
 	@SequenceGenerator(name = "valor_seq", sequenceName = "valor_seq", initialValue = 1, allocationSize = 1)
 	@Column(name = "ID", nullable = false, unique = true)
-	@ApiModelProperty(value = "ID do valor", example = "1", required = true)
 	private Long id;
 
 	@Column(name = "VALOR", nullable = false, unique = true)
-	@ApiModelProperty(value = "Valor", example = "250.0", required = true)
 	private BigDecimal valor = BigDecimal.ZERO;
-
-	public Valor() {
-	}
 
 	@Override
 	public int hashCode() {

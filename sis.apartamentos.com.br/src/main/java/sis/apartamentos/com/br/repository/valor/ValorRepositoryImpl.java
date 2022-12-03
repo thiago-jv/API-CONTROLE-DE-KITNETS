@@ -33,7 +33,7 @@ public class ValorRepositoryImpl implements ValorRepositoryQuery {
 
 	@Override
 	public Page<Valor> filtrar(ValorFilterDTO valorFilterDTO, Pageable pageable) {
-		ValorFilter valorFilter = valorMapper.toValor(valorFilterDTO);
+		ValorFilter valorFilter = valorMapper.toValorFilter(valorFilterDTO);
 
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Valor> criteria = builder.createQuery(Valor.class);

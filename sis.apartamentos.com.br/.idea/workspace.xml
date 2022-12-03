@@ -4,35 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="Iniciando projeto no intelij">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/ValorFilterDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/mapper/ValorMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Apartamento_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/ControleLancamento_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Inquilino_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Predio_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Status_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/ValorRegra_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/model/Valor_.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="Migrando verssão do java para 17">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorPostDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorPutDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/ValorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/ValorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/dto/EnderecoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/dto/EnderecoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Apartamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Apartamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ControleLancamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ControleLancamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Inquilino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Inquilino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Predio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Predio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/mapper/ValorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/mapper/ValorMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ValorRegra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/filter/ValorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/filter/ValorFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/ValorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/ValorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ValorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ValorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ValorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ValorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ValorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ValorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ValorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ValorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -82,11 +75,20 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/workspace-frigelar/easy-registration/mdm-ms-easy-registration",
+    "last_opened_file_path": "C:/workspace-pessoal/API-CONTROLE-DE-KITNETS/sis.apartamentos.com.br/src/main/java/sis/apartamentos/com/br/controle/dto/valor",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\java\sis\apartamentos\com\br\controle\dto\valor" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sis.apartamentos.com.br.controle.dto.valor" />
+      <recent name="sis.apartamentos.com.br.controle.dto" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.ApartamentoApiApplication">
     <configuration name="sis.apartamentos.com.br [clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
@@ -134,7 +136,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670089520250</updated>
-      <workItem from="1670089521496" duration="8183000" />
+      <workItem from="1670089521496" duration="11017000" />
     </task>
     <task id="LOCAL-00001" summary="Iniciando projeto no intelij">
       <created>1670091041048</created>
@@ -157,7 +159,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670091111691</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Migrando verssão do java para 17">
+      <created>1670107517929</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670107517929</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Migrando verssão do java para 17">
+      <created>1670107528670</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670107528670</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,19 +193,15 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Iniciando projeto no intelij" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciando projeto no intelij" />
+    <MESSAGE value="Migrando verssão do java para 17" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrando verssão do java para 17" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/ValorController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.java</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -13,9 +13,11 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorPostDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorPutDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorResponseDTO;
 import sis.apartamentos.com.br.exception.handler.Problema;
 import sis.apartamentos.com.br.model.Valor;
-import sis.apartamentos.com.br.repository.filter.ValorFilter;
 
 @Api(tags = "Valor")
 public interface ValorControllerOpenApi {
@@ -24,23 +26,23 @@ public interface ValorControllerOpenApi {
 	public Page<Valor> pesquisar(ValorFilterDTO valorFilterDTO, Pageable pageable);
 	
 	@ApiOperation("Busca todos valores sem paginação")
-	public List<Valor> listar();
+	public List<ValorResponseDTO> listar();
 
 	@ApiOperation("Cria um novo valor")
 	@ApiResponses({
         @ApiResponse(code = 201, message = "Valor cadastrado"),
     })
-	public Valor criar(@ApiParam(name = "corpo", value = "Representação de um valor") Valor valor, HttpServletResponse response);
+	public ValorResponseDTO criar(@ApiParam(name = "corpo", value = "Representação de um valor") ValorPostDTO valorPostDTO, HttpServletResponse response);
 
 	@ApiOperation("Atualiza valor por id")
 	 @ApiResponses({
 		 @ApiResponse(code = 400, message = "ID de valor inválido", response = Problema.class),
 		 @ApiResponse(code = 404, message = "Valor não encontrado", response = Problema.class),	 
 	 })
-	public Valor atualizar(
+	public ValorResponseDTO atualizar(
 			@ApiParam(value = "ID de um valor", example = "1") Long id,  
 			@ApiParam(name = "corpo", value = "Representação de um valor")
-			Valor valor);
+			ValorPutDTO valorPutDTO);
 	
 	@ApiOperation("Deleta um valor por id")
 	@ApiResponses({
@@ -53,6 +55,6 @@ public interface ValorControllerOpenApi {
 	@ApiResponses({
 		@ApiResponse(code = 404, message = "Valor não encontrado", response = Problema.class)		
 	})
-	public Valor buscarPeloId(@ApiParam(value = "ID de uma cidade", example = "1") Long id);
+	public ValorResponseDTO buscarPeloId(@ApiParam(value = "ID de uma cidade", example = "1") Long id);
 	
 }

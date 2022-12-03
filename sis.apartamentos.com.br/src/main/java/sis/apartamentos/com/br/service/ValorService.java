@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import sis.apartamentos.com.br.controle.dto.valor.ValorPutDTO;
+import sis.apartamentos.com.br.controle.mapper.ValorMapper;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.ValorNaoEncontadoException;
 import sis.apartamentos.com.br.model.Valor;
@@ -17,6 +19,9 @@ public class ValorService {
 
 	@Autowired
 	private ValorRepository valorRepository;
+
+	@Autowired
+	private ValorMapper valorMapper;
 
 	public Valor buscarOuFalhar(Long idValor) {
 		return valorRepository.findById(idValor).orElseThrow(() -> new ValorNaoEncontadoException(idValor));
@@ -33,7 +38,8 @@ public class ValorService {
 		}
 	}
 	
-	public Valor atualizar(Long idValor, Valor valor) {
+	public Valor atualizar(Long idValor, ValorPutDTO valorPutDTO) {
+		Valor valor = valorMapper.toValor(valorPutDTO);
 		Valor valorSalva = this.valorRepository.findById(idValor)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(valor, valorSalva, "id");

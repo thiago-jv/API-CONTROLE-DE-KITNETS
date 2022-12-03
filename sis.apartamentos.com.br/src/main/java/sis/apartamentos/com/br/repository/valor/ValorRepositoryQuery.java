@@ -5,7 +5,6 @@ import org.springframework.data.domain.Pageable;
 
 import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
 import sis.apartamentos.com.br.model.Valor;
-import sis.apartamentos.com.br.repository.filter.ValorFilter;
 
 public interface ValorRepositoryQuery {
 

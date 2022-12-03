@@ -22,73 +22,77 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorPostDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorPutDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorResponseDTO;
+import sis.apartamentos.com.br.controle.mapper.ValorMapper;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Valor;
 import sis.apartamentos.com.br.openapi.controle.ValorControllerOpenApi;
 import sis.apartamentos.com.br.repository.ValorRepository;
-import sis.apartamentos.com.br.repository.filter.ValorFilter;
 import sis.apartamentos.com.br.service.ValorService;
 
 @RestController
 @RequestMapping(value = "/valores", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ValorController implements Serializable,  ValorControllerOpenApi{
+public class ValorController implements Serializable, ValorControllerOpenApi {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Autowired
-	private ValorRepository valorRepository;
+    @Autowired
+    private ValorRepository valorRepository;
 
-	@Autowired
-	private ValorService valorService;
-	
-	@GetMapping
-	@Override
-	public Page<Valor> pesquisar(ValorFilterDTO valorFilterDTO, Pageable pageable) {
-		return valorRepository.filtrar(valorFilterDTO, pageable);
-	}
+    @Autowired
+    private ValorService valorService;
 
-	@GetMapping("/todos")
-	@Override
-	public List<Valor> listar() {
-		return valorRepository.findAll();
-	}
+    @Autowired
+    private ValorMapper valorMapper;
 
-	@GetMapping("/{id}")
-	@Override
-	public Valor buscarPeloId(@PathVariable Long id) {
-		Valor valor = valorService.buscarOuFalhar(id);
-		return valor;
-	}
-	
-	@PostMapping
-	@Override
-	public Valor criar(@Valid @RequestBody Valor valor, HttpServletResponse response) {
-		Valor valorSalva = valorRepository.save(valor);
-		try {
-			return valorSalva;
-		} catch (EntidadeNaoEncontradaException e) {
-			throw new NegocioException(e.getMessage());
-		} catch (EntidadeRestricaoDeDadosException e) {
-			throw new NegocioException(e.getMessage());
-		}
-	}
+    @GetMapping
+    @Override
+    public Page<Valor> pesquisar(ValorFilterDTO valorFilterDTO, Pageable pageable) {
+        return valorRepository.filtrar(valorFilterDTO, pageable);
+    }
 
-	@PutMapping("/{id}")
-	@Override
-	public Valor atualizar(@PathVariable Long id, @Valid @RequestBody Valor valor) {
-		return this.valorService.atualizar(id, valor);
-	}
-	
-	@DeleteMapping("/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@Override
-	public void remover(@PathVariable Long id) {
-		valorService.excluir(id);
-	}
-	
+    @GetMapping("/todos")
+    @Override
+    public List<ValorResponseDTO> listar() {
+        return valorMapper.toListValorResponse(valorRepository.listaValores());
+    }
+
+    @GetMapping("/{id}")
+    @Override
+    public ValorResponseDTO buscarPeloId(@PathVariable Long id) {
+        return valorMapper.toValorResponse(valorService.buscarOuFalhar(id));
+    }
+
+    @PostMapping
+    @Override
+    public ValorResponseDTO criar(@Valid @RequestBody ValorPostDTO valorPostDTO, HttpServletResponse response) {
+        try {
+            return valorMapper.toValorResponse(valorRepository.save(valorMapper.toValor(valorPostDTO)));
+        } catch (EntidadeNaoEncontradaException e) {
+            throw new NegocioException(e.getMessage());
+        } catch (EntidadeRestricaoDeDadosException e) {
+            throw new NegocioException(e.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}")
+    @Override
+    public ValorResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody ValorPutDTO valorPutDTO) {
+        return valorMapper.toValorResponse(this.valorService.atualizar(id, valorPutDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Override
+    public void remover(@PathVariable Long id) {
+        valorService.excluir(id);
+    }
+
 }

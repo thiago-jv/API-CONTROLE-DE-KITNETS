@@ -63,9 +63,6 @@ public class Apartamento implements Serializable {
 	@ApiModelProperty(value = "ID do predio", example = "1", required = true)
 	private Predio predio;
 
-	public Apartamento() {
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
