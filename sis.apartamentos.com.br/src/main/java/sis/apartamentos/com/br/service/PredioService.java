@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import sis.apartamentos.com.br.controle.dto.predio.PredioPutDTO;
+import sis.apartamentos.com.br.controle.mapper.PredioMapper;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.PredioNaoEncontadoException;
 import sis.apartamentos.com.br.model.Predio;
@@ -17,6 +19,9 @@ public class PredioService {
 
 	@Autowired
 	private PredioRepository predioRepository;
+
+	@Autowired
+	private PredioMapper predioMapper;
 	
 	public Predio buscarOuFalhar(Long idPredio) {
 		return predioRepository.findById(idPredio).orElseThrow(() -> new PredioNaoEncontadoException(idPredio));
@@ -33,7 +38,8 @@ public class PredioService {
 		}
 	}
 	
-	public Predio atualizar(Long idPredio, Predio predio) {
+	public Predio atualizar(Long idPredio, PredioPutDTO predioPutDTO) {
+		Predio predio  = predioMapper.toPredio(predioPutDTO);
 		Predio predioSalva = this.predioRepository.findById(idPredio)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(predio, predioSalva, "id");

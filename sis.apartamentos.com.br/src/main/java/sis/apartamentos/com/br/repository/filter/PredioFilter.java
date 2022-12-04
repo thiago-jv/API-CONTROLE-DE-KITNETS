@@ -1,15 +1,12 @@
 package sis.apartamentos.com.br.repository.filter;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class PredioFilter {
 
 	private String descricao;
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 
 }

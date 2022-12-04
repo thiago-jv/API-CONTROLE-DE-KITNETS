@@ -12,11 +12,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
+import sis.apartamentos.com.br.controle.dto.predio.PredioFilterDTO;
+import sis.apartamentos.com.br.controle.mapper.PredioMapper;
 import sis.apartamentos.com.br.model.Predio;
 import sis.apartamentos.com.br.model.Predio_;
 import sis.apartamentos.com.br.repository.filter.PredioFilter;
@@ -26,8 +29,13 @@ public class PredioRepositoryImpl implements PredioRepositoryQuery {
 	@PersistenceContext
 	private EntityManager manager;
 
+	@Autowired
+	private PredioMapper predioMapper;
+
 	@Override
-	public Page<Predio> filtrar(PredioFilter predioFilter, Pageable pageable) {
+	public Page<Predio> filtrar(PredioFilterDTO predioFilterDTO, Pageable pageable) {
+		PredioFilter predioFilter = predioMapper.toPredioFilter(predioFilterDTO);
+
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Predio> criteria = builder.createQuery(Predio.class);
 		Root<Predio> root = criteria.from(Predio.class);

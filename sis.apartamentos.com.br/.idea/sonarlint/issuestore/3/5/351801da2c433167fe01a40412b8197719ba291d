@@ -1,0 +1,13 @@
+
+Œ
+java:S1488k"jImmediately return this expression instead of assigning it to the temporary variable "controleLancamento".(ı„èõıÿÿÿÿ8ÓœİÒÍ0
+`
+java:S1948/">Make "controleLancamentoRepository" transient or serializable.(ÿÔú®ùÿÿÿÿ8ÚœİÒÍ0
+X
+java:S19482";Make "controleLancamentoService" transient or serializable.(ì”šÌ8ÛœİÒÍ0
+]
+java:S4684H"@Replace this persistent entity with a simple POJO or DTO object.(×ããÉ8ŞœİÒÍ0
+a
+java:S2147O"DCombine this catch with the one at line 77, which has the same body.(ÁäÎõ8ŞœİÒÍ0
+]
+java:S4684^"@Replace this persistent entity with a simple POJO or DTO object.(ÔùšÁ8ßœİÒÍ0

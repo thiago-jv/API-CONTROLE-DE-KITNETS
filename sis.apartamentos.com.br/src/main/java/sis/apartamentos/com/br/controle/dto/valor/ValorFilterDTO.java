@@ -1,4 +1,4 @@
-package sis.apartamentos.com.br.controle.dto;
+package sis.apartamentos.com.br.controle.dto.valor;
 
 import lombok.Getter;
 import lombok.Setter;

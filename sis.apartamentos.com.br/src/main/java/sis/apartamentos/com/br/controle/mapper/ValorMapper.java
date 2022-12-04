@@ -1,7 +1,7 @@
 package sis.apartamentos.com.br.controle.mapper;
 
 import org.mapstruct.Mapper;
-import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorFilterDTO;
 import sis.apartamentos.com.br.controle.dto.valor.ValorPostDTO;
 import sis.apartamentos.com.br.controle.dto.valor.ValorPutDTO;
 import sis.apartamentos.com.br.controle.dto.valor.ValorResponseDTO;

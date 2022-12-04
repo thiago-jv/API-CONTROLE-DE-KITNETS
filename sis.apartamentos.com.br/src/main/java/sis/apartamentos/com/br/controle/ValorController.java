@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import sis.apartamentos.com.br.controle.dto.ValorFilterDTO;
+import sis.apartamentos.com.br.controle.dto.valor.ValorFilterDTO;
 import sis.apartamentos.com.br.controle.dto.valor.ValorPostDTO;
 import sis.apartamentos.com.br.controle.dto.valor.ValorPutDTO;
 import sis.apartamentos.com.br.controle.dto.valor.ValorResponseDTO;

@@ -4,28 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="Migrando verssão do java para 17">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorPostDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorPutDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorResponseDTO.java" afterDir="false" />
+    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="Migrando DTOs da clase Valor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/predio/PredioFilterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/predio/PredioPostDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/predio/PredioPutDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/predio/PredioResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/mapper/PredioMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/mapper/PredioMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/PredioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/PredioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/ValorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/ValorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/ValorFilterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorFilterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/dto/valor/ValorResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/mapper/ValorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/mapper/ValorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Predio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Predio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/openapi/controle/PredioControllerOpenApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/openapi/controle/PredioControllerOpenApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/ValorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/ValorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/filter/PredioFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/filter/PredioFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/predio/PredioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/predio/PredioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/predio/PredioRepositoryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/predio/PredioRepositoryQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ValorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ValorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/PredioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/PredioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/PredioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/PredioController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ValorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/ValorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/dto/ValorFilterDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/dto/valor/ValorResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/dto/valor/ValorResponseDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Apartamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Apartamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Predio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Predio.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/PredioControllerOpenApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/PredioControllerOpenApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/openapi/controle/ValorControllerOpenApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ValorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/ValorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/PredioFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/filter/PredioFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/predio/PredioRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/predio/PredioRepositoryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/predio/PredioRepositoryQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/predio/PredioRepositoryQuery.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ValorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ValorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/repository/valor/ValorRepositoryQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/PredioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/PredioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/mapper/ValorMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -77,7 +96,8 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/workspace-pessoal/API-CONTROLE-DE-KITNETS/sis.apartamentos.com.br/src/main/java/sis/apartamentos/com/br/controle/dto/valor",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "spring.configuration.checksum": "f3c2ed0ac63e51fa1864d10f9e02f7cc"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -85,6 +105,7 @@
       <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\java\sis\apartamentos\com\br\controle\dto\valor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sis.apartamentos.com.br.controle.dto.predio" />
       <recent name="sis.apartamentos.com.br.controle.dto.valor" />
       <recent name="sis.apartamentos.com.br.controle.dto" />
     </key>
@@ -136,7 +157,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670089520250</updated>
-      <workItem from="1670089521496" duration="11017000" />
+      <workItem from="1670089521496" duration="11815000" />
+      <workItem from="1670161892822" duration="2512000" />
     </task>
     <task id="LOCAL-00001" summary="Iniciando projeto no intelij">
       <created>1670091041048</created>
@@ -173,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670107528670</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Migrando DTOs da clase Valor">
+      <created>1670110668348</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670110668348</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +223,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Iniciando projeto no intelij" />
     <MESSAGE value="Migrando verssão do java para 17" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrando verssão do java para 17" />
+    <MESSAGE value="Migrando DTOs da clase Valor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrando DTOs da clase Valor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

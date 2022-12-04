@@ -21,6 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import sis.apartamentos.com.br.controle.dto.predio.PredioFilterDTO;
+import sis.apartamentos.com.br.controle.dto.predio.PredioPostDTO;
+import sis.apartamentos.com.br.controle.dto.predio.PredioPutDTO;
+import sis.apartamentos.com.br.controle.dto.predio.PredioResponseDTO;
+import sis.apartamentos.com.br.controle.mapper.PredioMapper;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
@@ -49,24 +54,26 @@ public class PredioController implements Serializable, PredioControllerOpenApi {
 	@Autowired
 	private ApiCep apiCep;
 
+	@Autowired
+	private PredioMapper predioMapper;
+
 	@GetMapping
 	@Override
-	public Page<Predio> pesquisar(PredioFilter predioFilter, Pageable pageable) {
-		return predioRepository.filtrar(predioFilter, pageable);
+	public Page<Predio> pesquisar(PredioFilterDTO predioFilterDTO, Pageable pageable) {
+		return predioRepository.filtrar(predioFilterDTO, pageable);
 	}
 
 	@GetMapping("/todos")
 	@Override
-	public List<Predio> listar() {
-		return predioRepository.findAll();
+	public List<PredioResponseDTO> listar() {
+		return predioMapper.toListPredioResponse(predioRepository.findAll());
 	}
 
 	@PostMapping
 	@Override
-	public Predio criar(@Valid @RequestBody Predio predio, HttpServletResponse response) {
-		Predio predioSalva = predioRepository.save(predio);
+	public PredioResponseDTO criar(@Valid @RequestBody PredioPostDTO predioPostDTO, HttpServletResponse response) {
 		try {
-			return predioSalva;
+			return predioMapper.toPredioResponse(predioRepository.save(predioMapper.toPredio(predioPostDTO)));
 		} catch (EntidadeNaoEncontradaException e) {
 			throw new NegocioException(e.getMessage());
 		} catch (EntidadeRestricaoDeDadosException e) {
@@ -83,22 +90,20 @@ public class PredioController implements Serializable, PredioControllerOpenApi {
 
 	@PutMapping("/{id}")
 	@Override
-	public Predio atualizar(@PathVariable Long id, @Valid @RequestBody Predio predio) {
-		return this.predioService.atualizar(id, predio);
+	public PredioResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody PredioPutDTO predioPutDTO) {
+		return predioMapper.toPredioResponse(this.predioService.atualizar(id, predioPutDTO));
 	}
 
 	@GetMapping("/{id}")
 	@Override
-	public Predio buscarPeloId(@PathVariable Long id) {
-		Predio predio = predioService.buscarOuFalhar(id);
-		return predio;
+	public PredioResponseDTO buscarPeloId(@PathVariable Long id) {
+		return predioMapper.toPredioResponse(predioService.buscarOuFalhar(id));
 	}
 
 	@GetMapping(value = "/cep/{cep}")
 	@Override
-	public Predio doObterCep(@PathVariable(name = "cep") String cep) {
-    Predio predio = apiCep.request(cep);
-    return predio;
+	public PredioResponseDTO doObterCep(@PathVariable(name = "cep") String cep) {
+    return predioMapper.toPredioResponse(apiCep.request(cep));
 
 	}
 

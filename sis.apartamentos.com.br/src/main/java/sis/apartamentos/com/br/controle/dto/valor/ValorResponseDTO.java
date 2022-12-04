@@ -1,5 +1,6 @@
 package sis.apartamentos.com.br.controle.dto.valor;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +9,10 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ValorResponseDTO {
 
-    @ApiModelProperty(value = "ID do valor", example = "1", required = true)
     private Long id;
 
-    @ApiModelProperty(value = "Valor", example = "250.0", required = true)
     private BigDecimal valor = BigDecimal.ZERO;
 }
