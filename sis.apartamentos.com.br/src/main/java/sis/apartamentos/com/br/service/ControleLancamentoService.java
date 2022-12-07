@@ -99,8 +99,8 @@ public class ControleLancamentoService {
 
 	private Apartamento BuscaApartamentos(ControleLancamento controleSalva) {
 		Long codigoApartamento = controleSalva.getApartamento().getId();
-		Apartamento apartamento = apartamentoService.buscarOuFalhar(codigoApartamento);
-		return apartamento;
+		return apartamentoService.buscarOuFalhar(codigoApartamento);
+
 	}
 	
 	public ControleLancamento atualizar(Long idControle, ControleLancamento controleLancamento) {

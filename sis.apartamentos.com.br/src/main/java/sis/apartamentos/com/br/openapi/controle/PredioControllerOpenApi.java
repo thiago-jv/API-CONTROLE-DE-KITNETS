@@ -18,7 +18,6 @@ import sis.apartamentos.com.br.controle.dto.predio.PredioPutDTO;
 import sis.apartamentos.com.br.controle.dto.predio.PredioResponseDTO;
 import sis.apartamentos.com.br.exception.handler.Problema;
 import sis.apartamentos.com.br.model.Predio;
-import sis.apartamentos.com.br.repository.filter.PredioFilter;
 
 @Api(tags = "Predio")
 public interface PredioControllerOpenApi {

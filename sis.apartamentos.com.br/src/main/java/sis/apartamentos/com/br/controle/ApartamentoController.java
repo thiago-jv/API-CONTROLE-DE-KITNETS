@@ -21,13 +21,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoFilterDTO;
+import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoPostDTO;
+import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoPutDTO;
+import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoResponseDTO;
+import sis.apartamentos.com.br.controle.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Apartamento;
 import sis.apartamentos.com.br.openapi.controle.ApartamentoControllerOpenApi;
 import sis.apartamentos.com.br.repository.ApartamentoRepository;
-import sis.apartamentos.com.br.repository.filter.ApartamentoFilter;
 import sis.apartamentos.com.br.service.ApartamentoService;
 
 @RestController
@@ -44,34 +48,34 @@ public class ApartamentoController implements Serializable, ApartamentoControlle
 
 	@Autowired
 	private ApartamentoRepository apartamentoRepository;
+
+	@Autowired
+	private ApartamentoMapper apartamentoMapper;
 	
 	@GetMapping
 	@Override
-	public Page<Apartamento> pesquisar(ApartamentoFilter apartamentoFilter, Pageable pageable) {
-		return apartamentoRepository.filtrar(apartamentoFilter, pageable);
+	public Page<Apartamento> pesquisar(ApartamentoFilterDTO apartamentoFilterDTO, Pageable pageable) {
+		return apartamentoRepository.filtrar(apartamentoFilterDTO, pageable);
 	}
 
 	@GetMapping("/todos")
 	@Override
-	public List<Apartamento> listar() {
-		return apartamentoRepository.findAll();
+	public List<ApartamentoResponseDTO> listar() {
+		return apartamentoMapper.toListApartamentoResponse(apartamentoRepository.findAll());
 	}
 	
 	@GetMapping("/todos/disponiveis")
 	@Override
-	public List<Apartamento> listarDisponiveis() {
-		return apartamentoRepository.listaApartamentosDisponiveis();
+	public List<ApartamentoResponseDTO> listarDisponiveis() {
+		return apartamentoMapper.toListApartamentoResponse(apartamentoRepository.listaApartamentosDisponiveis());
 	}
 	
 	@PostMapping
 	@Override
-	public Apartamento criar(@Valid @RequestBody Apartamento apartamento, HttpServletResponse response) {
-		Apartamento apartamentoSalva = apartamentoRepository.save(apartamento);
+	public ApartamentoResponseDTO criar(@Valid @RequestBody ApartamentoPostDTO apartamentoPostDTO, HttpServletResponse response) {
 		try {
-			return apartamentoSalva;
-		} catch (EntidadeNaoEncontradaException e) {
-			throw new NegocioException(e.getMessage());
-		} catch (EntidadeRestricaoDeDadosException e) {
+			return apartamentoMapper.toApartamentoResponse(apartamentoRepository.save(apartamentoMapper.toApartamento(apartamentoPostDTO)));
+		} catch (EntidadeNaoEncontradaException | EntidadeRestricaoDeDadosException e) {
 			throw new NegocioException(e.getMessage());
 		}
 	}
@@ -85,15 +89,14 @@ public class ApartamentoController implements Serializable, ApartamentoControlle
 
 	@PutMapping("/{id}")
 	@Override
-	public Apartamento atualizar(@PathVariable Long id, @Valid @RequestBody Apartamento apartamento) {
-		return this.apartamentoService.atualizar(id, apartamento);
+	public ApartamentoResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody ApartamentoPutDTO apartamentoPutDTO) {
+		return apartamentoMapper.toApartamentoResponse(this.apartamentoService.atualizar(id, apartamentoPutDTO));
 	}
 	
 	@GetMapping("/{id}")
 	@Override
-	public Apartamento buscarPeloId(@PathVariable Long id) {
-		Apartamento apartamento = apartamentoService.buscarOuFalhar(id);
-		return apartamento;
+	public ApartamentoResponseDTO buscarPeloId(@PathVariable Long id) {
+		return apartamentoMapper.toApartamentoResponse(apartamentoService.buscarOuFalhar(id));
 	}
 
 

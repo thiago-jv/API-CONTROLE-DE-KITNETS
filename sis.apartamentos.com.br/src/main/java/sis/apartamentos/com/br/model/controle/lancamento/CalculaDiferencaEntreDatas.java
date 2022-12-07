@@ -10,7 +10,6 @@ import sis.apartamentos.com.br.model.ControleLancamento;
 public class CalculaDiferencaEntreDatas {
 	
 	public Long calculaDia(ControleLancamento controleLancamento) {
-		long diferencaDias = ChronoUnit.DAYS.between(controleLancamento.getDataEntrada(), controleLancamento.getDataPagamento());
-		return diferencaDias;
+		return ChronoUnit.DAYS.between(controleLancamento.getDataEntrada(), controleLancamento.getDataPagamento());
 	}
 }

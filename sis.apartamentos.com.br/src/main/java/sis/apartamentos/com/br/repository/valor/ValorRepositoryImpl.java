@@ -3,6 +3,7 @@ package sis.apartamentos.com.br.repository.valor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,12 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.util.StringUtils;
 
 import sis.apartamentos.com.br.controle.dto.valor.ValorFilterDTO;
 import sis.apartamentos.com.br.controle.mapper.ValorMapper;
 import sis.apartamentos.com.br.model.Valor;
-import sis.apartamentos.com.br.model.Valor_;
 import sis.apartamentos.com.br.repository.filter.ValorFilter;
 
 public class ValorRepositoryImpl implements ValorRepositoryQuery {
@@ -40,7 +39,7 @@ public class ValorRepositoryImpl implements ValorRepositoryQuery {
 		CriteriaQuery<Valor> criteria = builder.createQuery(Valor.class);
 		Root<Valor> root = criteria.from(Valor.class);
 		
-		criteria.orderBy(builder.asc(root.get(Valor_.ID)));
+		criteria.orderBy(builder.asc(root.get("id")));
 
 		Predicate[] predicates = criarRestricoes(valorFilter, builder, root);
 		criteria.where(predicates);
@@ -55,7 +54,7 @@ public class ValorRepositoryImpl implements ValorRepositoryQuery {
 			Root<Valor> root) {
 		List<Predicate> predicates = new ArrayList<>();
 
-		if (!StringUtils.isEmpty(valorFilter.getValor())) {
+		if (!Objects.isNull(valorFilter.getValor())) {
 			predicates.add(builder.equal((root.get("valor")), valorFilter.getValor()));
 		}
 		

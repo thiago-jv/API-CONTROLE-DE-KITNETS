@@ -13,7 +13,7 @@ import sis.apartamentos.com.br.repository.filter.ValorFilter;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-04T11:00:34-0300",
+    date = "2022-12-06T22:11:07-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.4.1 (Oracle Corporation)"
 )
 @Component

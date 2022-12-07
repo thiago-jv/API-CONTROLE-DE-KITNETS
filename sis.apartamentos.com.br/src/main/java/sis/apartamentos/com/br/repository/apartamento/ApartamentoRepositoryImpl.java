@@ -2,6 +2,7 @@ package sis.apartamentos.com.br.repository.apartamento;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,27 +12,32 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.util.StringUtils;
 
+import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoFilterDTO;
+import sis.apartamentos.com.br.controle.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.model.Apartamento;
-import sis.apartamentos.com.br.model.Apartamento_;
 import sis.apartamentos.com.br.repository.filter.ApartamentoFilter;
 
 public class ApartamentoRepositoryImpl implements ApartamentoRepositoryQuery{
 
 	@PersistenceContext
 	private EntityManager manager;
-	
+
+	@Autowired
+	private ApartamentoMapper apartamentoMapper;
+
 	@Override
-	public Page<Apartamento> filtrar(ApartamentoFilter apartamentoFilter, Pageable pageable) {
+	public Page<Apartamento> filtrar(ApartamentoFilterDTO apartamentoFilterDTO, Pageable pageable) {
+		ApartamentoFilter apartamentoFilter = apartamentoMapper.toApartamentoFilter(apartamentoFilterDTO);
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Apartamento> criteria = builder.createQuery(Apartamento.class);
 		Root<Apartamento> root = criteria.from(Apartamento.class);
 		
-		criteria.orderBy(builder.asc(root.get(Apartamento_.id)));
+		criteria.orderBy(builder.asc(root.get("id")));
 
 		Predicate[] predicates = criarRestricoes(apartamentoFilter, builder, root);
 		criteria.where(predicates);
@@ -46,18 +52,18 @@ public class ApartamentoRepositoryImpl implements ApartamentoRepositoryQuery{
 			Root<Apartamento> root) {
 		List<Predicate> predicates = new ArrayList<>();
 
-		if (!StringUtils.isEmpty(apartamentoFilter.getDesricao())) {
+		if (!Objects.isNull(apartamentoFilter.getDesricao())) {
 			
 			predicates.add(builder.like((root.get("descricao")),
 					"%" + apartamentoFilter.getDesricao() + "%"));
 		}
 		
-        if (!StringUtils.isEmpty(apartamentoFilter.getNumero())) {
+        if (!Objects.isNull(apartamentoFilter.getNumero())) {
 			
         	predicates.add(builder.equal((root.get("numero")), apartamentoFilter.getNumero()));
 		}
         
-        if (!StringUtils.isEmpty(apartamentoFilter.getStatusApartamento())) {
+        if (!Objects.isNull(apartamentoFilter.getStatusApartamento())) {
 
 			predicates.add(builder.equal((root.get("statusApartamento")), apartamentoFilter.getStatusApartamento()));
 		}

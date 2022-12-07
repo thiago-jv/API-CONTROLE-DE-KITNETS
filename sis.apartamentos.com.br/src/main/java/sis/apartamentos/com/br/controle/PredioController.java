@@ -32,7 +32,6 @@ import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Predio;
 import sis.apartamentos.com.br.openapi.controle.PredioControllerOpenApi;
 import sis.apartamentos.com.br.repository.PredioRepository;
-import sis.apartamentos.com.br.repository.filter.PredioFilter;
 import sis.apartamentos.com.br.rest.ApiCep;
 import sis.apartamentos.com.br.service.PredioService;
 

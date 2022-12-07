@@ -21,80 +21,85 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import sis.apartamentos.com.br.controle.dto.inquilino.InquilinoFilterDTO;
+import sis.apartamentos.com.br.controle.dto.inquilino.InquilinoPostDTO;
+import sis.apartamentos.com.br.controle.dto.inquilino.InquilinoPutDTO;
+import sis.apartamentos.com.br.controle.dto.inquilino.InquilinoResponseDTO;
+import sis.apartamentos.com.br.controle.mapper.InquilinoMapper;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.EntidadeRestricaoDeDadosException;
 import sis.apartamentos.com.br.exception.NegocioException;
 import sis.apartamentos.com.br.model.Inquilino;
 import sis.apartamentos.com.br.openapi.controle.InquilinoControllerOpenApi;
 import sis.apartamentos.com.br.repository.InquilinoRepository;
-import sis.apartamentos.com.br.repository.filter.InquilinoFilter;
 import sis.apartamentos.com.br.service.InquilinoService;
 
 @RestController
 @RequestMapping(value = "/inquilinos", produces = MediaType.APPLICATION_JSON_VALUE)
-public class InquilinoController implements Serializable, InquilinoControllerOpenApi{
+public class InquilinoController implements Serializable, InquilinoControllerOpenApi {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Autowired
-	private InquilinoRepository inquilinoRepository;
+    @Autowired
+    private InquilinoRepository inquilinoRepository;
 
-	@Autowired
-	private InquilinoService inquilinoService;
-	
-	@GetMapping
-	@Override
-	public Page<Inquilino> pesquisar(InquilinoFilter inquilinoFilter, Pageable pageable) {
-		return inquilinoRepository.filtrar(inquilinoFilter, pageable);
-	}
+    @Autowired
+    private InquilinoService inquilinoService;
 
-	@GetMapping("/todos")
-	@Override
-	public List<Inquilino> listar() {
-		return inquilinoRepository.findAll();
-	}
-	
-	@GetMapping("/todos/ativos")
-	@Override
-	public List<Inquilino> listarAtivos() {
-		return inquilinoRepository.listaInquilinosAtivos();
-	}
-	
-	@PostMapping
-	@Override
-	public Inquilino criar(@Valid @RequestBody Inquilino inquilino, HttpServletResponse response) {
-		Inquilino inquilinoSalva = inquilinoRepository.save(inquilino);
-		try {
-			return inquilinoSalva;
-		} catch (EntidadeNaoEncontradaException e) {
-			throw new NegocioException(e.getMessage());
-		} catch (EntidadeRestricaoDeDadosException e) {
-			throw new NegocioException(e.getMessage());
-		}
-	}
+    @Autowired
+    private InquilinoMapper inquilinoMapper;
 
-	@DeleteMapping("/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@Override
-	public void remover(@PathVariable Long id) {
-		inquilinoService.excluir(id);
-	}
+    @GetMapping
+    @Override
+    public Page<Inquilino> pesquisar(InquilinoFilterDTO inquilinoFilterDTO, Pageable pageable) {
+        return inquilinoRepository.filtrar(inquilinoFilterDTO, pageable);
+    }
 
-	@PutMapping("/{id}")
-	@Override
-	public Inquilino atualizar(@PathVariable Long id, @Valid @RequestBody Inquilino inquilino) {
-		return this.inquilinoService.atualizar(id, inquilino);
-	}
-	
-	@GetMapping("/{id}")
-	@Override
-	public Inquilino buscarPeloId(@PathVariable Long id) {
-		Inquilino inquilino = inquilinoService.buscarOuFalhar(id);
-		return inquilino;
-	}
+    @GetMapping("/todos")
+    @Override
+    public List<InquilinoResponseDTO> listar() {
+        return inquilinoMapper.toListInquilinoResponse(inquilinoRepository.findAll());
+    }
+
+    @GetMapping("/todos/ativos")
+    @Override
+    public List<InquilinoResponseDTO> listarAtivos() {
+        return inquilinoMapper.toListInquilinoResponse(inquilinoRepository.listaInquilinosAtivos());
+    }
+
+    @PostMapping
+    @Override
+    public InquilinoResponseDTO criar(@Valid @RequestBody InquilinoPostDTO inquilinoPostDTO, HttpServletResponse response) {
+        try {
+            return inquilinoMapper.toInquilinoResponse(inquilinoRepository.save(inquilinoMapper.toInquilino(inquilinoPostDTO)));
+        } catch (EntidadeNaoEncontradaException e) {
+            throw new NegocioException(e.getMessage());
+        } catch (EntidadeRestricaoDeDadosException e) {
+            throw new NegocioException(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Override
+    public void remover(@PathVariable Long id) {
+        inquilinoService.excluir(id);
+    }
+
+    @PutMapping("/{id}")
+    @Override
+    public InquilinoResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody InquilinoPutDTO inquilinoPutDTO) {
+        return inquilinoMapper.toInquilinoResponse(this.inquilinoService.atualizar(id, inquilinoPutDTO));
+    }
+
+    @GetMapping("/{id}")
+    @Override
+    public InquilinoResponseDTO buscarPeloId(@PathVariable Long id) {
+        return inquilinoMapper.toInquilinoResponse(inquilinoService.buscarOuFalhar(id));
+    }
 
 }
 

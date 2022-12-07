@@ -2,6 +2,7 @@ package sis.apartamentos.com.br.repository.controle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +19,6 @@ import org.springframework.util.StringUtils;
 
 import sis.apartamentos.com.br.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.model.ControleLancamento;
-import sis.apartamentos.com.br.model.ControleLancamento_;
 import sis.apartamentos.com.br.repository.filter.ControleFilter;
 
 public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepositoryQuery{
@@ -32,7 +32,7 @@ public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepos
 		CriteriaQuery<ControleLancamento> criteria = builder.createQuery(ControleLancamento.class);
 		Root<ControleLancamento> root = criteria.from(ControleLancamento.class);
 		
-		criteria.orderBy(builder.asc(root.get(ControleLancamento_.status).get("statusControle")));
+		criteria.orderBy(builder.asc(root.get("status").get("statusControle")));
 		
 		Predicate[] predicates = criarRestricoes(controleFilter, builder, root);
 		criteria.where(predicates);
@@ -43,30 +43,32 @@ public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepos
 
 		return new PageImpl<>(query.getResultList(), pageable, total(controleFilter));
 	}
+
+	private static String DATA_PAGAMENTO = "dataPagamento";
 	
 	private Predicate[] criarRestricoes(ControleFilter controleFilter, CriteriaBuilder builder,
 			Root<ControleLancamento> root) {
 		List<Predicate> predicates = new ArrayList<>();
 		
 		if (controleFilter.getDataPagamentoDe() != null) {
-			predicates.add(builder.greaterThanOrEqualTo(root.get("dataPagamento"),
+			predicates.add(builder.greaterThanOrEqualTo(root.get(DATA_PAGAMENTO),
 					controleFilter.getDataPagamentoDe()));
 		}
 
 		if (controleFilter.getDataPagamentoAte() != null) {
-			predicates.add(builder.lessThanOrEqualTo(root.get("dataPagamento"),
+			predicates.add(builder.lessThanOrEqualTo(root.get(DATA_PAGAMENTO),
 					controleFilter.getDataPagamentoAte()));
 		}
 		
-		if (!StringUtils.isEmpty(controleFilter.getEntragaContaLuz())) {
+		if (!Objects.isNull(controleFilter.getEntragaContaLuz())) {
 			predicates.add(builder.equal((root.get("status").get("entragaContaLuz")), controleFilter.getEntragaContaLuz()));
 		}
 		
-		if (!StringUtils.isEmpty(controleFilter.getStatusApartamePagamentoLuz())) {
+		if (!Objects.isNull(controleFilter.getStatusApartamePagamentoLuz())) {
 			predicates.add(builder.equal((root.get("status").get("statusApartamePagamentoLuz")), controleFilter.getStatusApartamePagamentoLuz()));
 		}
 		
-		if (!StringUtils.isEmpty(controleFilter.getStatusApartamePagamento())) {
+		if (!Objects.isNull(controleFilter.getStatusApartamePagamento())) {
 			predicates.add(builder.equal((root.get("status").get("statusApartamePagamento")), controleFilter.getStatusApartamePagamento()));
 		}
 

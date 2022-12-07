@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,9 +57,6 @@ public class Predio implements Serializable {
 
 	@Column(name = "NUMERO")
 	private String numero;
-
-	public Predio() {
-	}
 
 	@Override
 	public int hashCode() {

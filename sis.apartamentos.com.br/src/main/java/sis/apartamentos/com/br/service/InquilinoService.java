@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import sis.apartamentos.com.br.controle.dto.inquilino.InquilinoPutDTO;
+import sis.apartamentos.com.br.controle.mapper.InquilinoMapper;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.InquilinoNaoEncontadoException;
 import sis.apartamentos.com.br.exception.PredioNaoEncontadoException;
@@ -18,6 +20,9 @@ public class InquilinoService {
 
 	@Autowired
 	private InquilinoRepository inquilinoRepository;
+
+	@Autowired
+	private InquilinoMapper inquilinoMapper;
 
 	public Inquilino buscarOuFalhar(Long idInquilino) {
 		return inquilinoRepository.findById(idInquilino).orElseThrow(() -> new InquilinoNaoEncontadoException(idInquilino));
@@ -34,7 +39,8 @@ public class InquilinoService {
 		}
 	}
 	
-	public Inquilino atualizar(Long idInquilino, Inquilino inquilino) {
+	public Inquilino atualizar(Long idInquilino, InquilinoPutDTO inquilinoPutDTO) {
+		Inquilino inquilino = inquilinoMapper.toInquilino(inquilinoPutDTO);
 		Inquilino inquilinoSalva = this.inquilinoRepository.findById(idInquilino)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(inquilino, inquilinoSalva, "id");

@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface ValorRepository extends JpaRepository<Valor, Long>, ValorRepositoryQuery{
 
-    @Query("select v from Valor v")
+    @Query("select v from ValorDTO v")
     List<Valor> listaValores();
 }

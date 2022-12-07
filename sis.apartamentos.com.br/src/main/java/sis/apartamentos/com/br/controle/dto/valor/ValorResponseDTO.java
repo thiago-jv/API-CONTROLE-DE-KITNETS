@@ -1,7 +1,6 @@
 package sis.apartamentos.com.br.controle.dto.valor;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 

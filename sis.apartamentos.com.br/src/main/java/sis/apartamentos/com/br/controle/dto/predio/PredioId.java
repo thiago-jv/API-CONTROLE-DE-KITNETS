@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PredioFilterDTO {
+public class PredioId {
 
-    @ApiModelProperty(value = "Descrição do predio", example = "predio x")
-    private String descricao;
+    @ApiModelProperty(value = "ID do predio", example = "1", required = true)
+    private Long id;
 }

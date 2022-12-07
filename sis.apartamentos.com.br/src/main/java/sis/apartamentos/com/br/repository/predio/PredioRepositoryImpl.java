@@ -3,6 +3,7 @@ package sis.apartamentos.com.br.repository.predio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,12 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.util.StringUtils;
 
 import sis.apartamentos.com.br.controle.dto.predio.PredioFilterDTO;
 import sis.apartamentos.com.br.controle.mapper.PredioMapper;
 import sis.apartamentos.com.br.model.Predio;
-import sis.apartamentos.com.br.model.Predio_;
 import sis.apartamentos.com.br.repository.filter.PredioFilter;
 
 public class PredioRepositoryImpl implements PredioRepositoryQuery {
@@ -40,7 +39,7 @@ public class PredioRepositoryImpl implements PredioRepositoryQuery {
 		CriteriaQuery<Predio> criteria = builder.createQuery(Predio.class);
 		Root<Predio> root = criteria.from(Predio.class);
 		
-		criteria.orderBy(builder.asc(root.get(Predio_.id)));
+		criteria.orderBy(builder.asc(root.get("id")));
 
 		Predicate[] predicates = criarRestricoes(predioFilter, builder, root);
 		criteria.where(predicates);
@@ -55,7 +54,7 @@ public class PredioRepositoryImpl implements PredioRepositoryQuery {
 			Root<Predio> root) {
 		List<Predicate> predicates = new ArrayList<>();
 
-		if (!StringUtils.isEmpty(predioFilter.getDescricao())) {
+		if (!Objects.isNull(predioFilter.getDescricao())) {
 			
 			predicates.add(builder.like((root.get("descricao")),
 					"%" + predioFilter.getDescricao() + "%"));

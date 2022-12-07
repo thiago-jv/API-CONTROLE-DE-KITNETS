@@ -6,17 +6,24 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoPutDTO;
+import sis.apartamentos.com.br.controle.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.exception.ApartamentoNaoEncontadoException;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.model.Apartamento;
 import sis.apartamentos.com.br.repository.ApartamentoRepository;
 import sis.apartamentos.com.br.utils.Messages;
 
+import java.io.Serializable;
+
 @Service
-public class ApartamentoService {
+public class ApartamentoService implements Serializable {
 
 	@Autowired
 	private ApartamentoRepository apartamentoRepository;
+
+	@Autowired
+	private ApartamentoMapper apartamentoMapper;
 
 	public Apartamento buscarOuFalhar(Long idApartamento) {
 		return apartamentoRepository.findById(idApartamento).orElseThrow(() -> new ApartamentoNaoEncontadoException(idApartamento));
@@ -33,7 +40,8 @@ public class ApartamentoService {
 		}
 	}
 	
-	public Apartamento atualizar(Long idApartamento, Apartamento apartamento) {
+	public Apartamento atualizar(Long idApartamento, ApartamentoPutDTO apartamentoPutDTO) {
+		Apartamento apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
 		Apartamento apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(apartamento, apartamentoSalva, "id");
