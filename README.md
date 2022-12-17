@@ -38,7 +38,9 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
  
  6- Maven 3.6.3 [Sobre](https://www.dclick.com.br/2010/09/15/o-que-e-o-maven-e-seus-primeiros-passos-com-a-ferramenta/)
  
- 7- PostgreSQL 9.6 [Sobre](https://www.postgresql.org/about/)
+ 7- PostgreSQL + pgadmin4 - docker [Sobre](https://hub.docker.com/_/postgres)
+ 
+ 8- Docker compose [Sobre](https://www.docker.com/)
  
  
 
@@ -52,10 +54,6 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 6- mvn package
 7- mvn spring-boot:run
 ```
-
-# Acesso ao banco POSTGRES
-
-![PostgreSql](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/tabelas_bd.png)
 
 ```
 spring.datasource.url=jdbc:postgresql://localhost:5432/dbprodapartamento
