@@ -6,8 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import sis.apartamentos.com.br.controle.dto.valor.ValorPutDTO;
-import sis.apartamentos.com.br.controle.mapper.ValorMapper;
+import sis.apartamentos.com.br.controle.v1.dto.valor.ValorPutDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.ValorMapper;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.ValorNaoEncontadoException;
 import sis.apartamentos.com.br.model.Valor;

@@ -11,12 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@ToString
 @Table(name = "VALOR", schema = "public")
 public class Valor implements Serializable {
 
@@ -33,6 +38,10 @@ public class Valor implements Serializable {
 
 	@Column(name = "VALOR", nullable = false, unique = true)
 	private BigDecimal valor = BigDecimal.ZERO;
+
+	public Valor() {
+
+	}
 
 	@Override
 	public int hashCode() {
@@ -57,11 +66,6 @@ public class Valor implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Valor [id=" + id + ", valor=" + valor + "]";
 	}
 
 }

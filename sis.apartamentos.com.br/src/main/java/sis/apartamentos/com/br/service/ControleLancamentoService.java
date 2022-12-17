@@ -15,6 +15,11 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import sis.apartamentos.com.br.controle.v1.dto.apartamento.ApartamentoPutDTO;
+import sis.apartamentos.com.br.controle.v1.dto.controleLancamento.ControleLancamentoPostDTO;
+import sis.apartamentos.com.br.controle.v1.dto.controleLancamento.ControleLancamentoPutDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.ApartamentoMapper;
+import sis.apartamentos.com.br.controle.v1.mapper.ControleLancamentoMapper;
 import sis.apartamentos.com.br.exception.ControleLancamentoNaoEncontadoException;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.PredioNaoEncontadoException;
@@ -47,7 +52,14 @@ public class ControleLancamentoService {
 	@Autowired
 	private CalcularValorPago calcularValorPago;
 
-	public ControleLancamento salvar(ControleLancamento controleLancamento) {
+	@Autowired
+	private ControleLancamentoMapper controleLancamentoMapper;
+
+	@Autowired
+	private ApartamentoMapper apartamentoMapper;
+
+	public ControleLancamento salvar(ControleLancamentoPostDTO controleLancamentoPostDTO) {
+        var controleLancamento = controleLancamentoMapper.toControleLancamento(controleLancamentoPostDTO);
 		Apartamento apartamento = BuscaApartamentos(controleLancamento);
 		apartamento.setStatusApartamento(Constantes.OCUPADO);
 		apartamentoRepository.save(apartamento);
@@ -65,6 +77,10 @@ public class ControleLancamentoService {
 
 	public void excluir(Long idControle) {
 		try {
+			var lancamento = buscarOuFalhar(idControle);
+			var apartamento = apartamentoService.buscarOuFalhar(lancamento.getApartamento().getId());
+			var apartamentoPutDTO = apartamentoMapper.toApartamentoPutDTO(lancamento.getApartamento());
+			apartamentoService.atualizaStatusParaDisponivel(lancamento.getApartamento().getId(), apartamentoPutDTO);
 			controleLancamentoRepository.deleteById(idControle);
 			controleLancamentoRepository.flush();
 		} catch (EmptyResultDataAccessException e) {
@@ -103,7 +119,8 @@ public class ControleLancamentoService {
 
 	}
 	
-	public ControleLancamento atualizar(Long idControle, ControleLancamento controleLancamento) {
+	public ControleLancamento atualizar(Long idControle, ControleLancamentoPutDTO controleLancamentoPutDTO) {
+		var controleLancamento = controleLancamentoMapper.toControleLancamento(controleLancamentoPutDTO);
 		ControleLancamento controleLancamentoSalva = this.controleLancamentoRepository.findById(idControle)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(controleLancamento, controleLancamentoSalva, "id");

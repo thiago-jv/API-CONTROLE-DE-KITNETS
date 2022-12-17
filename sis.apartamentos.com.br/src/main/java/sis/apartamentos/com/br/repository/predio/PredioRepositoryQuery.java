@@ -3,7 +3,7 @@ package sis.apartamentos.com.br.repository.predio;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import sis.apartamentos.com.br.controle.dto.predio.PredioFilterDTO;
+import sis.apartamentos.com.br.controle.v1.dto.predio.PredioFilterDTO;
 import sis.apartamentos.com.br.model.Predio;
 
 public interface PredioRepositoryQuery {

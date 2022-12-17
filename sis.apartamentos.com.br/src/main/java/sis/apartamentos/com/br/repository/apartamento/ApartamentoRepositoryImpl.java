@@ -17,8 +17,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
-import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoFilterDTO;
-import sis.apartamentos.com.br.controle.mapper.ApartamentoMapper;
+import sis.apartamentos.com.br.controle.v1.dto.apartamento.ApartamentoFilterDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.model.Apartamento;
 import sis.apartamentos.com.br.repository.filter.ApartamentoFilter;
 
@@ -32,7 +32,7 @@ public class ApartamentoRepositoryImpl implements ApartamentoRepositoryQuery{
 
 	@Override
 	public Page<Apartamento> filtrar(ApartamentoFilterDTO apartamentoFilterDTO, Pageable pageable) {
-		ApartamentoFilter apartamentoFilter = apartamentoMapper.toApartamentoFilter(apartamentoFilterDTO);
+		var apartamentoFilter = apartamentoMapper.toApartamentoFilter(apartamentoFilterDTO);
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<Apartamento> criteria = builder.createQuery(Apartamento.class);
 		Root<Apartamento> root = criteria.from(Apartamento.class);

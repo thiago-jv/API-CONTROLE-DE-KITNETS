@@ -12,10 +12,10 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import sis.apartamentos.com.br.controle.dto.predio.PredioFilterDTO;
-import sis.apartamentos.com.br.controle.dto.predio.PredioPostDTO;
-import sis.apartamentos.com.br.controle.dto.predio.PredioPutDTO;
-import sis.apartamentos.com.br.controle.dto.predio.PredioResponseDTO;
+import sis.apartamentos.com.br.controle.v1.dto.predio.PredioFilterDTO;
+import sis.apartamentos.com.br.controle.v1.dto.predio.PredioPostDTO;
+import sis.apartamentos.com.br.controle.v1.dto.predio.PredioPutDTO;
+import sis.apartamentos.com.br.controle.v1.dto.predio.PredioResponseDTO;
 import sis.apartamentos.com.br.exception.handler.Problema;
 import sis.apartamentos.com.br.model.Predio;
 

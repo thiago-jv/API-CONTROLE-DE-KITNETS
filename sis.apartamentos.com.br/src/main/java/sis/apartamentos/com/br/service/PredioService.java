@@ -6,8 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import sis.apartamentos.com.br.controle.dto.predio.PredioPutDTO;
-import sis.apartamentos.com.br.controle.mapper.PredioMapper;
+import sis.apartamentos.com.br.controle.v1.dto.predio.PredioPutDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.PredioMapper;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.PredioNaoEncontadoException;
 import sis.apartamentos.com.br.model.Predio;
@@ -45,5 +45,6 @@ public class PredioService {
 		BeanUtils.copyProperties(predio, predioSalva, "id");
 		return this.predioRepository.save(predioSalva);
 	}
+
 	
 }

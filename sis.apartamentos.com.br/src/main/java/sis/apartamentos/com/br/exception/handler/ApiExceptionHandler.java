@@ -33,6 +33,8 @@ import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.EntidadeNaoEncontradaException;
 import sis.apartamentos.com.br.exception.NegocioException;
 
+import static java.util.stream.Collectors.*;
+
 @Slf4j
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
@@ -190,8 +192,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	}
 	
 	private Problema.ProblemaBuilder createProblemaBuilder(HttpStatus status, TipoProblema tipoProblema, String detail) {
-	    
-		
 		return Problema.builder().status(status.value())
 				.dataHora(OffsetDateTime.now())
 				.status(status.value())
@@ -227,9 +227,9 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 
 	    TipoProblema tipoProblema = TipoProblema.PARAMETRO_INVALIDO;
 
-	    String detail = String.format("O parâmetro de URL '%s' recebeu o valor '%s', "
-	            + "que é de um tipo inválido. Corrija e informe um valor compatível com o tipo %s.",
-	            ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName());
+		String detail = String.format("O parâmetro de URL '%s' recebeu o valor '%s', "
+							+ "que é de um tipo inválido. Corrija e informe um valor compatível com o tipo %s.",
+					ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName());
 
 	    Problema problema = createProblemaBuilder(status, tipoProblema, detail)
 	    		.mensagemUsuario(detail)
@@ -292,7 +292,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 		TipoProblema tipoProblema = TipoProblema.DADOS_INVALIDOS;
 		String detail = "Um ou mais campos estão inválidos. Faça o preenchimentocorreto e tente novamente";
 		
-		
 		List<Problema.Campo> camposComProblemas = bindingResult.getFieldErrors().stream()
 				.map(campoErro -> {
 					
@@ -303,7 +302,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 						.mensagemUsuario(message)
 						.build();
 				})
-				.collect(Collectors.toList());
+				.collect(toList());
 		
 		Problema problema = createProblemaBuilder(status, tipoProblema, detail)
 		    .mensagemUsuario(detail)
@@ -315,8 +314,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	private String joinPath(java.util.List<Reference> references) {
 	    return references.stream()
-	        .map(ref -> ref.getFieldName())
-	        .collect(Collectors.joining("."));
+	        .map(Reference::getFieldName)
+	        .collect(joining("."));
 	}
 	
 }

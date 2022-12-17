@@ -12,12 +12,17 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@ToString
 @Table(name = "PREDIO", schema = "public")
 public class Predio implements Serializable {
 
@@ -58,6 +63,10 @@ public class Predio implements Serializable {
 	@Column(name = "NUMERO")
 	private String numero;
 
+	public Predio() {
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,13 +90,6 @@ public class Predio implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Predio [id=" + id + ", descricao=" + descricao + ", cep=" + cep + ", logradouro=" + logradouro
-				+ ", complemento=" + complemento + ", bairro=" + bairro + ", uf=" + uf + ", localidade=" + localidade
-				+ ", numero=" + numero + "]";
 	}
 
 }

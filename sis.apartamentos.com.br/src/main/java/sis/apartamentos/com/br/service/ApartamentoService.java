@@ -6,12 +6,13 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import sis.apartamentos.com.br.controle.dto.apartamento.ApartamentoPutDTO;
-import sis.apartamentos.com.br.controle.mapper.ApartamentoMapper;
+import sis.apartamentos.com.br.controle.v1.dto.apartamento.ApartamentoPutDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.exception.ApartamentoNaoEncontadoException;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.model.Apartamento;
 import sis.apartamentos.com.br.repository.ApartamentoRepository;
+import sis.apartamentos.com.br.utils.Constantes;
 import sis.apartamentos.com.br.utils.Messages;
 
 import java.io.Serializable;
@@ -41,6 +42,15 @@ public class ApartamentoService implements Serializable {
 	}
 	
 	public Apartamento atualizar(Long idApartamento, ApartamentoPutDTO apartamentoPutDTO) {
+		Apartamento apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
+		Apartamento apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
+				.orElseThrow(() -> new EmptyResultDataAccessException(1));
+		BeanUtils.copyProperties(apartamento, apartamentoSalva, "id");
+		return this.apartamentoRepository.save(apartamentoSalva);
+	}
+
+	public Apartamento atualizaStatusParaDisponivel(Long idApartamento, ApartamentoPutDTO apartamentoPutDTO) {
+		apartamentoPutDTO.setStatusApartamento(Constantes.DISPONIVEL);
 		Apartamento apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
 		Apartamento apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));

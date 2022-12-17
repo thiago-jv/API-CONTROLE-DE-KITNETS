@@ -6,8 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import sis.apartamentos.com.br.controle.dto.inquilino.InquilinoPutDTO;
-import sis.apartamentos.com.br.controle.mapper.InquilinoMapper;
+import sis.apartamentos.com.br.controle.v1.dto.inquilino.InquilinoPutDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.InquilinoMapper;
 import sis.apartamentos.com.br.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.exception.InquilinoNaoEncontadoException;
 import sis.apartamentos.com.br.exception.PredioNaoEncontadoException;

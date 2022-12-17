@@ -18,8 +18,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
-import sis.apartamentos.com.br.controle.dto.valor.ValorFilterDTO;
-import sis.apartamentos.com.br.controle.mapper.ValorMapper;
+import sis.apartamentos.com.br.controle.v1.dto.valor.ValorFilterDTO;
+import sis.apartamentos.com.br.controle.v1.mapper.ValorMapper;
 import sis.apartamentos.com.br.model.Valor;
 import sis.apartamentos.com.br.repository.filter.ValorFilter;
 

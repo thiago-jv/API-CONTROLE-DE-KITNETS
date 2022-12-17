@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+   sgdb-postgres-compose:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=bdapartamento
+    ports:
+      - "15432:5432"
+    volumes:
+      - C:\PostgreSQL:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+   pgadmin-compose:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "16543:80"
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

@@ -10,13 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import sis.apartamentos.com.br.utils.Constantes;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@ToString
 @Table(name = "INQUILINO", schema = "public")
 public class Inquilino implements Serializable {
 
@@ -52,6 +57,10 @@ public class Inquilino implements Serializable {
 	@Column(name = "cpf", length = 11, unique = true)
 	private String cpf;
 
+	public Inquilino() {
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -75,12 +84,6 @@ public class Inquilino implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Inquilino [id=" + id + ", nome=" + nome + ", email=" + email + ", contato=" + contato + ", genero="
-				+ genero + ", cpf=" + cpf + "]";
 	}
 
 }

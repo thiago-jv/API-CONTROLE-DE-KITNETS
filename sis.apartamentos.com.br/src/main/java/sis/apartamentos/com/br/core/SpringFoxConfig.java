@@ -6,8 +6,6 @@ import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,23 +14,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.fasterxml.classmate.TypeResolver;
 
 import sis.apartamentos.com.br.exception.handler.Problema;
-import sis.apartamentos.com.br.model.Apartamento;
-import sis.apartamentos.com.br.model.ControleLancamento;
-import sis.apartamentos.com.br.model.Inquilino;
-import sis.apartamentos.com.br.model.Predio;
-import sis.apartamentos.com.br.model.Valor;
-import sis.apartamentos.com.br.openapi.model.ApartamentoModelOpenApi;
-import sis.apartamentos.com.br.openapi.model.ControleLancamentoModelOpenApi;
-import sis.apartamentos.com.br.openapi.model.InquilinoModelOpenApi;
-import sis.apartamentos.com.br.openapi.model.PageableOpenApi;
-import sis.apartamentos.com.br.openapi.model.PredioModelOpenApi;
-import sis.apartamentos.com.br.openapi.model.ValorModelOpenApi;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseMessageBuilder;
-import springfox.documentation.schema.AlternateTypeRules;
 import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -63,34 +49,6 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 		            .globalResponseMessage(RequestMethod.PUT, globalPostPutResponseMessages())
 		            .globalResponseMessage(RequestMethod.DELETE, globalDeleteResponseMessages())
 		            .additionalModels(typeResolver.resolve(Problema.class))
-		            .ignoredParameterTypes(
-		            		ValorModelOpenApi.class, 
-		            		PredioModelOpenApi.class, 
-		            		InquilinoModelOpenApi.class, 
-		            		ControleLancamentoModelOpenApi.class, 
-		            		ApartamentoModelOpenApi.class)
-		            .directModelSubstitute(Pageable.class, PageableOpenApi.class)
-		            
-		            .alternateTypeRules(AlternateTypeRules.newRule(
-		                    typeResolver.resolve(Page.class, Valor.class),
-		                    ValorModelOpenApi.class))
-		            
-		            .alternateTypeRules(AlternateTypeRules.newRule(
-		                    typeResolver.resolve(Page.class, Apartamento.class),
-		                    ApartamentoModelOpenApi.class))
-		            
-		            .alternateTypeRules(AlternateTypeRules.newRule(
-		                    typeResolver.resolve(Page.class, Predio.class),
-		                    PredioModelOpenApi.class))
-		            
-		            .alternateTypeRules(AlternateTypeRules.newRule(
-		                    typeResolver.resolve(Page.class, Inquilino.class),
-		                    InquilinoModelOpenApi.class))
-		            
-		            .alternateTypeRules(AlternateTypeRules.newRule(
-		                    typeResolver.resolve(Page.class, ControleLancamento.class),
-		                    ControleLancamentoModelOpenApi.class))
-		                        
 		            .apiInfo(apiInfo());
 	}
 

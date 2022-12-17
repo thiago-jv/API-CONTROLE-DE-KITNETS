@@ -15,6 +15,7 @@ public class CalculaValoresDiaria {
 		
 		BigDecimal valorDiaria = controleLancamento.getValores().getValorApartamento().divide(dias,
 				MathContext.DECIMAL128);
+
 		controleLancamento.getValores().setValorDiaria(valorDiaria);
 		
 		controleLancamento.getValores().setValorTotalDiaria(dias.multiply(controleLancamento.getValores().getValorDiaria()));

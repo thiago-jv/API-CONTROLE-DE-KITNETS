@@ -14,12 +14,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@ToString
 @Table(name = "CONTROLE_LANCAMENTO", schema = "public")
 public class ControleLancamento implements Serializable {
 
@@ -64,6 +69,10 @@ public class ControleLancamento implements Serializable {
 	@JoinColumn(name = "ID_APARTAMENTO", referencedColumnName = "ID", nullable = false)
 	private Apartamento apartamento;
 
+	public ControleLancamento() {
+
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,14 +96,6 @@ public class ControleLancamento implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "ControleLancamento [id=" + id + ", dataLancamento=" + dataLancamento + ", dataEntrada=" + dataEntrada
-				+ ", dataPagamento=" + dataPagamento + ", observacao=" + observacao + ", status=" + status
-				+ ", valores=" + valores + ", valor=" + valor + ", inquilino=" + inquilino + ", apartamento="
-				+ apartamento + "]";
 	}
 
 }

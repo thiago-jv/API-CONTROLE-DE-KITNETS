@@ -16,7 +16,7 @@ public class CalculaDias {
 	
 	public ControleLancamento calculaDia(ControleLancamento controleLancamento) {
 		if(diferencaDias.calculaDia(controleLancamento) > 0) {
-			controleLancamento.getValores().setDia(diferencaDias.calculaDia(controleLancamento) -1);
+			controleLancamento.getValores().setDia(diferencaDias.calculaDia(controleLancamento) +1);
 		}
 		
 	   calculaValorDiaria.valculaDiaria(controleLancamento);

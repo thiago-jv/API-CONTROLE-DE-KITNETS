@@ -1,9 +1,0 @@
-package sis.apartamentos.com.br.openapi.model;
-
-import io.swagger.annotations.ApiModel;
-import sis.apartamentos.com.br.model.Valor;
-
-@ApiModel("ValorModel")
-public class ValorModelOpenApi extends PagedModelOpenApi<Valor>{
-	
-}
