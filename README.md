@@ -42,6 +42,8 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
  
  8- Docker compose [Sobre](https://www.docker.com/)
  
+ 9- Ireport Designer [Sobre](https://community.jaspersoft.com/) 
+ 
  
 
 # Proceso para rodar o projeto
