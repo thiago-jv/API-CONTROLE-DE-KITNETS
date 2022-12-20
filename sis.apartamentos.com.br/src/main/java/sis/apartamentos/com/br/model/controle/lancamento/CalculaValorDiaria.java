@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 import sis.apartamentos.com.br.model.ControleLancamento;
 
 @Component
-public class CalculaValoresDiaria {
+public class CalculaValorDiaria {
 
-	public ControleLancamento valculaDiaria(ControleLancamento controleLancamento) {
+	public ControleLancamento calculaDiaria(ControleLancamento controleLancamento) {
 		BigDecimal dias = new BigDecimal(controleLancamento.getValores().getDia());
-		
-		BigDecimal valorDiaria = controleLancamento.getValores().getValorApartamento().divide(dias,
+		int diasDoMes = controleLancamento.getDataEntrada().lengthOfMonth();
+		BigDecimal valorDiaria = controleLancamento.getValores().getValorApartamento().divide(BigDecimal.valueOf(diasDoMes),
 				MathContext.DECIMAL128);
 
 		controleLancamento.getValores().setValorDiaria(valorDiaria);

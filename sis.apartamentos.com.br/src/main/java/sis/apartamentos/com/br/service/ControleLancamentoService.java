@@ -15,7 +15,6 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import sis.apartamentos.com.br.controle.v1.dto.apartamento.ApartamentoPutDTO;
 import sis.apartamentos.com.br.controle.v1.dto.controleLancamento.ControleLancamentoPostDTO;
 import sis.apartamentos.com.br.controle.v1.dto.controleLancamento.ControleLancamentoPutDTO;
 import sis.apartamentos.com.br.controle.v1.mapper.ApartamentoMapper;
@@ -28,6 +27,7 @@ import sis.apartamentos.com.br.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.model.Apartamento;
 import sis.apartamentos.com.br.model.ControleLancamento;
 import sis.apartamentos.com.br.model.controle.lancamento.CalculaDias;
+import sis.apartamentos.com.br.model.controle.lancamento.CalculaValorDiaria;
 import sis.apartamentos.com.br.model.controle.lancamento.CalcularValorPago;
 import sis.apartamentos.com.br.repository.ApartamentoRepository;
 import sis.apartamentos.com.br.repository.ControleLancamentoRepository;
@@ -56,6 +56,8 @@ public class ControleLancamentoService {
 	private ControleLancamentoMapper controleLancamentoMapper;
 
 	@Autowired
+	private CalculaValorDiaria calculaValoresDiaria;
+	@Autowired
 	private ApartamentoMapper apartamentoMapper;
 
 	public ControleLancamento salvar(ControleLancamentoPostDTO controleLancamentoPostDTO) {
@@ -65,8 +67,9 @@ public class ControleLancamentoService {
 		apartamentoRepository.save(apartamento);
 		controleLancamento.getStatus().setStatusApartamePagamento(Constantes.DEBITO);
 		calculaDias.calculaDia(controleLancamento);
+		calculaValoresDiaria.calculaDiaria(controleLancamento);
 		calcularValorPago.calcularValorPagoApartamento(controleLancamento);
-		listaPorDataDeEntrada(controleLancamento);
+		validaInquilinoEApartamentoPorDataDeEntrada(controleLancamento);
 		return controleLancamentoRepository.save(controleLancamento);
 	}
 
@@ -124,13 +127,13 @@ public class ControleLancamentoService {
 		ControleLancamento controleLancamentoSalva = this.controleLancamentoRepository.findById(idControle)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(controleLancamento, controleLancamentoSalva, "id");
-		calculaDias.calculaDia(controleLancamentoSalva);
-		calcularValorPago.calcularValorPagoApartamento(controleLancamentoSalva);
+		calculaDias.calculaDia(controleLancamento);
+		calculaValoresDiaria.calculaDiaria(controleLancamento);
+		calcularValorPago.calcularValorPagoApartamento(controleLancamento);
 		return this.controleLancamentoRepository.save(controleLancamentoSalva);
 	}
 
-
-	public void listaPorDataDeEntrada(ControleLancamento controleLancamento) {
+	public void validaInquilinoEApartamentoPorDataDeEntrada(ControleLancamento controleLancamento) {
 		List<ControleLancamento> result = controleLancamentoRepository.listaControleLancamentosPorDataDeEntrada(
 				controleLancamento.getInquilino().getId(), controleLancamento.getApartamento().getId(),
 				controleLancamento.getDataEntrada(), controleLancamento.getDataPagamento());

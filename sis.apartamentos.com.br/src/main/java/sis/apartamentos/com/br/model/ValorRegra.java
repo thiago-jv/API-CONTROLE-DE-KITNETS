@@ -27,7 +27,7 @@ public class ValorRegra implements Serializable {
 	private BigDecimal valorApartamento = BigDecimal.ZERO;
 
 	@Column(name = "VALOR_DEBITO_APARTAMENTO")
-	private BigDecimal valorDebitoApartamento;
+	private BigDecimal valorDebitoApartamento = BigDecimal.ZERO;
 
 	@Column(name = "DIA", nullable = false)
 	private Long dia;

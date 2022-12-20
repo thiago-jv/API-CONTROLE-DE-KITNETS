@@ -1,9 +1,0 @@
-
-i
-java:S1192/"NDefine a constant instead of duplicating this literal "dataPagamento" 3 times.(“ðš›ýÿÿÿÿ
-]
-java:S1192#"GDefine a constant instead of duplicating this literal "status" 4 times.(×Ží€
-t
-java:S3008/"YRename this field "DATA_PAGAMENTO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ðš›ýÿÿÿÿ
-V
-java:S1128"ARemove this unused import 'org.springframework.util.StringUtils'.(Ðôÿ

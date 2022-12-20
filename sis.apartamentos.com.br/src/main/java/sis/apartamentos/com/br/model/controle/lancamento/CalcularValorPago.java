@@ -1,6 +1,7 @@
 package sis.apartamentos.com.br.model.controle.lancamento;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.MathContext;
 
 import org.springframework.stereotype.Component;
@@ -13,6 +14,11 @@ public class CalcularValorPago {
 
 	public ControleLancamento calcularValorPagoApartamento(ControleLancamento controleLancamento) {
 		if (validaValorPagoApartamento(controleLancamento)) {
+
+			if(controleLancamento.getValores().getValorDebitoApartamento() == null){
+				controleLancamento.getValores().setValorDebitoApartamento(new BigDecimal(BigInteger.ZERO));
+			}
+
 			controleLancamento.getValores()
 					.setValorDebitoApartamento(controleLancamento.getValores().getValorTotalDiaria().subtract(
 							controleLancamento.getValores().getValorPagoApartamento(), MathContext.DECIMAL128));
