@@ -1,4 +1,4 @@
-Projeto demonstrativo para controle de kitnets cosumindo API externa de ViaCep(https://viacep.com.br/), utilizando SpringBoot, Rest Api, SpringData, Mavens, PostgreSQL, RestTemplate, DTO e Design Patterns.
+Projeto demonstrativo para controle de kitnets cosumindo API externa de ViaCep(https://viacep.com.br/), utilizando SpringBoot, Rest Api, SpringData, Maven, PostgreSQL, Docker compose, MapStruct, RestTemplate, DTO e Design Patterns.
 
 # Projeto Front-End
 Apos rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://github.com/thiago-jv/UI-CONTROLE-DE-KITNETS)
@@ -12,7 +12,7 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 # Estrutura do projeto
 
-![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura-projeto.png)
+![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/strutura-projeto.png)
 
 # ViaCep
 
@@ -38,7 +38,11 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
  
  6- Maven 3.6.3 [Sobre](https://www.dclick.com.br/2010/09/15/o-que-e-o-maven-e-seus-primeiros-passos-com-a-ferramenta/)
  
- 7- PostgreSQL 9.6 [Sobre](https://www.postgresql.org/about/)
+ 7- PostgreSQL + pgadmin4 - docker [Sobre](https://hub.docker.com/_/postgres)
+ 
+ 8- Docker compose [Sobre](https://www.docker.com/)
+ 
+ 9- Ireport Designer [Sobre](https://community.jaspersoft.com/) 
  
  
 
@@ -51,14 +55,4 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 5- mvn dependency:tree
 6- mvn package
 7- mvn spring-boot:run
-```
-
-# Acesso ao banco POSTGRES
-
-![PostgreSql](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/tabelas_bd.png)
-
-```
-spring.datasource.url=jdbc:postgresql://localhost:5432/dbprodapartamento
-spring.datasource.username=postgres
-spring.datasource.password=root
 ```
