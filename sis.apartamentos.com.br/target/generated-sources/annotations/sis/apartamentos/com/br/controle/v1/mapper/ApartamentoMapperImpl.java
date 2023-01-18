@@ -15,7 +15,7 @@ import sis.apartamentos.com.br.repository.filter.ApartamentoFilter;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-17T17:30:22-0300",
+    date = "2023-01-18T18:12:34-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.4.1 (Oracle Corporation)"
 )
 @Component
@@ -44,7 +44,7 @@ public class ApartamentoMapperImpl implements ApartamentoMapper {
 
         Apartamento apartamento = new Apartamento();
 
-        apartamento.setNumero( apartamentoPostDTO.getNumero() );
+        apartamento.setNumeroApartamento( apartamentoPostDTO.getNumeroApartamento() );
         apartamento.setDescricao( apartamentoPostDTO.getDescricao() );
         apartamento.setMedidor( apartamentoPostDTO.getMedidor() );
         apartamento.setStatusApartamento( apartamentoPostDTO.getStatusApartamento() );
@@ -62,7 +62,7 @@ public class ApartamentoMapperImpl implements ApartamentoMapper {
         ApartamentoPutDTO apartamentoPutDTO = new ApartamentoPutDTO();
 
         apartamentoPutDTO.setId( apartamento.getId() );
-        apartamentoPutDTO.setNumero( apartamento.getNumero() );
+        apartamentoPutDTO.setNumeroApartamento( apartamento.getNumeroApartamento() );
         apartamentoPutDTO.setDescricao( apartamento.getDescricao() );
         apartamentoPutDTO.setMedidor( apartamento.getMedidor() );
         apartamentoPutDTO.setStatusApartamento( apartamento.getStatusApartamento() );
@@ -80,7 +80,7 @@ public class ApartamentoMapperImpl implements ApartamentoMapper {
         Apartamento apartamento = new Apartamento();
 
         apartamento.setId( apartamentoPutDTO.getId() );
-        apartamento.setNumero( apartamentoPutDTO.getNumero() );
+        apartamento.setNumeroApartamento( apartamentoPutDTO.getNumeroApartamento() );
         apartamento.setDescricao( apartamentoPutDTO.getDescricao() );
         apartamento.setMedidor( apartamentoPutDTO.getMedidor() );
         apartamento.setStatusApartamento( apartamentoPutDTO.getStatusApartamento() );
@@ -98,7 +98,7 @@ public class ApartamentoMapperImpl implements ApartamentoMapper {
         ApartamentoResponseDTO apartamentoResponseDTO = new ApartamentoResponseDTO();
 
         apartamentoResponseDTO.setId( apartamento.getId() );
-        apartamentoResponseDTO.setNumero( apartamento.getNumero() );
+        apartamentoResponseDTO.setNumeroApartamento( apartamento.getNumeroApartamento() );
         apartamentoResponseDTO.setDescricao( apartamento.getDescricao() );
         apartamentoResponseDTO.setMedidor( apartamento.getMedidor() );
         apartamentoResponseDTO.setStatusApartamento( apartamento.getStatusApartamento() );

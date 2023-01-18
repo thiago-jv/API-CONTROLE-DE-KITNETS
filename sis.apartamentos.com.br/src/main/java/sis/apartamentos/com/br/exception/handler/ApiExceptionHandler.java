@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -311,7 +312,21 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler{
 		
 		return handleExceptionInternal(ex, problema, headers, status, request);
 	}
-	
+
+	// trata quando acesso negado
+	@ExceptionHandler(AccessDeniedException.class)
+	public ResponseEntity<Object> handleAccessDeniedException(Exception ex, WebRequest request) {
+		HttpStatus status = HttpStatus.FORBIDDEN;
+		TipoProblema tipoProblema = TipoProblema.ACESSO_NEGADO;
+
+		Problema problema = createProblemaBuilder(status, tipoProblema, ex.getMessage())
+				.mensagemUsuario(ex.getMessage())
+				.build();
+
+		return handleExceptionInternal(ex, problema, new HttpHeaders(),
+				status, request);
+	}
+
 	private String joinPath(java.util.List<Reference> references) {
 	    return references.stream()
 	        .map(Reference::getFieldName)

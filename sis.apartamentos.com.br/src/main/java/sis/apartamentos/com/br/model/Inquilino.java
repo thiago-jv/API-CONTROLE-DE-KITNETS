@@ -39,7 +39,7 @@ public class Inquilino implements Serializable {
 	@Column(name = "NOME", length = 90, nullable = false)
 	private String nome;
 
-	@Column(name = "NOME_ABREVIADO", length = 20, nullable = false)
+	@Column(name = "NOMEABREVIADO", length = 20, nullable = false)
 	private String nomeAbreviado;
 
 	@Column(name = "EMAIL", length = 90)
@@ -54,7 +54,7 @@ public class Inquilino implements Serializable {
 	@Column(name = "GENERO", length = 20, nullable = false)
 	private String genero = Constantes.MASCULINO;
 
-	@Column(name = "cpf", length = 11, unique = true)
+	@Column(name = "CPF", length = 11, unique = true)
 	private String cpf;
 
 	public Inquilino() {

@@ -1,11 +1,11 @@
-package sis.apartamentos.com.br.config.property;
+package sis.apartamentos.com.br.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("apartamento")
 public class ApartamentoApiProperty {
 
-	private String originPermitida = "http://localhost:8080";
+	private String originPermitida = "http://localhost:8089";
 	
 	private final Seguranca seguranca = new Seguranca();
 

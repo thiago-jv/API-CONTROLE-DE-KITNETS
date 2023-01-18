@@ -11,7 +11,7 @@ public class ApartamentoResponseDTO {
 
     private Long id;
 
-    private String numero;
+    private String numeroApartamento;
 
     private String descricao;
 

@@ -14,19 +14,19 @@ import java.io.Serializable;
 @Embeddable
 public class Status implements Serializable {
 
-	@Column(name = "STATUS_ENTREGA_CONTA_LUZ", length = 20, nullable = false)
+	@Column(name = "STATUSENTREGACONTALUZ", length = 20, nullable = false)
 	private String entragaContaLuz = Constantes.NAO;
 
-	@Column(name = "STATUS_APARTAMENTO_LUZ", length = 20, nullable = false)
+	@Column(name = "STATUSAPARTAMENTOLUZ", length = 20, nullable = false)
 	private String statusApartamePagamentoLuz = Constantes.PAGO;
 
-	@Column(name = "STATUS_APARTAMENTO_PAGAMENTO", length = 20, nullable = false)
+	@Column(name = "STATUSAPARTAMENTOPAGAMENTO", length = 20, nullable = false)
 	private String statusApartamePagamento = Constantes.PAGO;
 
-	@Column(name = "STATUS_PROXIMO_PAGAMENTO", length = 20, nullable = false)
+	@Column(name = "STATUSPROXIMOPAGAMENTO", length = 20, nullable = false)
 	private String statusProximoPagamento = Constantes.PAGO;
 
-	@Column(name = "STATUS_CONTROLE", nullable = false)
+	@Column(name = "STATUSCONTROLE", nullable = false)
 	private boolean statusControle = true;
 
 }

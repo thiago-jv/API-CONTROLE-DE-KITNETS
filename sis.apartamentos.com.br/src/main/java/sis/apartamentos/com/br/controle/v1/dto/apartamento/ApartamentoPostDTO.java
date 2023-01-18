@@ -11,7 +11,7 @@ import sis.apartamentos.com.br.utils.Constantes;
 public class ApartamentoPostDTO {
 
     @ApiModelProperty(value = "Número do apartamento", example = "01", required = true)
-    private String numero;
+    private String numeroApartamento;
 
     @ApiModelProperty(value = "Descrição do apartamento", example = "1", required = true)
     private String descricao;

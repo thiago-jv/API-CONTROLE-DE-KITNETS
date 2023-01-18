@@ -13,14 +13,14 @@ import java.time.LocalDate;
 @Setter
 public class ControleLancamentoPostDTO {
 
-    @ApiModelProperty(value = "Data lançamento do controle lançamento", example = "25-02-1989", required = true)
+    @ApiModelProperty(value = "Data lançamento do controle lançamento", example = "25/02/1989", required = true)
     private LocalDate dataLancamento = LocalDate.now();
 
-    @ApiModelProperty(value = "Data de entrada controle lançamento", example = "25-02-1989", required = true)
-    private LocalDate dataEntrada;
+    @ApiModelProperty(value = "Data de entrada controle lançamento", example = "25/02/1989", required = true)
+    private LocalDate dataEntrada = LocalDate.now();
 
-    @ApiModelProperty(value = "Data de pagamento controle lançamento", example = "25-02-1989", required = true)
-    private LocalDate dataPagamento;
+    @ApiModelProperty(value = "Data de pagamento controle lançamento", example = "25/02/1989", required = true)
+    private LocalDate dataPagamento = LocalDate.now();
 
     @ApiModelProperty(value = "Observação controle lançamento", example = "minhas obs...")
     private String observacao;

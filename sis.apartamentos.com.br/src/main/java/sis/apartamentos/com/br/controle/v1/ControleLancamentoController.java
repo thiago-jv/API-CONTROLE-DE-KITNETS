@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,24 +59,28 @@ public class ControleLancamentoController implements Serializable, ControleLanca
 
 	@GetMapping("/estatistica/por-apartamento")
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')" )
 	public List<ControleLancamentoResponseDTO> porApartamento(LancamentoControleFilter filtro){
 		return controleLancamentoMapper.toListControleLancamentoResponse(controleLancamentoRepository.buscarControlesLancamentos(filtro));
 	}
 	
 	@GetMapping
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')" )
 	public Page<ControleLancamento> pesquisar(ControleFilter controleFilter, Pageable pageable) {
 		return controleLancamentoRepository.filtrar(controleFilter, pageable);
 	}
 
 	@GetMapping("/todos")
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')" )
 	public List<ControleLancamentoResponseDTO> listar() {
 		return controleLancamentoMapper.toListControleLancamentoResponse(controleLancamentoRepository.findAll());
 	}
 
 	@PostMapping
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_INQUILINO') and hasAuthority('SCOPE_write')" )
 	public ControleLancamentoResponseDTO criar(@Valid @RequestBody ControleLancamentoPostDTO controleLancamento,
 											   HttpServletResponse response) {
 		try {
@@ -88,12 +93,14 @@ public class ControleLancamentoController implements Serializable, ControleLanca
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_REMOVER_LANCAMENTO') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long id) {
 		controleLancamentoService.excluir(id);
 	}
 
 	@PutMapping("/{id}")
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_INQUILINO') and hasAuthority('SCOPE_write')" )
 	public ControleLancamentoResponseDTO atualizar(@PathVariable Long id,
 			@Valid @RequestBody ControleLancamentoPutDTO controleLancamento) {
 		return controleLancamentoMapper.toControleLancamentoResponse(controleLancamentoService.atualizar(id, controleLancamento));
@@ -101,23 +108,26 @@ public class ControleLancamentoController implements Serializable, ControleLanca
 	
 	@PutMapping("/{id}/status")
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_INQUILINO') and hasAuthority('SCOPE_write')" )
 	public void atualizarStatus(@PathVariable Long id) {
 	   this.controleLancamentoService.atualizarPropriedadeStatus(id);
 	}
 	
 	@GetMapping("/{id}")
 	@Override
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')" )
 	public ControleLancamentoResponseDTO buscarPeloId(@PathVariable Long id) {
 		return controleLancamentoMapper.toControleLancamentoResponse(controleLancamentoService.buscarOuFalhar(id));
 	}
 	
 	@GetMapping(path = "/relatorio/por-controle-lancamento", produces = MediaType.APPLICATION_PDF_VALUE)
 	@Override
-	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(LancamentoControleFilter filtro) throws JRException{
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')" )
+	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(LancamentoControleFilter filtro) {
 		byte[] bytesPdf = controleLancamentoService.relatorioDeLancamentos(filtro);
 		
 		var headers = new HttpHeaders();
-		headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=vendas-diarias.pdf");
+		headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=controle-lancamento.pdf");
 		
 		return ResponseEntity.ok()
 				.contentType(MediaType.APPLICATION_PDF)

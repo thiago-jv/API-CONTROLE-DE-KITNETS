@@ -12,6 +12,8 @@ public enum TipoProblema {
 	MENSAGEM_INCOMPREENSIVEL("/mensagem-incompreensivel", "Mensagem incompreensível para leitura"),
 	ENTIDADE_NAO_ENCONTRADA("/entidade-nao-encontra", "Entidade não encontrada"),
 	ENTIDADE_EM_USO("/entidade-em-uso", "Entidade em uso"),
+
+	ACESSO_NEGADO("/acesso-begado", "Acesso negado"),
 	ERRO_NEGOCIO("/erro-negocio", "Violação de regra de negócio");
 	
 	private String titulo;

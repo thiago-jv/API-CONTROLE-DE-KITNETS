@@ -16,7 +16,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import sis.apartamentos.com.br.config.property.ApartamentoApiProperty;
+import sis.apartamentos.com.br.config.ApartamentoApiProperty;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)

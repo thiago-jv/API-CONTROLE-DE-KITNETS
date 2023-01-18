@@ -42,8 +42,8 @@ public class Apartamento implements Serializable {
 
 	@NotNull
 	@Size(min = 1, max = 10)
-	@Column(name = "NUMERO", nullable = false, unique = true)
-	private String numero;
+	@Column(name = "NUMEROAPARTAMENTO", nullable = false, unique = true)
+	private String numeroApartamento;
 
 	@NotNull
 	@Size(min = 1, max = 90)
@@ -54,11 +54,11 @@ public class Apartamento implements Serializable {
 	@Column(name = "MEDIDOR", unique = true)
 	private String medidor;
 
-	@Column(name = "STATUS_APARTAMENTO", length = 20, nullable = false)
+	@Column(name = "STATUSAPARTAMENTO", length = 20, nullable = false)
 	private String statusApartamento = Constantes.DISPONIVEL;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_PREDIO", referencedColumnName = "ID", nullable = false)
+	@JoinColumn(name = "IDPREDIO", referencedColumnName = "ID", nullable = false)
 	private Predio predio;
 
 	public Apartamento() {

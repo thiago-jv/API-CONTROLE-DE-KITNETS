@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,24 +55,28 @@ public class ValorController implements Serializable, ValorControllerOpenApi {
 
     @GetMapping
     @Override
+    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_VALOR') and hasAuthority('SCOPE_read')" )
     public Page<Valor> pesquisar(ValorFilterDTO valorFilterDTO, Pageable pageable) {
         return valorRepository.filtrar(valorFilterDTO, pageable);
     }
 
     @GetMapping("/todos")
     @Override
+    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_VALOR') and hasAuthority('SCOPE_read')" )
     public List<ValorResponseDTO> listar() {
         return valorMapper.toListValorResponse(valorRepository.listaValores());
     }
 
     @GetMapping("/{id}")
     @Override
+    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_VALOR') and hasAuthority('SCOPE_read')" )
     public ValorResponseDTO buscarPeloId(@PathVariable Long id) {
         return valorMapper.toValorResponse(valorService.buscarOuFalhar(id));
     }
 
     @PostMapping
     @Override
+    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_VALOR') and hasAuthority('SCOPE_write')" )
     public ValorResponseDTO criar(@Valid @RequestBody ValorPostDTO valorPostDTO, HttpServletResponse response) {
         try {
             return valorMapper.toValorResponse(valorRepository.save(valorMapper.toValor(valorPostDTO)));
@@ -82,6 +87,7 @@ public class ValorController implements Serializable, ValorControllerOpenApi {
 
     @PutMapping("/{id}")
     @Override
+    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_VALOR') and hasAuthority('SCOPE_write')" )
     public ValorResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody ValorPutDTO valorPutDTO) {
         return valorMapper.toValorResponse(this.valorService.atualizar(id, valorPutDTO));
     }
@@ -89,6 +95,7 @@ public class ValorController implements Serializable, ValorControllerOpenApi {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Override
+    @PreAuthorize("hasAuthority('ROLE_REMOVER_VALOR') and hasAuthority('SCOPE_write')" )
     public void remover(@PathVariable Long id) {
         valorService.excluir(id);
     }

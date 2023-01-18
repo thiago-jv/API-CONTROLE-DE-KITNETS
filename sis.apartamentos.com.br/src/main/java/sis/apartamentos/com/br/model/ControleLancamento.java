@@ -39,13 +39,13 @@ public class ControleLancamento implements Serializable {
 	@Column(name = "ID", nullable = false, unique = true)
 	private Long id;
 
-	@Column(name = "DATA_LANCAMENTO", nullable = false)
+	@Column(name = "DATALANCAMENTO", nullable = false)
 	private LocalDate dataLancamento = LocalDate.now();
 
-	@Column(name = "DATA_ENTRADA", nullable = false)
+	@Column(name = "DATAENTRADA", nullable = false)
 	private LocalDate dataEntrada;
 
-	@Column(name = "DATA_PAGAMENTO", nullable = false)
+	@Column(name = "DATAPAGAMENTO", nullable = false)
 	private LocalDate dataPagamento;
 
 	@Column(name = "OBSERVACAO")
@@ -58,15 +58,15 @@ public class ControleLancamento implements Serializable {
 	private ValorRegra valores;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_VALOR", referencedColumnName = "ID", nullable = false)
+	@JoinColumn(name = "IDVALOR", referencedColumnName = "ID", nullable = false)
 	private Valor valor;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_INQUILINO", referencedColumnName = "ID", nullable = false)
+	@JoinColumn(name = "IDINQUILINO", referencedColumnName = "ID", nullable = false)
 	private Inquilino inquilino;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_APARTAMENTO", referencedColumnName = "ID", nullable = false)
+	@JoinColumn(name = "IDAPARTAMENTO", referencedColumnName = "ID", nullable = false)
 	private Apartamento apartamento;
 
 	public ControleLancamento() {

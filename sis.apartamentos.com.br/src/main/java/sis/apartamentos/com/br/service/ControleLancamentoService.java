@@ -142,7 +142,7 @@ public class ControleLancamentoService {
 		}
 	}
 	
-	public byte[] relatorioDeLancamentos(LancamentoControleFilter filtro ) throws JRException {
+	public byte[] relatorioDeLancamentos(LancamentoControleFilter filtro ) {
 		try {
 			
 			var inputStream = this.getClass().getResourceAsStream("/relatorios/lancamentosControle.jasper");

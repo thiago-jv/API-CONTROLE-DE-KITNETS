@@ -4,28 +4,91 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="Add novas funcionalidade e removendo bugs">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/comparacao/ComparaLancamentoData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/mapper/ComparaDataMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/service/mapper/ComparaDataMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/b/5b58228293cd1a8ee9e6948fbfc9952df370c9e3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/65c048e66517d144587e7b60703dea199692fdc8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/77717864d908abc7742c3d3d63bf7fda6ae30a78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd880e09d9cb37649a0f2b7f1245aa5707ba4c54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d709d53d15a31ad57e7563f660138878d84f2597" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/1/e14b9262ab781aa0c9aad63755fd77b917b14a97" beforeDir="false" />
+    <list default="true" id="0d975e2b-7f6c-473a-a442-37bda986be15" name="Changes" comment="Refatorando método de regras de locação">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/token/RefreshTokenCookiePreProcessorFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/token/RefreshTokenPostProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/TokenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/doc/SpringFoxConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Permissao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/repository/UsuarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/security/AppUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/security/util/GeradorSenha.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/0/008d1f34d1293d19d275b59aad164181cf97a373" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/0/10cf0e561cdcbf9d5b536156bf0e51e86c8b1bf8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/5/1506383a23ec2d2e7d3f8b1510f4d32805868ae5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/5/452d93c7aa308ed3d91e98ed7fb498a2acfa24f5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/6/56e402d7469a9a4428398773714d5b938c741ba6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5cc39b2c9d029a529a5dc21f9eebeefe99811094" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/3/73586779e716b2d746d71d3240e1c1c36dd80bd8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/d/7d210d90c91d1270ee11ccbff465f5db1e4391fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a0273fc7c83914d0860632f37e68524c51be9fd8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/e/de2467e655260e63f837a3a974d9e74346f82911" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/relatorios/lancamentosControle.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/docs/relatorios/lancamentosControle.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/relatorios/lancamentosControle.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/relatorios/lancamentosControle.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/ApartamentoApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/ApartamentoApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/property/ApartamentoApiProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/ApartamentoApiProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/ApartamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/ApartamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/ControleLancamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/ControleLancamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/InquilinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/InquilinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/PredioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/PredioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/ValorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/ValorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/apartamento/ApartamentoPostDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/apartamento/ApartamentoPostDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/apartamento/ApartamentoPutDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/apartamento/ApartamentoPutDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/apartamento/ApartamentoResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/apartamento/ApartamentoResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/controleLancamento/ControleLancamentoPostDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/controle/v1/dto/controleLancamento/ControleLancamentoPostDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/core/SpringFoxConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/cors/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/cors/CorsFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/exception/handler/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/exception/handler/ApiExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/exception/handler/TipoProblema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/exception/handler/TipoProblema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Apartamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Apartamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ControleLancamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ControleLancamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Inquilino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Inquilino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Predio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Predio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/Valor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ValorRegra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/ValorRegra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/controle/lancamento/CalculaDias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/controle/lancamento/CalculaDias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/controle/lancamento/CalculaValoresDiaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/controle/lancamento/CalculaValorDiaria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/controle/lancamento/CalcularValorPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/model/controle/lancamento/CalcularValorPago.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ControleLancamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ControleLancamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/relatorios/lancamentosControle.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/relatorios/lancamentosControle.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/relatorios/lancamentosControle.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/relatorios/lancamentosControle.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/relatorios/lancamentosControle.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/relatorios/lancamentosControle.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/relatorios/lancamentosControle.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/relatorios/lancamentosControle.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/ApartamentoApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/ApartamentoApiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/config/property/ApartamentoApiProperty$Seguranca.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/config/property/ApartamentoApiProperty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/core/SpringFoxConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/cors/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/cors/CorsFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/ApiExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/ApiExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/TipoProblema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/exception/handler/TipoProblema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Apartamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Apartamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/ControleLancamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/ControleLancamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Inquilino.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Inquilino.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Predio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Predio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/Valor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/ValorRegra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/ValorRegra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalculaDias.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalculaDias.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalculaValoresDiaria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalcularValorPago.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/model/controle/lancamento/CalcularValorPago.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ControleLancamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sis/apartamentos/com/br/service/ControleLancamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/ApartamentoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/ApartamentoMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/ControleLancamentoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/ControleLancamentoMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/InquilinoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/InquilinoMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/PredioMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/PredioMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/ValorMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/controle/v1/mapper/ValorMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/service/mapper/ComparaDataMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sis/apartamentos/com/br/service/mapper/ComparaDataMapperImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,47 +125,60 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/workspace-pessoal/API-CONTROLE-DE-KITNETS/sis.apartamentos.com.br&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f3c2ed0ac63e51fa1864d10f9e02f7cc&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/workspace-pessoal/API-CONTROLE-DE-KITNETS/sis.apartamentos.com.br/src/main/resources/relatorios",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "f3c2ed0ac63e51fa1864d10f9e02f7cc"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\resources\relatorios" />
+      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\docs\relatorios" />
+      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\resources" />
       <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br" />
       <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\java\sis\apartamentos\com\br\controle" />
-      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\java\sis\apartamentos\com\br\controle\dto\controleLancamento" />
-      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\java\sis\apartamentos\com\br\controle\dto\apartamento" />
-      <recent name="C:\workspace-pessoal\API-CONTROLE-DE-KITNETS\sis.apartamentos.com.br\src\main\java\sis\apartamentos\com\br\controle\dto\valor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sis.apartamentos.com.br.exception" />
       <recent name="sis.apartamentos.com.br.service.mapper" />
       <recent name="sis.apartamentos.com.br.controle.dto.controleLancamento" />
       <recent name="sis.apartamentos.com.br.controle.mapper" />
       <recent name="sis.apartamentos.com.br.controle.dto.apartamento" />
-      <recent name="sis.apartamentos.com.br.controle.dto.inquilino" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ApartamentoApiApplication">
+    <configuration name="GeradorSenha" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sis.apartamentos.com.br.security.util.GeradorSenha" />
+      <module name="sis.apartamentos.com.br" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sis.apartamentos.com.br.security.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="sis.apartamentos.com.br [clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -145,6 +221,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GeradorSenha" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Maven.sis.apartamentos.com.br [clean]" />
       </list>
@@ -180,6 +257,10 @@
       <workItem from="1671471654748" duration="986000" />
       <workItem from="1671473518084" duration="69000" />
       <workItem from="1671491207277" duration="6551000" />
+      <workItem from="1671536733386" duration="95000" />
+      <workItem from="1671577772922" duration="799000" />
+      <workItem from="1672077757595" duration="1487000" />
+      <workItem from="1673959703440" duration="42669000" />
     </task>
     <task id="LOCAL-00001" summary="Iniciando projeto no intelij">
       <created>1670091041048</created>
@@ -282,11 +363,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/service/ControleLancamentoService.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="48" />
+          <url>file://$PROJECT_DIR$/src/main/java/sis/apartamentos/com/br/config/token/RefreshTokenCookiePreProcessorFilter.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.apache.catalina.connector.ResponseFacade" memberName="response" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

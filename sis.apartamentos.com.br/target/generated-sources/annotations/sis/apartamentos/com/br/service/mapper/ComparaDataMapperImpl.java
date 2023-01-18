@@ -7,7 +7,7 @@ import sis.apartamentos.com.br.service.comparacao.ComparaLancamentoData;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-19T20:44:03-0300",
+    date = "2023-01-18T18:12:34-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.4.1 (Oracle Corporation)"
 )
 @Component
