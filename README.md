@@ -26,9 +26,9 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 # Tecnologias utilizadas e outros
 
  
- 1- Java 11 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
+ 1- Java 17 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
  
- 2- SpringBoot 2.1.4.RELEASE [Sobre](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+ 2- SpringBoot 2.7.5.RELEASE [Sobre](https://docs.spring.io/spring-boot/docs/current/reference/html/)
  
  3- SpringData [Sobre](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference) 
 
@@ -45,6 +45,8 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
  9- Ireport Designer [Sobre](https://community.jaspersoft.com/) 
  
  10- SpringFox [Sobre(https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)]
+ 
+ 11- Spring Security JWT [Sobre(https://www.baeldung.com/spring-security-oauth-jwt)]
  
 
 # Proceso para rodar o projeto
