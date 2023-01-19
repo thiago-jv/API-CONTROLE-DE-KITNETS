@@ -9,11 +9,24 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=bdapartamento
     ports:
-      - "15432:5432"
+      - "1543:5432"
     volumes:
       - C:\PostgreSQL:/var/lib/postgresql/data
     networks:
       - postgres-network
+
+   rabbitmq:
+     image: rabbitmq:3-management-alpine
+     container_name: 'rabbitmq'
+     ports:
+       - 5672:5672
+       - 15672:15672
+     volumes:
+       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+     networks:
+       - rabbitmq_go_net
+
 
    pgadmin-compose:
     image: dpage/pgadmin4
@@ -22,10 +35,12 @@ services:
       PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"
     ports:
-      - "16543:80"
+     - "16544:80"
     networks:
       - postgres-network
 
 networks:
   postgres-network:
+    driver: bridge
+  rabbitmq_go_net:
     driver: bridge
