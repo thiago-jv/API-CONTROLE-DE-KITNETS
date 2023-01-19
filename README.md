@@ -18,6 +18,9 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 ![ViaCep](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/cep.png)
 
+# PostMan
+![PostMan](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
+
 # Documentação do projeto - Swagger API
 
 ![Swagger API](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/security.png)
