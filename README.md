@@ -52,9 +52,9 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
  
  9- Ireport Designer [Sobre](https://community.jaspersoft.com/) 
  
- 10- SpringFox [Sobre(https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)]
+ 10- SpringFox [Sobre](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
  
- 11- Spring Security JWT [Sobre(https://www.baeldung.com/spring-security-oauth-jwt)]
+ 11- Spring Security JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
  
 
 # Proceso para rodar o projeto
