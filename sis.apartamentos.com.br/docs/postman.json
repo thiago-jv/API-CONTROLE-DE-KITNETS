@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "cb426b37-915d-443a-806e-6d72591030c7",
+		"name": "KITNET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET VALORES",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzQwNTEyNTMsInVzZXJfbmFtZSI6InRoaWFnb0Bob3RtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfUEVTUVVJU0FSX0lOUVVJTElOTyIsIlJPTEVfQ0FEQVNUUkFSX0lOUVVJTElOTyIsIlJPTEVfUEVTUVVJU0FSX0FQQVJUQU1FTlRPIiwiUk9MRV9QRVNRVUlTQVJfUFJFRElPIiwiUk9MRV9SRU1PVkVSX0lOUVVJTElOTyIsIlJPTEVfQ0FEQVNUUkFSX0FQQVJUQU1FTlRPIiwiUk9MRV9QRVNRVUlTQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUkVNT1ZFUl9BUEFSVEFNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1ZBTE9SIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUkVNT1ZFUl9QUkVESU8iLCJST0xFX1BFU1FVSVNBUl9WQUxPUiIsIlJPTEVfUkVNT1ZFUl9MQU5DQU1FTlRPIiwiUk9MRV9DQURBU1RSQVJfUFJFRElPIiwiUk9MRV9SRU1PVkVSX1ZBTE9SIl0sImp0aSI6IjVIVEpTbV9MT3dqN29zQ21pMFVQSWtPNmgwRSIsImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.C8UbfbFY9QKAJVe3rqG1dGkLIWcEf_XHcOUnntxI0MI",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/apartamentosapi/v1/valores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apartamentosapi",
+						"v1",
+						"valores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GERA TOKEN",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "angular",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "angular",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "thiago@hotmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "angular",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/apartamentosapi/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apartamentosapi",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGOUT",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzQwNTIyMDgsInVzZXJfbmFtZSI6InRoaWFnb0Bob3RtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfUEVTUVVJU0FSX0lOUVVJTElOTyIsIlJPTEVfQ0FEQVNUUkFSX0lOUVVJTElOTyIsIlJPTEVfUEVTUVVJU0FSX0FQQVJUQU1FTlRPIiwiUk9MRV9QRVNRVUlTQVJfUFJFRElPIiwiUk9MRV9SRU1PVkVSX0lOUVVJTElOTyIsIlJPTEVfQ0FEQVNUUkFSX0FQQVJUQU1FTlRPIiwiUk9MRV9QRVNRVUlTQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUkVNT1ZFUl9BUEFSVEFNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1ZBTE9SIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUkVNT1ZFUl9QUkVESU8iLCJST0xFX1BFU1FVSVNBUl9WQUxPUiIsIlJPTEVfUkVNT1ZFUl9MQU5DQU1FTlRPIiwiUk9MRV9DQURBU1RSQVJfUFJFRElPIiwiUk9MRV9SRU1PVkVSX1ZBTE9SIl0sImp0aSI6Ii11QTdFY21oVmlrYVIzbjlJdFozSFBaZVg4VSIsImNsaWVudF9pZCI6ImFuZ3VsYXIiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.VBiX4T4TLU50ieyurPHaPnRMmf5cApK0kVyAx3IRRs8",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/apartamentosapi/v1/tokens/revoke",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apartamentosapi",
+						"v1",
+						"tokens",
+						"revoke"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
