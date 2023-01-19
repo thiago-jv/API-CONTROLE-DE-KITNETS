@@ -20,7 +20,7 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 # Documentação do projeto - Swagger API
 
-![Swagger API](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger-API.png)
+![Swagger API](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/security.png)
 
 
 # Tecnologias utilizadas e outros
