@@ -1,7 +1,10 @@
 Projeto demonstrativo para controle de kitnets cosumindo API externa de ViaCep(https://viacep.com.br/), utilizando SpringBoot, Rest Api, SpringData, Maven, PostgreSQL, Docker compose, MapStruct, RestTemplate, DTO, Design Patterns, lombok, mensageria com rabbitmq e restassured.
 
 # Projeto Front-End
-Apos rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://github.com/thiago-jv/UI-CONTROLE-DE-KITNETS)
+Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://github.com/thiago-jv/UI-CONTROLE-DE-KITNETS)
+
+# RabbitMQ MailSend
+API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
 # Pré-requisitos
 
