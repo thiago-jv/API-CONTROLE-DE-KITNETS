@@ -4,7 +4,7 @@ Projeto demonstrativo para controle de kitnets cosumindo API externa de ViaCep(h
 Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://github.com/thiago-jv/UI-CONTROLE-DE-KITNETS)
 
 # RabbitMQ MailSend
-API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
+API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid, pois o objetivo é manter o cliente informado dos alugueis realizados https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
 # Pré-requisitos
 
