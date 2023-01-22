@@ -33,6 +33,9 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 
 ![Swagger API](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/security.png)
 
+# Arquitetura
+![Arquitetura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/arquitetura.png)
+
 
 # Tecnologias utilizadas e outros
 
