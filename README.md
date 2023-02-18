@@ -6,6 +6,21 @@ Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://g
 # RabbitMQ MailSend
 API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid, pois o objetivo é manter o cliente informado dos alugueis realizados https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
+# Passos
+
+![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
+
+![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
+```
+1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
+2- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
+3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
+4- mvn dependency:resolve
+5- mvn dependency:tree
+6- mvn package -P desenvolvimento
+7- mvn spring-boot:run
+```
+![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
 
 
 # Tecnologias utilizadas e outros
@@ -34,13 +49,3 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
  11- Spring Security JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
  
 
-# Proceso para rodar o projeto
-```
-1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
-2- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
-3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
-4- mvn dependency:resolve
-5- mvn dependency:tree
-6- mvn package -P desenvolvimento
-7- mvn spring-boot:run
-```
