@@ -22,6 +22,8 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 ```
 ![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
 
+![swagger](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger.png)
+
 
 # Tecnologias utilizadas e outros
 
