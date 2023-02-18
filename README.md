@@ -29,6 +29,8 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 # Arquitetura
 ![arquitetura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/arquitetura_sisapartamento.png)
 
+# Rabbitmq
+![rabbitmq](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/rabbitmq.png)
 
 # Tecnologias utilizadas e outros
 
