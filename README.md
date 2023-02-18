@@ -9,7 +9,7 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 # Passos
 
 ![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
-
+![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_.png)
 ![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
 ```
 1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
@@ -21,7 +21,6 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 7- mvn spring-boot:run
 ```
 ![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
-
 ![swagger](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger.png)
 
 
