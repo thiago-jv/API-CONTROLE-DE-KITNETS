@@ -1,7 +1,8 @@
 version: '3.5'
 
 services:
-  sgdb-postgres-compose:
+  postgres-apartamento:
+    container_name: 'postgres-apartamento'
     image: postgres
     restart: always
     environment:
@@ -9,29 +10,29 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=bdapartamento
     ports:
-      - "1543:5432"
+      - "5432:5432"
     volumes:
-      - C:\PostgreSQL:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     networks:
-      - postgres-network
+      - postgres-network-apartamento
 
   rabbitmq:
+    container_name: 'rabbitmq_apartamento'
     image: rabbitmq:3-management-alpine
-    container_name: 'rabbitmq'
     ports:
       - 5672:5672
       - 15672:15672
     volumes:
-      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+      - rabbitmqdata/:/var/lib/rabbitmq/
     networks:
-      - rabbitmq_go_net
+      - postgres-network-apartamento
 
   # rabbitmq
   # usuario: guest
   # senha: guest
 
   pgadmin-compose:
+    container_name: 'pgadmin_apartamento'
     image: dpage/pgadmin4
     restart: always
     environment:
@@ -40,10 +41,14 @@ services:
     ports:
       - "16544:80"
     networks:
-      - postgres-network
+      - postgres-network-apartamento
 
 networks:
-  postgres-network:
+  postgres-network-apartamento:
     driver: bridge
-  rabbitmq_go_net:
+  rabbitmq_network-apartamento:
     driver: bridge
+
+volumes:
+  pgdata:
+  rabbitmqdata:

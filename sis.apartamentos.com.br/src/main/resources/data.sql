@@ -1,3 +1,7 @@
+DELETE FROM usuario_permissao;
+DELETE FROM usuario;
+DELETE FROM permissao;
+
 INSERT INTO usuario (id, email, nome, senha) values (1, 'thiago@hotmail.com', 'Thiago Henrique', '$2a$10$.b0TDo0au2KeGOFRXGTuJOZ8Zr0QGJMyaH4HQ2/LfpwB5aQ6Z85l.');
 INSERT INTO usuario (id, email, nome, senha) values (2, 'carlos@hotmail.com', 'Carlos Henrique', '$2a$10$.b0TDo0au2KeGOFRXGTuJOZ8Zr0QGJMyaH4HQ2/LfpwB5aQ6Z85l.');
 
