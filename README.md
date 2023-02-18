@@ -6,35 +6,6 @@ Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://g
 # RabbitMQ MailSend
 API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid, pois o objetivo é manter o cliente informado dos alugueis realizados https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
-# Pré-requisitos
-
-O maven deve está instalado, caso não esteja segue o link [maven](https://dicasdejava.com.br/como-instalar-o-maven-no-windows/)
-
-Instalar e configurar o java, caso não esteja segue o link [java](https://medium.com/beelabacademy/configurando-vari%C3%A1veis-de-ambiente-java-home-e-maven-home-no-windows-e-unix-d9461f783c26)
-
-
-# Estrutura do projeto
-
-![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura_.png)
-
-# ViaCep
-
-![ViaCep](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/cep.png)
-
-# DOC
-
-![DOC](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/token.png)
-
-# PostMan
-
-![PostMan](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
-
-# Documentação do projeto - Swagger API
-
-![Swagger API](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/security.png)
-
-# Arquitetura
-![Arquitetura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/arquitetura.png)
 
 
 # Tecnologias utilizadas e outros
