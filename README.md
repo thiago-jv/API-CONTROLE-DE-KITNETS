@@ -70,6 +70,6 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
 3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
 4- mvn dependency:resolve
 5- mvn dependency:tree
-6- mvn package
+6- mvn package -P desenvolvimento
 7- mvn spring-boot:run
 ```
