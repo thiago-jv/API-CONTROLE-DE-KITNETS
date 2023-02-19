@@ -6,36 +6,31 @@ Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://g
 # RabbitMQ MailSend
 API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid, pois o objetivo é manter o cliente informado dos alugueis realizados https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
-# Pré-requisitos
+# Passos
 
-O maven deve está instalado, caso não esteja segue o link [maven](https://dicasdejava.com.br/como-instalar-o-maven-no-windows/)
+![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
+![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_.png)
+![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
+```
+1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
+2- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
+3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
+4- mvn dependency:resolve
+5- mvn dependency:tree
+6- mvn package -P desenvolvimento
+7- mvn spring-boot:run
+```
+![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
+![swagger](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger.png)
 
-Instalar e configurar o java, caso não esteja segue o link [java](https://medium.com/beelabacademy/configurando-vari%C3%A1veis-de-ambiente-java-home-e-maven-home-no-windows-e-unix-d9461f783c26)
-
-
-# Estrutura do projeto
-
-![Estrutura do Projeto](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura_.png)
-
-# ViaCep
-
-![ViaCep](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/cep.png)
-
-# DOC
-
-![DOC](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/token.png)
-
-# PostMan
-
-![PostMan](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
-
-# Documentação do projeto - Swagger API
-
-![Swagger API](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/security.png)
+# Api de terceiros
+![viacep](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/cep.png)
 
 # Arquitetura
-![Arquitetura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/arquitetura.png)
+![arquitetura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/arquitetura_sisapartamento.png)
 
+# Rabbitmq
+![rabbitmq](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/rabbitmq.png)
 
 # Tecnologias utilizadas e outros
 
@@ -63,13 +58,3 @@ Instalar e configurar o java, caso não esteja segue o link [java](https://mediu
  11- Spring Security JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
  
 
-# Proceso para rodar o projeto
-```
-1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
-2- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
-3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
-4- mvn dependency:resolve
-5- mvn dependency:tree
-6- mvn package -P desenvolvimento
-7- mvn spring-boot:run
-```
