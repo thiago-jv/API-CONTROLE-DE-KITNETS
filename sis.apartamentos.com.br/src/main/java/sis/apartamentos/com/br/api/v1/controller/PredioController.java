@@ -59,21 +59,21 @@ public class PredioController implements Serializable, PredioControllerOpenApi {
 
 	@GetMapping
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PREDIO') and hasAuthority('SCOPE_read')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_read')" )
 	public Page<Predio> pesquisar(PredioFilterDTO predioFilterDTO, Pageable pageable) {
 		return predioRepository.filtrar(predioFilterDTO, pageable);
 	}
 
 	@GetMapping("/todos")
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PREDIO') and hasAuthority('SCOPE_read')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_read')" )
 	public List<PredioResponseDTO> listar() {
 		return predioMapper.toListPredioResponse(predioRepository.findAll());
 	}
 
 	@PostMapping
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_PREDIO') and hasAuthority('SCOPE_write')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_write')" )
 	public PredioResponseDTO criar(@Valid @RequestBody PredioPostDTO predioPostDTO, HttpServletResponse response) {
 		try {
 			return predioMapper.toPredioResponse(predioRepository.save(predioMapper.toPredio(predioPostDTO)));
@@ -85,28 +85,28 @@ public class PredioController implements Serializable, PredioControllerOpenApi {
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_REMOVER_PREDIO') and hasAuthority('SCOPE_write')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long id) {
 		predioService.excluir(id);
 	}
 
 	@PutMapping("/{id}")
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_PREDIO') and hasAuthority('SCOPE_write')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_write')" )
 	public PredioResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody PredioPutDTO predioPutDTO) {
 		return predioMapper.toPredioResponse(this.predioService.atualizar(id, predioPutDTO));
 	}
 
 	@GetMapping("/{id}")
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PREDIO') and hasAuthority('SCOPE_read')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_read')" )
 	public PredioResponseDTO buscarPeloId(@PathVariable Long id) {
 		return predioMapper.toPredioResponse(predioService.buscarOuFalhar(id));
 	}
 
 	@GetMapping(value = "/cep/{cep}")
 	@Override
-	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PREDIO') and hasAuthority('SCOPE_read')" )
+	@PreAuthorize("hasAuthority('ROLE_PREDIO') and hasAuthority('SCOPE_read')" )
 	public PredioResponseDTO doObterCep(@PathVariable(name = "cep") String cep) {
     return predioMapper.toPredioResponse(apiCep.request(cep));
 

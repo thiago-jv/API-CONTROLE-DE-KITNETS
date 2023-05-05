@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import sis.apartamentos.com.br.api.v1.dto.diario.DiarioFilterDTO;
 import sis.apartamentos.com.br.api.v1.dto.diario.DiarioPostDTO;
@@ -37,12 +38,14 @@ public class DiarioController implements Serializable, DiarioControllerOpenApi {
 
     @GetMapping
     @Override
+    @PreAuthorize("hasAuthority('ROLE_DIARIO') and hasAuthority('SCOPE_read')" )
     public Page<Diario> pesquisar(DiarioFilterDTO diarioFilterDTO, Pageable pageable) {
         return diarioRepository.filtrar(diarioFilterDTO, pageable);
     }
 
     @PostMapping
     @Override
+    @PreAuthorize("hasAuthority('ROLE_DIARIO') and hasAuthority('SCOPE_write')" )
     public DiarioResponseDTO criar(@Valid @RequestBody DiarioPostDTO diarioPostDTO, HttpServletResponse response) {
         try {
             return diarioMapper.toDiarioResponseDTO(diarioRepository.save(diarioMapper.toDiario(diarioPostDTO)));

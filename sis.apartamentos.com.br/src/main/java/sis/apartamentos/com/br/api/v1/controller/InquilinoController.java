@@ -55,28 +55,28 @@ public class InquilinoController implements Serializable, InquilinoControllerOpe
 
     @GetMapping
     @Override
-    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_INQUILINO') and hasAuthority('SCOPE_read')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_read')" )
     public Page<Inquilino> pesquisar(InquilinoFilterDTO inquilinoFilterDTO, Pageable pageable) {
         return inquilinoRepository.filtrar(inquilinoFilterDTO, pageable);
     }
 
     @GetMapping("/todos")
     @Override
-    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_INQUILINO') and hasAuthority('SCOPE_read')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_read')" )
     public List<InquilinoResponseDTO> listar() {
         return inquilinoMapper.toListInquilinoResponse(inquilinoRepository.findAll());
     }
 
     @GetMapping("/todos/ativos")
     @Override
-    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_INQUILINO') and hasAuthority('SCOPE_read')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_read')" )
     public List<InquilinoResponseDTO> listarAtivos() {
         return inquilinoMapper.toListInquilinoResponse(inquilinoRepository.listaInquilinosAtivos());
     }
 
     @PostMapping
     @Override
-    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_INQUILINO') and hasAuthority('SCOPE_write')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_write')" )
     public InquilinoResponseDTO criar(@Valid @RequestBody InquilinoPostDTO inquilinoPostDTO, HttpServletResponse response) {
         try {
             return inquilinoMapper.toInquilinoResponse(inquilinoRepository.save(inquilinoMapper.toInquilino(inquilinoPostDTO)));
@@ -88,21 +88,21 @@ public class InquilinoController implements Serializable, InquilinoControllerOpe
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Override
-    @PreAuthorize("hasAuthority('ROLE_REMOVER_INQUILINO') and hasAuthority('SCOPE_write')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_write')" )
     public void remover(@PathVariable Long id) {
         inquilinoService.excluir(id);
     }
 
     @PutMapping("/{id}")
     @Override
-    @PreAuthorize("hasAuthority('ROLE_CADASTRAR_INQUILINO') and hasAuthority('SCOPE_write')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_write')" )
     public InquilinoResponseDTO atualizar(@PathVariable Long id, @Valid @RequestBody InquilinoPutDTO inquilinoPutDTO) {
         return inquilinoMapper.toInquilinoResponse(this.inquilinoService.atualizar(id, inquilinoPutDTO));
     }
 
     @GetMapping("/{id}")
     @Override
-    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_INQUILINO') and hasAuthority('SCOPE_read')" )
+    @PreAuthorize("hasAuthority('ROLE_INQUILINO') and hasAuthority('SCOPE_read')" )
     public InquilinoResponseDTO buscarPeloId(@PathVariable Long id) {
         return inquilinoMapper.toInquilinoResponse(inquilinoService.buscarOuFalhar(id));
     }

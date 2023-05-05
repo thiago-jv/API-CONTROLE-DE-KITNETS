@@ -32,4 +32,11 @@ public class PredioPostDTO {
     @ApiModelProperty(value = "Número do predio", example = "232")
     private String numero;
 
+    public String getCep() {
+       if(this.cep != null){
+          return this.cep.replaceAll("\\D", "");
+       }
+        return null;
+    }
+
 }
