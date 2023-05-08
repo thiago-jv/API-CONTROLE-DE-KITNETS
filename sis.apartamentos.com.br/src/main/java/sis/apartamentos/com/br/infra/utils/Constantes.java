@@ -33,5 +33,7 @@ public class Constantes implements Serializable{
 	public static final String FEMENINO = "FEMENINO";
 	public static final String OUTROS = "OUTROS";
 
+	private Constantes(){}
+
 }
 
