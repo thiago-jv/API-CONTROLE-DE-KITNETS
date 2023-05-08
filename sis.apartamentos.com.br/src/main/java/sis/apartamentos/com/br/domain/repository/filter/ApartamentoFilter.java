@@ -1,5 +1,10 @@
 package sis.apartamentos.com.br.domain.repository.filter;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ApartamentoFilter {
 
 	private String desricao;
@@ -8,28 +13,5 @@ public class ApartamentoFilter {
 
 	private String statusApartamento;
 
-	public String getDesricao() {
-		return desricao;
-	}
-
-	public void setDesricao(String desricao) {
-		this.desricao = desricao;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public String getStatusApartamento() {
-		return statusApartamento;
-	}
-
-	public void setStatusApartamento(String statusApartamento) {
-		this.statusApartamento = statusApartamento;
-	}
 
 }

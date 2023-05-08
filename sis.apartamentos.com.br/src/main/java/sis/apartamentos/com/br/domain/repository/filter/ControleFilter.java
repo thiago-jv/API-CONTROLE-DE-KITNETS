@@ -2,10 +2,14 @@ package sis.apartamentos.com.br.domain.repository.filter;
 
 import java.time.LocalDate;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import sis.apartamentos.com.br.domain.model.Inquilino;
 
+@Getter
+@Setter
 public class ControleFilter {
 
 	private String statusApartamePagamento;
@@ -21,54 +25,5 @@ public class ControleFilter {
 	private LocalDate dataPagamentoAte;
 
 	private Inquilino inquilino;
-
-	public String getStatusApartamePagamento() {
-		return statusApartamePagamento;
-	}
-
-	public void setStatusApartamePagamento(String statusApartamePagamento) {
-		this.statusApartamePagamento = statusApartamePagamento;
-	}
-
-	public String getStatusApartamePagamentoLuz() {
-		return statusApartamePagamentoLuz;
-	}
-
-	public void setStatusApartamePagamentoLuz(String statusApartamePagamentoLuz) {
-		this.statusApartamePagamentoLuz = statusApartamePagamentoLuz;
-	}
-
-	public String getEntragaContaLuz() {
-		return entragaContaLuz;
-	}
-
-	public void setEntragaContaLuz(String entragaContaLuz) {
-		this.entragaContaLuz = entragaContaLuz;
-	}
-
-	public LocalDate getDataPagamentoDe() {
-		return dataPagamentoDe;
-	}
-
-	public void setDataPagamentoDe(LocalDate dataPagamentoDe) {
-		this.dataPagamentoDe = dataPagamentoDe;
-	}
-
-	public LocalDate getDataPagamentoAte() {
-		return dataPagamentoAte;
-	}
-
-	public void setDataPagamentoAte(LocalDate dataPagamentoAte) {
-		this.dataPagamentoAte = dataPagamentoAte;
-	}
-
-	public Inquilino getInquilino() {
-		return inquilino;
-	}
-
-	public void setInquilino(Inquilino inquilino) {
-		this.inquilino = inquilino;
-	}
-
 
 }

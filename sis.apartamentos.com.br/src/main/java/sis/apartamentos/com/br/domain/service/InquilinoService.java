@@ -40,8 +40,8 @@ public class InquilinoService {
 	}
 	
 	public Inquilino atualizar(Long idInquilino, InquilinoPutDTO inquilinoPutDTO) {
-		Inquilino inquilino = inquilinoMapper.toInquilino(inquilinoPutDTO);
-		Inquilino inquilinoSalva = this.inquilinoRepository.findById(idInquilino)
+		var inquilino = inquilinoMapper.toInquilino(inquilinoPutDTO);
+		var inquilinoSalva = this.inquilinoRepository.findById(idInquilino)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(inquilino, inquilinoSalva, "id");
 		return this.inquilinoRepository.save(inquilinoSalva);

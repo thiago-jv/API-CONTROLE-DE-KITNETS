@@ -42,8 +42,8 @@ public class ApartamentoService implements Serializable {
 	}
 	
 	public Apartamento atualizar(Long idApartamento, ApartamentoPutDTO apartamentoPutDTO) {
-		Apartamento apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
-		Apartamento apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
+		var apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
+		var apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(apartamento, apartamentoSalva, "id");
 		return this.apartamentoRepository.save(apartamentoSalva);
@@ -51,8 +51,8 @@ public class ApartamentoService implements Serializable {
 
 	public Apartamento atualizaStatusParaDisponivel(Long idApartamento, ApartamentoPutDTO apartamentoPutDTO) {
 		apartamentoPutDTO.setStatusApartamento(Constantes.DISPONIVEL);
-		Apartamento apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
-		Apartamento apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
+		var apartamento = apartamentoMapper.toApartamento(apartamentoPutDTO);
+		var apartamentoSalva = this.apartamentoRepository.findById(idApartamento)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(apartamento, apartamentoSalva, "id");
 		return this.apartamentoRepository.save(apartamentoSalva);

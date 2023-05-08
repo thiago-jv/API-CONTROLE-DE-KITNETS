@@ -39,8 +39,8 @@ public class PredioService {
 	}
 	
 	public Predio atualizar(Long idPredio, PredioPutDTO predioPutDTO) {
-		Predio predio  = predioMapper.toPredio(predioPutDTO);
-		Predio predioSalva = this.predioRepository.findById(idPredio)
+		var predio  = predioMapper.toPredio(predioPutDTO);
+		var predioSalva = this.predioRepository.findById(idPredio)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(predio, predioSalva, "id");
 		return this.predioRepository.save(predioSalva);

@@ -39,8 +39,8 @@ public class ValorService {
 	}
 	
 	public Valor atualizar(Long idValor, ValorPutDTO valorPutDTO) {
-		Valor valor = valorMapper.toValor(valorPutDTO);
-		Valor valorSalva = this.valorRepository.findById(idValor)
+		var valor = valorMapper.toValor(valorPutDTO);
+		var valorSalva = this.valorRepository.findById(idValor)
 				.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		BeanUtils.copyProperties(valor, valorSalva, "id");
 		return this.valorRepository.save(valorSalva);

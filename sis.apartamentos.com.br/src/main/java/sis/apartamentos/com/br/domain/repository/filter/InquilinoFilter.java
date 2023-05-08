@@ -1,5 +1,10 @@
 package sis.apartamentos.com.br.domain.repository.filter;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class InquilinoFilter {
 
 	private String nome;
@@ -7,30 +12,5 @@ public class InquilinoFilter {
 	private String cpf;
 	
 	private String status;
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 
 }
