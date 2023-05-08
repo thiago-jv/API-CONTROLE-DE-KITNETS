@@ -137,8 +137,8 @@ public class ControleLancamentoService {
 
     public void atualizarPropriedadeStatus(Long id) {
 
-        ControleLancamento controleSalva = buscarOuFalhar(id);
-        Apartamento apartamento = BuscaApartamentos(controleSalva);
+        var controleSalva = buscarOuFalhar(id);
+        var apartamento = BuscaApartamentos(controleSalva);
 
         if (controleSalva.getStatus().getStatusApartamePagamento().equals(Constantes.PAGO)) {
             apartamento = BuscaApartamentos(controleSalva);

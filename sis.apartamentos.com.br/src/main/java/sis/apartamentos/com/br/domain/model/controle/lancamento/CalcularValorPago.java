@@ -3,6 +3,7 @@ package sis.apartamentos.com.br.domain.model.controle.lancamento;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -28,8 +29,8 @@ public class CalcularValorPago {
 	}
 	
 	public Boolean validaValorPagoApartamento(ControleLancamento controleLancamento) {
-		return controleLancamento.getValores().getValorTotalDiaria() != null
-				&& controleLancamento.getValores().getValorPagoApartamento() != null;
+		return Objects.nonNull(controleLancamento.getValores().getValorTotalDiaria())
+				&&  Objects.nonNull(controleLancamento.getValores().getValorPagoApartamento());
 	}
 	
 	private ControleLancamento modificaStatusApartamento(ControleLancamento controleLancamento) {
