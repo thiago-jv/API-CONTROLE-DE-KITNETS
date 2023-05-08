@@ -26,7 +26,7 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
 
         HttpServletRequest req = (HttpServletRequest) request;
 
-        if ("/oauth/token".equalsIgnoreCase(req.getRequestURI()) && "refresh_token".equals(req.getParameter("grant_type"))
+        if ("/apartamentosapi/oauth/token".equalsIgnoreCase(req.getRequestURI()) && "refresh_token".equals(req.getParameter("grant_type"))
                 && req.getCookies() != null) {
             for (Cookie cookie : req.getCookies()) {
                 if (cookie.getName().equals("refreshToken")) { // ao invés de refresh_token
@@ -50,12 +50,10 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
         }
 
         @Override
-        public Map<String, String[]> getParameterMap() { //criar o  o getParameterMap
-
+        public Map<String, String[]> getParameterMap() {
             ParameterMap<String, String[]> map = new ParameterMap<>(getRequest().getParameterMap());
-            map.put("refresh_token", new String[] { refreshToken }); //refresh_token é o nome que o spring irá buscar o token
-            map.setLocked(true);//Trava o mapa (não sei para que serve)
-
+            map.put("refresh_token", new String[] { refreshToken });
+            map.setLocked(true);
             return map;
         }
 
