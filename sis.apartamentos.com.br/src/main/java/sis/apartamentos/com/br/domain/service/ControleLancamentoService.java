@@ -1,11 +1,10 @@
 package sis.apartamentos.com.br.domain.service;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,9 +22,10 @@ import sis.apartamentos.com.br.api.v1.dto.controleLancamento.ControleLancamentoP
 import sis.apartamentos.com.br.api.v1.dto.controleLancamento.ControleLancamentoPutDTO;
 import sis.apartamentos.com.br.api.v1.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.api.v1.mapper.ControleLancamentoMapper;
+import sis.apartamentos.com.br.api.v1.mapper.ControleLancamentoReportMapper;
 import sis.apartamentos.com.br.domain.model.Inquilino;
 import sis.apartamentos.com.br.domain.model.Predio;
-import sis.apartamentos.com.br.domain.model.Valor;
+import sis.apartamentos.com.br.domain.repository.ControleLancamentorReportRepository;
 import sis.apartamentos.com.br.infra.dto.LancamentoApartamentoDTO;
 import sis.apartamentos.com.br.infra.exception.ControleLancamentoNaoEncontadoException;
 import sis.apartamentos.com.br.infra.exception.EntidadeEmUsoException;
@@ -78,7 +78,10 @@ public class ControleLancamentoService {
     private InquilinoService inquilinoService;
 
     @Autowired
-    private ValorService valorService;
+    private ControleLancamentorReportRepository controleLancamentorReportRepository;
+
+    @Autowired
+    private ControleLancamentoReportMapper controleLancamentoReportMapper;
 
     @SneakyThrows
     public ControleLancamento salvar(ControleLancamentoPostDTO controleLancamentoPostDTO) {
@@ -108,12 +111,24 @@ public class ControleLancamentoService {
         var lancamentoApartamentoDTO = LancamentoApartamentoDTO.builder()
                 .idLancamento(controleLancamentoSalvo.getId())
                 .dataEntrada(controleLancamentoSalvo.getDataEntrada().format(formatter))
-                .nome(inquilino.getNome())
+                .nomeInquilino(inquilino.getNome())
+                .valor(controleLancamentoSalvo.getValores().getValorPagoApartamento().toString())
                 .predio(predio.getNumero())
                 .numeroQuarto(apartamento.getNumeroApartamento())
+                .bairro(predio.getBairro())
+                .cep(predio.getCep())
+                .uf(predio.getUf())
+                .localidade(predio.getLocalidade())
+                .logradouro(predio.getLogradouro())
                 .build();
 
-        emailProducer.sendMessage(objectMapper.writeValueAsString(lancamentoApartamentoDTO));
+        saveControleLancamentoToReport(lancamentoApartamentoDTO);
+
+       // emailProducer.sendMessage(objectMapper.writeValueAsString(lancamentoApartamentoDTO));
+    }
+
+    private void saveControleLancamentoToReport(LancamentoApartamentoDTO lancamentoApartamentoDTO) {
+        controleLancamentorReportRepository.save(controleLancamentoReportMapper.toControleLancamentoReport(lancamentoApartamentoDTO));
     }
 
     public ControleLancamento buscarOuFalhar(Long idControle) {
@@ -127,6 +142,7 @@ public class ControleLancamentoService {
             var apartamentoPutDTO = apartamentoMapper.toApartamentoPutDTO(lancamento.getApartamento());
             apartamentoService.atualizaStatusParaDisponivel(lancamento.getApartamento().getId(), apartamentoPutDTO);
             controleLancamentoRepository.deleteById(idControle);
+            controleLancamentorReportRepository.deleteById(idControle);
             controleLancamentoRepository.flush();
         } catch (EmptyResultDataAccessException e) {
             throw new PredioNaoEncontadoException(idControle);
@@ -184,20 +200,17 @@ public class ControleLancamentoService {
         }
     }
 
-    public byte[] relatorioDeLancamentos(LancamentoControleFilter filtro) {
+    public byte[] relatorioDeLancamentos(Long idLancamento) {
         try {
+            var inputStream = this.getClass().getResourceAsStream("/relatorios/lancamentocontrolebyid.jasper");
 
-            var inputStream = this.getClass().getResourceAsStream("/relatorios/lancamentosControle.jasper");
-            var parametros = new HashMap<String, Object>();
-
-            parametros.put("DT_INICIO", Date.valueOf(filtro.getDataInicio()));
-            parametros.put("DT_FIM", Date.valueOf(filtro.getDataFim()));
-            parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
-
-            var dados = controleLancamentoRepository.buscarControlesLancamentos(filtro);
+            var dados = controleLancamentoRepository.buscarControlesLancamentos(idLancamento);
             var dataSource = new JRBeanCollectionDataSource(dados);
 
-            var jasperPrint = JasperFillManager.fillReport(inputStream, parametros, dataSource);
+            var jasperPrint = JasperFillManager.fillReport(inputStream, Map.of(
+                    "ID", idLancamento,
+                    "REPORT_LOCALE", new Locale("pt", "BR")),
+                    dataSource);
 
             return JasperExportManager.exportReportToPdf(jasperPrint);
         } catch (Exception e) {

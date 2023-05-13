@@ -21,11 +21,11 @@ import java.time.LocalDate;
 public class ControleLancamentoPostDTO {
 
     @ApiModelProperty(value = "Data de entrada controle lançamento", example = "19-01-2023", required = true)
-    @JsonFormat(pattern = "dd-MM-yyyy" )
+   // @JsonFormat(pattern = "dd-MM-yyyy" )
     private LocalDate dataEntrada;
 
     @ApiModelProperty(value = "Data de pagamento controle lançamento", example = "28-01-2023", required = true)
-    @JsonFormat(pattern = "dd-MM-yyyy" )
+ //   @JsonFormat(pattern = "dd-MM-yyyy" )
     private LocalDate dataPagamento;
 
     @ApiModelProperty(value = "Observação controle lançamento", example = "minhas obs...")

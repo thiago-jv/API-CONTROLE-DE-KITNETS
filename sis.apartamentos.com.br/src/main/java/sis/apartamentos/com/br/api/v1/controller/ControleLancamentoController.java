@@ -122,8 +122,8 @@ public class ControleLancamentoController implements Serializable, ControleLanca
 	@GetMapping(path = "/relatorio/por-controle-lancamento", produces = MediaType.APPLICATION_PDF_VALUE)
 	@Override
 	@PreAuthorize("hasAuthority('ROLE_LANCAMENTO') and hasAuthority('SCOPE_read')" )
-	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(LancamentoControleFilter filtro) {
-		byte[] bytesPdf = controleLancamentoService.relatorioDeLancamentos(filtro);
+	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(Long idLancamento) {
+		byte[] bytesPdf = controleLancamentoService.relatorioDeLancamentos(idLancamento);
 		
 		var headers = new HttpHeaders();
 		headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=controle-lancamento.pdf");

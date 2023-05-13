@@ -3,16 +3,7 @@ package sis.apartamentos.com.br.domain.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -56,6 +47,7 @@ public class ControleLancamento implements Serializable {
 	@Embedded
 	private ValorRegra valores;
 
+
 	@ManyToOne
 	@JoinColumn(name = "IDVALOR", referencedColumnName = "ID", nullable = false)
 	private Valor valor;
@@ -63,6 +55,7 @@ public class ControleLancamento implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "IDINQUILINO", referencedColumnName = "ID", nullable = false)
 	private Inquilino inquilino;
+
 
 	@ManyToOne
 	@JoinColumn(name = "IDAPARTAMENTO", referencedColumnName = "ID", nullable = false)

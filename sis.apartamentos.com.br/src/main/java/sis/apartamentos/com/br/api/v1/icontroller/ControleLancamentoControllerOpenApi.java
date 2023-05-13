@@ -76,5 +76,5 @@ public interface ControleLancamentoControllerOpenApi {
 	@ApiResponses({
 		@ApiResponse(code = 404, message = "Lançamento não encontrado", response = Problema.class)		
 	})
-	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(LancamentoControleFilter filtro) throws JRException;
+	public ResponseEntity<byte[]> relatorioPorLancamentoControlePdf(Long idLancamento) throws JRException;
 }
