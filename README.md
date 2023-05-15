@@ -35,7 +35,7 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 # Tecnologias utilizadas e outros
 
  
- 1- Java 17 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
+ 1- Java 11 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
  
  2- SpringBoot 2.7.5.RELEASE [Sobre](https://docs.spring.io/spring-boot/docs/current/reference/html/)
  
