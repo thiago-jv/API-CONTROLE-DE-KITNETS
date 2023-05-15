@@ -2,9 +2,9 @@ package sis.apartamentos.com.br.domain.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +31,6 @@ import sis.apartamentos.com.br.infra.exception.ControleLancamentoNaoEncontadoExc
 import sis.apartamentos.com.br.infra.exception.EntidadeEmUsoException;
 import sis.apartamentos.com.br.infra.exception.PredioNaoEncontadoException;
 import sis.apartamentos.com.br.infra.exception.ReportException;
-import sis.apartamentos.com.br.infra.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.domain.model.Apartamento;
 import sis.apartamentos.com.br.domain.model.ControleLancamento;
 import sis.apartamentos.com.br.domain.model.controle.lancamento.CalculaDias;
@@ -202,15 +201,18 @@ public class ControleLancamentoService {
 
     public byte[] relatorioDeLancamentos(Long idLancamento) {
         try {
-            var inputStream = this.getClass().getResourceAsStream("/relatorios/lancamentocontrolebyid.jasper");
 
             var dados = controleLancamentoRepository.buscarControlesLancamentos(idLancamento);
             var dataSource = new JRBeanCollectionDataSource(dados);
 
-            var jasperPrint = JasperFillManager.fillReport(inputStream, Map.of(
-                    "ID", idLancamento,
-                    "REPORT_LOCALE", new Locale("pt", "BR")),
-                    dataSource);
+            var parametros = new HashMap<String, Object>();
+
+            parametros.put("ID_LANCAMENTO", idLancamento);
+            parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
+
+            var inputStream = this.getClass().getResourceAsStream("/relatorios/lancamentocontrolebyid.jasper");
+
+            var jasperPrint = JasperFillManager.fillReport(inputStream, parametros, dataSource);
 
             return JasperExportManager.exportReportToPdf(jasperPrint);
         } catch (Exception e) {

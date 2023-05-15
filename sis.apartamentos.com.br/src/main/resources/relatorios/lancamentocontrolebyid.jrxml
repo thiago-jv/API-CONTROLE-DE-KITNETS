@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.19.0.final using JasperReports Library version 6.19.0-646c68931cebf1a58bc65c4359d1f0ca223c5e94  -->
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="lancamentocontrolebyid" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="558b8624-7a69-4843-a55e-53ca53729080">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<parameter name="ID" class="java.lang.Long"/>
+	<parameter name="ID_LANCAMENTO" class="java.lang.Long"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="idLancamento" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="dataEntrada" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="nomeInquilino" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="valor" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="predio" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="numeroQuarto" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="cep" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="bairro" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="uf" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="localidade" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
-	<field name="logradouro" class="sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport"/>
+	<field name="dataEntrada" class="java.lang.String"/>
+	<field name="nomeInquilino" class="java.lang.String"/>
+	<field name="valor" class="java.lang.String"/>
+	<field name="predio" class="java.lang.String"/>
+	<field name="numeroQuarto" class="java.lang.String"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="bairro" class="java.lang.String"/>
+	<field name="uf" class="java.lang.String"/>
+	<field name="localidade" class="java.lang.String"/>
+	<field name="logradouro" class="java.lang.String"/>
+	<field name="idLancamento" class="java.lang.Long"/>
 	<title>
 		<band height="83">
 			<frame>
