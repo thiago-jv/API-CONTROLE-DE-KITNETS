@@ -16,7 +16,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
-import sis.apartamentos.com.br.domain.model.report.ControleLancamentoReport;
 import sis.apartamentos.com.br.domain.repository.filter.ControleFilter;
 import sis.apartamentos.com.br.infra.filter.LancamentoControleFilter;
 import sis.apartamentos.com.br.domain.model.ControleLancamento;
@@ -117,23 +116,6 @@ public class ControleLancamentoRepositoryImpl implements ControleLancamentoRepos
 		query.where(predicates.toArray(new Predicate[0]));
 		
 		return manager.createQuery(query).getResultList();	
-	}
-
-	@Override
-	public List<ControleLancamentoReport> buscarControlesLancamentos(Long idLancamento) {
-		var builder = manager.getCriteriaBuilder();
-		var query = builder.createQuery(ControleLancamentoReport.class);
-		var root = query.from(ControleLancamentoReport.class);
-
-		var predicates = new ArrayList<Predicate>();
-
-		if (!Objects.isNull(idLancamento)) {
-			predicates.add(builder.equal((root.get("idLancamento")), idLancamento));
-		}
-
-		query.where(predicates.toArray(new Predicate[0]));
-
-		return manager.createQuery(query).getResultList();
 	}
 
 }

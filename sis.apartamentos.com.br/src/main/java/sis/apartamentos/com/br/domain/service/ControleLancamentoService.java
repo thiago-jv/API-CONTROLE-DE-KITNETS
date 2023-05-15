@@ -2,6 +2,7 @@ package sis.apartamentos.com.br.domain.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -22,10 +23,6 @@ import sis.apartamentos.com.br.api.v1.dto.controleLancamento.ControleLancamentoP
 import sis.apartamentos.com.br.api.v1.dto.controleLancamento.ControleLancamentoPutDTO;
 import sis.apartamentos.com.br.api.v1.mapper.ApartamentoMapper;
 import sis.apartamentos.com.br.api.v1.mapper.ControleLancamentoMapper;
-import sis.apartamentos.com.br.api.v1.mapper.ControleLancamentoReportMapper;
-import sis.apartamentos.com.br.domain.model.Inquilino;
-import sis.apartamentos.com.br.domain.model.Predio;
-import sis.apartamentos.com.br.domain.repository.ControleLancamentorReportRepository;
 import sis.apartamentos.com.br.infra.dto.LancamentoApartamentoDTO;
 import sis.apartamentos.com.br.infra.exception.ControleLancamentoNaoEncontadoException;
 import sis.apartamentos.com.br.infra.exception.EntidadeEmUsoException;
@@ -70,17 +67,6 @@ public class ControleLancamentoService {
     @Autowired
     private LancamentoProducerService emailProducer;
 
-    @Autowired
-    private PredioService predioService;
-
-    @Autowired
-    private InquilinoService inquilinoService;
-
-    @Autowired
-    private ControleLancamentorReportRepository controleLancamentorReportRepository;
-
-    @Autowired
-    private ControleLancamentoReportMapper controleLancamentoReportMapper;
 
     @SneakyThrows
     public ControleLancamento salvar(ControleLancamentoPostDTO controleLancamentoPostDTO) {
@@ -96,38 +82,64 @@ public class ControleLancamentoService {
 
         controleLancamento.setDataLancamento(LocalDate.now());
         var controleLancamentoSalvo = controleLancamentoRepository.save(controleLancamento);
-        var predio = predioService.buscarOuFalhar(apartamento.getPredio().getId());
-        var inquilino = inquilinoService.buscarOuFalhar(controleLancamento.getInquilino().getId());
-        toLancamentoProducer(controleLancamentoSalvo, apartamento, inquilino, predio);
+
+        var retornoControle = controleLancamentoRepository.controleLancamentosPorId(controleLancamentoSalvo.getId());
+        var controleMontado = toControleLancamentoDTO(retornoControle);
+
+        toLancamentoProducer(controleMontado);
 
         return controleLancamentoSalvo;
     }
 
-    private void toLancamentoProducer(ControleLancamento controleLancamentoSalvo, Apartamento apartamento, Inquilino inquilino, Predio predio) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
+    private LancamentoApartamentoDTO toControleLancamentoDTO(ControleLancamento controleLancamentoSalvo) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         var lancamentoApartamentoDTO = LancamentoApartamentoDTO.builder()
                 .idLancamento(controleLancamentoSalvo.getId())
                 .dataEntrada(controleLancamentoSalvo.getDataEntrada().format(formatter))
-                .nomeInquilino(inquilino.getNome())
+                .nomeInquilino(controleLancamentoSalvo.getInquilino().getNome())
                 .valor(controleLancamentoSalvo.getValores().getValorPagoApartamento().toString())
-                .predio(predio.getNumero())
-                .numeroQuarto(apartamento.getNumeroApartamento())
-                .bairro(predio.getBairro())
-                .cep(predio.getCep())
-                .uf(predio.getUf())
-                .localidade(predio.getLocalidade())
-                .logradouro(predio.getLogradouro())
+                .predio(controleLancamentoSalvo.getApartamento().getPredio().getNumero())
+                .numeroQuarto(controleLancamentoSalvo.getApartamento().getNumeroApartamento())
+                .bairro(controleLancamentoSalvo.getApartamento().getPredio().getBairro())
+                .cep(controleLancamentoSalvo.getApartamento().getPredio().getCep())
+                .uf(controleLancamentoSalvo.getApartamento().getPredio().getUf())
+                .localidade(controleLancamentoSalvo.getApartamento().getPredio().getLocalidade())
+                .logradouro(controleLancamentoSalvo.getApartamento().getPredio().getLogradouro())
                 .build();
 
-        saveControleLancamentoToReport(lancamentoApartamentoDTO);
-
-       // emailProducer.sendMessage(objectMapper.writeValueAsString(lancamentoApartamentoDTO));
+        return lancamentoApartamentoDTO;
     }
 
-    private void saveControleLancamentoToReport(LancamentoApartamentoDTO lancamentoApartamentoDTO) {
-        controleLancamentorReportRepository.save(controleLancamentoReportMapper.toControleLancamentoReport(lancamentoApartamentoDTO));
+    private List<LancamentoApartamentoDTO> toControleLancamentoDTO(List <ControleLancamento> listaControleLancamentos) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        List<LancamentoApartamentoDTO> lancamentoApartamentoDTOS = new ArrayList<>();
+        var lancamentoApartamentoDTO = LancamentoApartamentoDTO.builder();
+
+        for (ControleLancamento controleLancamentoSalvo: listaControleLancamentos) {
+            lancamentoApartamentoDTO
+                    .idLancamento(controleLancamentoSalvo.getId())
+                    .dataEntrada(controleLancamentoSalvo.getDataEntrada().format(formatter))
+                    .nomeInquilino(controleLancamentoSalvo.getInquilino().getNome())
+                    .valor(controleLancamentoSalvo.getValores().getValorPagoApartamento().toString())
+                    .predio(controleLancamentoSalvo.getApartamento().getPredio().getNumero())
+                    .numeroQuarto(controleLancamentoSalvo.getApartamento().getNumeroApartamento())
+                    .bairro(controleLancamentoSalvo.getApartamento().getPredio().getBairro())
+                    .cep(controleLancamentoSalvo.getApartamento().getPredio().getCep())
+                    .uf(controleLancamentoSalvo.getApartamento().getPredio().getUf())
+                    .localidade(controleLancamentoSalvo.getApartamento().getPredio().getLocalidade())
+                    .logradouro(controleLancamentoSalvo.getApartamento().getPredio().getLogradouro())
+                    .build();
+            lancamentoApartamentoDTOS.add(lancamentoApartamentoDTO.build());
+        }
+
+        return lancamentoApartamentoDTOS;
+    }
+
+    private void toLancamentoProducer(LancamentoApartamentoDTO lancamentoApartamentoDTO) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        emailProducer.sendMessage(objectMapper.writeValueAsString(lancamentoApartamentoDTO));
     }
 
     public ControleLancamento buscarOuFalhar(Long idControle) {
@@ -141,7 +153,6 @@ public class ControleLancamentoService {
             var apartamentoPutDTO = apartamentoMapper.toApartamentoPutDTO(lancamento.getApartamento());
             apartamentoService.atualizaStatusParaDisponivel(lancamento.getApartamento().getId(), apartamentoPutDTO);
             controleLancamentoRepository.deleteById(idControle);
-            controleLancamentorReportRepository.deleteById(idControle);
             controleLancamentoRepository.flush();
         } catch (EmptyResultDataAccessException e) {
             throw new PredioNaoEncontadoException(idControle);
@@ -202,11 +213,10 @@ public class ControleLancamentoService {
     public byte[] relatorioDeLancamentos(Long idLancamento) {
         try {
 
-            var dados = controleLancamentoRepository.buscarControlesLancamentos(idLancamento);
-            var dataSource = new JRBeanCollectionDataSource(dados);
+            var dados = controleLancamentoRepository.listaControleLancamentosPorId(idLancamento);
+            var dataSource = new JRBeanCollectionDataSource(toControleLancamentoDTO(dados));
 
             var parametros = new HashMap<String, Object>();
-
             parametros.put("ID_LANCAMENTO", idLancamento);
             parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
 
