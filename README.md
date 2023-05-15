@@ -6,8 +6,10 @@ Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://g
 # RabbitMQ MailSend
 API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid, pois o objetivo é manter o cliente informado dos alugueis realizados https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
-# Passos
+# Estrutura
+![estrutura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura.png)
 
+# Passos
 ![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
 ![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_.png)
 ![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
