@@ -57,6 +57,6 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
  
  10- SpringFox [Sobre](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
  
- 11- Spring Security JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
+ 11- Spring Security - OAuth 2 e JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
  
 
