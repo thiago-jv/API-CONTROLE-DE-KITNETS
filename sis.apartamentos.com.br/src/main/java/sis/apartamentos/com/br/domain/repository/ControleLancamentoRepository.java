@@ -21,7 +21,7 @@ public interface ControleLancamentoRepository extends JpaRepository<ControleLanc
 	@Query("select c from ControleLancamento c inner join fetch c.inquilino i inner join fetch c.apartamento a left join fetch a.predio p inner join fetch c.valor where c.id = :pIdLancamento")
 	ControleLancamento controleLancamentosPorId(@Param("pIdLancamento") Long pIdLancamento);
 
-	@Query("select c from ControleLancamento c inner join fetch c.inquilino i inner join fetch c.apartamento a left join fetch a.predio p inner join fetch c.valor where c.id = :pIdLancamento")
+	@Query("select c from ControleLancamento c inner join fetch c.inquilino i inner join fetch c.apartamento a inner join fetch a.predio p inner join fetch c.valor where c.id = :pIdLancamento")
 	List<ControleLancamento> listaControleLancamentosPorId(@Param("pIdLancamento") Long pIdLancamento);
 
 }
