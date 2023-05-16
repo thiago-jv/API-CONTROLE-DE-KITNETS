@@ -53,7 +53,7 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
  
  8- Docker compose [Sobre](https://www.docker.com/)
  
- 9- Ireport Designer [Sobre](https://community.jaspersoft.com/) 
+ 9- Ireport Designer 6.20 [Sobre](https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/) 
  
  10- SpringFox [Sobre](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
  
