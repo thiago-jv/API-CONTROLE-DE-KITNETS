@@ -6,8 +6,10 @@ Após rodas os passos abaixo, rodar o front-end nesse link [FRONT-END](https://g
 # RabbitMQ MailSend
 API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser enviado via email com sendgrid, pois o objetivo é manter o cliente informado dos alugueis realizados https://github.com/thiago-jv/API_EMAIL_SENDGRID_RABBITMQ
 
-# Passos
+# Estrutura
+![estrutura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura.png)
 
+# Passos
 ![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
 ![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_.png)
 ![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
@@ -35,7 +37,7 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 # Tecnologias utilizadas e outros
 
  
- 1- Java 17 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
+ 1- Java 11 [Sobre](https://www.zup.com.br/blog/java-11-principais-novidades)
  
  2- SpringBoot 2.7.5.RELEASE [Sobre](https://docs.spring.io/spring-boot/docs/current/reference/html/)
  
@@ -51,10 +53,10 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
  
  8- Docker compose [Sobre](https://www.docker.com/)
  
- 9- Ireport Designer [Sobre](https://community.jaspersoft.com/) 
+ 9- Ireport Designer 6.20 [Sobre](https://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-6.20.0/) 
  
  10- SpringFox [Sobre](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
  
- 11- Spring Security JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
+ 11- Spring Security - OAuth 2 e JWT [Sobre](https://www.baeldung.com/spring-security-oauth-jwt)
  
 
