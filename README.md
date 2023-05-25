@@ -17,8 +17,6 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 3- dentro do path /apartamento -> docker compose up
 ```
 
-![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
-![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_.png)
 ![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
 ![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
 ![swagger](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger.png)
