@@ -10,18 +10,16 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 ![estrutura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/estrutura.png)
 
 # Passos
+
+```
+1- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
+2- dentro do path /apartamento -> mvn package -Pdocker
+3- dentro do path /apartamento -> docker compose up
+```
+
 ![docker-compose](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker.png)
 ![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_.png)
 ![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
-```
-1- git int na sua pasta que irá baixar o projeto, caso não tenha criado o repositorio local.
-2- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
-3- Entrar dentro da pasta do projeto sis.apartamentos.com.br
-4- mvn dependency:resolve
-5- mvn dependency:tree
-6- mvn package -P desenvolvimento
-7- mvn spring-boot:run
-```
 ![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
 ![swagger](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger.png)
 
