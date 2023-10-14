@@ -9,8 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>apartamento</groupId>
-	<artifactId>apartamento</artifactId>
+	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>apartamento</name>
 	<description>Sistema para controle de apartamentos</description>
 
@@ -178,6 +179,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -242,7 +244,7 @@
 						<configuration>
 							<repository>apartamentos-api</repository>
 							<buildArgs>
-								<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+								<JAR_FILE>app.war</JAR_FILE>
 							</buildArgs>
 						</configuration>
 					</plugin>
