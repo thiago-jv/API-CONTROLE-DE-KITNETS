@@ -44,7 +44,7 @@ public class Problema {
 	public static class Campo {
 
 		@ApiModelProperty(example = "valor")
-		private String nome;
+		private String campo;
 		
 		@ApiModelProperty(example = "Valor campo obrigatório")
 		private String mensagemUsuario;
