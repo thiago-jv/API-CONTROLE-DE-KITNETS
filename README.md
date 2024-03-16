@@ -26,7 +26,7 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 # Api de terceiros
 ![viacep](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/cep.png)
 
-# Arquitetura
+# Estrutura
 ![arquitetura](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/arquitetura_sisapartamento.png)
 
 # Rabbitmq
