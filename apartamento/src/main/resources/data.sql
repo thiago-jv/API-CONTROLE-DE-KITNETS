@@ -2,8 +2,8 @@ DELETE FROM usuario_permissao;
 DELETE FROM usuario;
 DELETE FROM permissao;
 
-INSERT INTO usuario (id, email, nome, senha) values (1, 'thiago', 'Thiago Henrique', '$2a$10$.b0TDo0au2KeGOFRXGTuJOZ8Zr0QGJMyaH4HQ2/LfpwB5aQ6Z85l.');--  angular
-INSERT INTO usuario (id, email, nome, senha) values (2, 'carlos', 'Carlos Henrique', '$2a$10$.b0TDo0au2KeGOFRXGTuJOZ8Zr0QGJMyaH4HQ2/LfpwB5aQ6Z85l.');--  angular
+INSERT INTO usuario (id, email, nome, senha) values (1, 'thiago@hotmail.com', 'Thiago Henrique', '$2a$10$.b0TDo0au2KeGOFRXGTuJOZ8Zr0QGJMyaH4HQ2/LfpwB5aQ6Z85l.');--  angular
+INSERT INTO usuario (id, email, nome, senha) values (2, 'carlos@hotmail.com', 'Carlos Henrique', '$2a$10$.b0TDo0au2KeGOFRXGTuJOZ8Zr0QGJMyaH4HQ2/LfpwB5aQ6Z85l.');--  angular
 
 INSERT INTO permissao (id, descricao) values (1, 'ROLE_APARTAMENTO');
 

@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "0bdab552-ab01-4e42-a593-cbeb391ca4f3",
+		"name": "API APARTAMENTOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14051440"
+	},
+	"item": [
+		{
+			"name": "GERA TOKEN",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "thiago@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "angular",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8089/apartamentosapi/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"apartamentosapi",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

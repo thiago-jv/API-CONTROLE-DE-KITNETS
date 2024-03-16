@@ -1,17 +1,20 @@
 version: '3.2'
 
 services:
-  apartamentos-api:
-    image: apartamentos-api
-    environment:
-      DB_HOST: db-postgresql
-      rabbitmq: rabbitmq
+  backend:
+    container_name: backend
+    restart: always
+    build: .
     ports:
       - "8089:8089"
+    links:
+      - db-postgresql
     networks:
       - network-apartamento
     depends_on:
       - db-postgresql
+    environment:
+      - DB_HOST=db-postgresql
       - rabbitmq
 
   db-postgresql:
