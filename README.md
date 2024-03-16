@@ -13,7 +13,8 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 
 ```
 1- git clone https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS.git
-2- docker compose up --build backend
+2- API-CONTROLE-DE-KITNETS\apartamento
+3- docker compose up --build backend
 ```
 ![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/docker_compose.png)
 ![pg-admin](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/bancodb.png)
