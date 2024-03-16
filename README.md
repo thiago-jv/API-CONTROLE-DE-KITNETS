@@ -18,7 +18,7 @@ API para consumir o tópico APARTAMENTO_EMAIL, onde posteriormente irá ser envi
 ```
 ![docker](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/dokcer_running.png)
 ![dbeaver](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/db_postgres_.png)
-![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/postman.png)
+![token](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/urls_postman.png)
 ![swagger](https://github.com/thiago-jv/API-CONTROLE-DE-KITNETS/blob/main/Swagger.png)
 
 # Api de terceiros
