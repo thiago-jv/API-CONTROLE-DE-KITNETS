@@ -1,4 +1,4 @@
-version: '3.2'
+#version: '3.5'
 
 services:
   backend:
@@ -17,21 +17,6 @@ services:
       - DB_HOST=db-postgresql
       - rabbitmq
 
-  db-postgresql:
-    container_name: db-postgresql
-    image: postgres
-    restart: always
-    environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=bdapartamento
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - network-apartamento
-
   rabbitmq:
     image: rabbitmq:3.8.3-management
     container_name: rabbitmq
@@ -47,26 +32,55 @@ services:
     networks:
       - network-apartamento
 
+  db-postgresql:
+    container_name: db-postgresql
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=bdapartamento
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - network-apartamento
+
+  sonarqube:
+   container_name: sonar
+   image: sonarqube:9.0-community
+   ports:
+    - "9000:9000"
+   networks:
+    - network-apartamento
+   environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=admin
+     - POSTGRES_DB=bdsona
+   depends_on:
+    - db-postgresql
+   volumes:
+    - sonarqube_conf:/opt/sonarqube/conf
+    - sonarqube_data:/opt/sonarqube/data
+    - sonarqube_extensions:/opt/sonarqube/extensions
+    - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+
   # rabbitmq
   # usuario: admin
   # senha: admin
 
-  pgadmin-compose:
-    container_name: 'pgadmin_apartamento'
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
-      PGADMIN_DEFAULT_PASSWORD: "admin"
-    ports:
-      - "16544:80"
-    networks:
-      - network-apartamento
-
 volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_bundled-plugins:
   pgdata:
   rabbitmqdata:
 
 networks:
   network-apartamento:
     driver: bridge
+
+
+
